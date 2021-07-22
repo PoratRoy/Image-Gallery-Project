@@ -1,0 +1,13 @@
+<div class="gallery-continer">
+    <p>gallery-page works!</p>
+    <div>
+        <ul class="thumbnailsList">
+            <li *ngFor="let image of images" >
+                <app-image-card [image]="image"></app-image-card>
+            </li>
+        </ul>
+    </div>
+    <div >
+        <app-modal-details></app-modal-details>
+    </div>
+</div>

@@ -1,0 +1,68 @@
+
+*root{
+    display: block;
+}
+
+.pos{
+    position: relative;
+}
+
+.navbar-continer{
+    height: 19rem;
+    width: auto;
+    background-color: rgb(52, 56, 93);
+    font-size: 50px;
+    font-weight: bold;
+    box-shadow: 0px 6px 10px 10px rgb(40, 43, 66) ;
+    margin-bottom: 20rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: sticky;
+    top: 0;
+}
+
+.navbar-continer .navbar-items{
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.navbar-items .logo{
+    font-size: 4em;
+    color: rgb(155, 146, 133);
+}
+
+
+
+.navbar-items li{
+    list-style: none;
+}
+
+.navbar-li-items a{
+    text-decoration: none;
+    color: rgb(155, 146, 133);
+    margin: 0 20px 0 0 ;
+    
+    position: absolute;
+    top: 35%;
+    font-size: 2em;
+}
+
+.navbar-li-items .about{
+    position: absolute;
+    left: 120%;
+}
+
+.navbar-li-items .home{
+    position: absolute;
+    left: -50%;
+}
+
+.navbar-items a:hover{
+    color: rgb(243, 235, 224);
+}
+/*when focus decrease the font size with animtion*/
+

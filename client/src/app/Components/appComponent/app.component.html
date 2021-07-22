@@ -1,0 +1,43 @@
+
+
+<div>
+  <div class="app-navbar">
+    <app-navbar></app-navbar>
+  </div>
+  <div class="page">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+
+
+
+
+
+
+<!-- <div class="page-container">
+    <header>
+        <mat-sidenav #sidenav role="navigation">
+            <app-navbar (sidenavClose)="sidenav.close()"></app-navbar>
+          </mat-sidenav>
+      <div #sidenav >
+        <app-navbar (sidenavToggle)="sidenav.toggle()"></app-navbar>
+        <button mat-button class="menu-button" (sidenavToggle)="sidenav.toggle()">
+            <mat-icon>{{ isMenuOpen ? 'menu_open' : 'menu' }}</mat-icon>
+          </button>
+    
+        <a routerLink="/">
+          <span class="app-title">Hamburger Menu Demo</span>
+        </a>
+      </div>
+      <div fxHide.gt-xs>
+        <button mat-icon-button (click)="onToggleSidenav()">
+            <mat-icon>menu</mat-icon>
+        </button>
+    </div>
+    </header>
+    
+    <main>
+        <router-outlet></router-outlet>
+      </main>
+  </div> -->
+

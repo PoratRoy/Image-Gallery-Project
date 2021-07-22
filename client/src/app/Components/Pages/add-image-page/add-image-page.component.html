@@ -1,0 +1,25 @@
+
+<mat-tab-group>
+
+  <mat-tab label="add from camera">
+    <app-from-camera (getImage)="handleImgFromCamera($event)"></app-from-camera>
+
+  </mat-tab>
+
+  <mat-tab label="add from loacl storge">
+    <app-from-local (getImage)="handleImgFromLocal($event)"></app-from-local>
+  </mat-tab>
+  
+  <mat-tab label="add from the internet">
+    C
+  </mat-tab>
+
+</mat-tab-group>
+
+<div class="show-img" *ngIf="image">
+  <img [src]="image" height="200px"/>
+</div>
+
+<button (click)="SelectIamge()">Select</button>
+
+
