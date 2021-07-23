@@ -35,7 +35,7 @@ export class AddImagePageComponent implements OnInit {
     
     const imageTemplate : Image = {
       caption: this.imageCaption,
-      photo: this.image,
+      src: 'this.image',
       location: [0,0],
       categories: '',
       favorite: false,
