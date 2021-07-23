@@ -15,11 +15,8 @@ export class PexelImagesService {
 
   constructor(private _http:HttpClient) { }
 
-  getData(search,perPage):Observable<any>{
-    console.log(search);
-    console.log(perPage);
-    
-    const url = "https://api.pexels.com/v1/search?query="+search+"&per_page="+perPage;
+  getData(search):Observable<any>{
+    const url = "https://api.pexels.com/v1/search?query="+search+"&per_page=30"; //max per page = 80
 
     return this,this._http.get<any>(url,httpOptions);
   }

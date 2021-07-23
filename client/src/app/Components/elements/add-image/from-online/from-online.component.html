@@ -1,18 +1,14 @@
 <p>from-online works!</p>
-<div>
+<div >
   <div>
     <input type="text" [(ngModel)]="search" placeholder="Search.." />
-    <input type="number" [(ngModel)]="perPage" />
     <button (click)="searchPhotos()">Search</button>
   </div>
-  <div>
+  <div class="gallery-continer">
     <ul class="thumbnailsList">
       <li *ngFor="let image of images">
-        <app-image-card [image]="image"></app-image-card>
+        <app-iamge-card [imageSrc]="image.src.medium"></app-iamge-card>
       </li>
     </ul>
   </div>
-  <!-- <div *ngFor="let image of data">
-    <img src="{{ image.src.medium }}" />
-  </div> -->
 </div>

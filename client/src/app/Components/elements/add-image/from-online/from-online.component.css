@@ -1,0 +1,13 @@
+
+.gallery-continer{
+    position: relative;
+	display: flex;
+}
+ul {
+	padding: 0;
+	width: 1288px;
+	margin: 28px auto;
+}
+li{
+	display: inline;
+}

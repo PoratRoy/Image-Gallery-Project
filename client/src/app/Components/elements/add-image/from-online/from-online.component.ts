@@ -9,18 +9,17 @@ import { PexelImagesService } from 'src/app/services/pexel-images.service';
 export class FromOnlineComponent implements OnInit {
 
   search:string;
-  perPage:number;
   images:string[]
 
   constructor(private _pexelImages:PexelImagesService) { 
-    this._pexelImages.getData(this.search,this.perPage)
+    this._pexelImages.getData(this.search)
   }
 
   ngOnInit(): void {
   }
 
   searchPhotos(){
-    this._pexelImages.getData(this.search,this.perPage).subscribe((data)=>{
+    this._pexelImages.getData(this.search).subscribe((data)=>{
       this.images = data.photos;
     },(error)=>{
       console.log(error);
