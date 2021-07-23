@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MOCK_IMG } from 'src/app/mock-images';
 import { Image } from 'src/app/models/Image';
+import {ImagesService} from '../../../services/images.service'
 
 @Component({
   selector: 'app-gallery-page',
@@ -11,10 +12,12 @@ export class GalleryPageComponent implements OnInit {
 
   images: Image[];
   
-  constructor() { }
+  constructor(private _images : ImagesService) { }
   
   ngOnInit(): void {
-    this.images = MOCK_IMG;
+    this._images.getAllImages().subscribe((img)=>{
+      this.images = img;
+    })
   }
 
 }

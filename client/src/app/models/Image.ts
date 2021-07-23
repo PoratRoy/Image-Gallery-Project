@@ -6,5 +6,6 @@ export interface Image{
     location?: [number,number];
     favorite?:boolean;
     private?:boolean;
+    timestamp?:number;
 }
 

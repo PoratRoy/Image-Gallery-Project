@@ -7,11 +7,15 @@ import { Image } from '../models/Image';
 })
 export class ImagesService {
 
-  _url ='http://localhost:5000/appendImage';
+  _url ='http://localhost:5000/';
   constructor(private _http: HttpClient) { }
 
-  appendIamge(image:Image){
-    return this._http.post<any>(this._url, image);
+  appendImage(image:Image){
+    return this._http.post<any>(this._url+'appendImage', image);
+  }
+
+  getAllImages(){
+    return this._http.get<any>(this._url)
   }
 
 }

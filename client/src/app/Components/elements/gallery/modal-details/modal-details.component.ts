@@ -44,7 +44,7 @@ export class ModalDetailsComponent implements OnInit {
   onSubmit(){ //dont forget to add the image to the form
     this.isSubmitted =true;
 
-    this._images.appendIamge(this.image).subscribe(
+    this._images.appendImage(this.image).subscribe(
       data => console.log('s',data),
       error => console.log('e', error)
     )

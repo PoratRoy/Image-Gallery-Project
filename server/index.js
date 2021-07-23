@@ -18,26 +18,22 @@ const database = new Datastore('database.db');
 database.loadDatabase();
 
 app.get('/', (req, res) => {
-    res.send('Hello World!');
-  });
-
-app.get('/api', (request, response) => {
     database.find({}, (err, data) => {
       if (err) {
-        response.end();
+        res.end();
         return;
       }
-      response.json(data);
+      res.json(data);
     });
   });
   
-  app.post('/appendImage', (request, response) => {
-    const data = request.body;
-    console.log(request.body);
+  app.post('/appendImage', (req, res) => {
+    const data = req.body;
+    console.log(req.body);
     const timestamp = Date.now();
     data.timestamp = timestamp;
     database.insert(data);
-    response.json(data);
+    res.json(data);
   });
 
 
