@@ -1,9 +1,7 @@
 <p>from-online works!</p>
 <div >
-  <div>
-    <input type="text" [(ngModel)]="search" placeholder="Search.." />
-    <button (click)="searchPhotos()">Search</button>
-  </div>
+  <app-search-text (searchOutput)="search($event)"></app-search-text>
+
   <div class="gallery-continer">
     <ul class="thumbnailsList">
       <li *ngFor="let image of images">

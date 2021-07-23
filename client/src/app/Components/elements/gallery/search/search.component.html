@@ -2,9 +2,11 @@
 
 <div>
     <div class="search-category">
-        <select name="category" [(ngModel)]="image.categories">
-            <option value="">No categories</option>
-            <option *ngFor="let category of categories">{{category}}</option>
+        <select name="category" #category (change)="searchByCategory(category.value)">
+            <option value=""></option>
+            <option *ngFor="let category of categories" [value]="category">{{category}}</option>
         </select>
     </div>
+
+    <app-search-text (searchOutput)="search($event)"></app-search-text>
 </div>

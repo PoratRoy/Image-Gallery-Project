@@ -26,6 +26,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { WebcamModule } from 'ngx-webcam';
 import { AgmCoreModule } from '@agm/core';
+import { SearchTextComponent } from './Components/elements/ui/search-text/search-text.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { AgmCoreModule } from '@agm/core';
     IndexComponent,
     AppComponent,
     MapComponent,
+    SearchTextComponent,
   ],
   imports: [
     BrowserModule,

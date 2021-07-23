@@ -9,10 +9,24 @@ import { Image } from 'src/app/models/Image';
 export class SearchComponent implements OnInit {
 
   categories = ['A','B','C','D'];
-  image:Image;
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  searchByCategory(value){
+    console.log(value);
+  }
+  
+  searchByText(value){
+    console.log(value);
+  }
+  
+  search($event){
+    console.log($event);
+  }
+
 }
+
+
+
