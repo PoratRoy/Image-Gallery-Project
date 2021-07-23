@@ -9,11 +9,12 @@ import { Image } from 'src/app/models/Image';
 })
 export class GalleryPageComponent implements OnInit {
 
-  images: Image[] = MOCK_IMG;
-
+  images: Image[];
+  
   constructor() { }
-
+  
   ngOnInit(): void {
+    this.images = MOCK_IMG;
   }
 
 }

@@ -1,8 +1,6 @@
 <div class="modal-continer" *ngIf="visible">
   <form #imageForm="ngForm" (ngSubmit)="onSubmit()">
 
-    {{image | json}}
-
     <header class="modal-header">      
         <div class="modal-title">
             <input type="text" required #caption="ngModel"
@@ -27,7 +25,8 @@
             </select>
         </div>
         
-        <button (click)="taggleMap()">map</button>    
+        <button (click)="taggleMap()">map</button>
+        <small *ngIf="isCoordsSelected">coords selected</small>    
 
         <div class="modal-favorite"> 
             <input name="favorite" [(ngModel)]="image.favorite" type="checkbox"/>

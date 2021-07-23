@@ -4,11 +4,12 @@ import { NgModule } from '@angular/core';
 
 import { GalleryDetailsPageComponent } from './Components/Pages/gallery-details-page/gallery-details-page.component';
 import { ModalDetailsComponent } from './Components/elements/gallery/modal-details/modal-details.component';
+import { ImageDisplayComponent } from './Components/elements/gallery/image-display/image-display.component';
 import { FromOnlineComponent } from './Components/elements/add-image/from-online/from-online.component';
 import { FromCameraComponent } from './Components/elements/add-image/from-camera/from-camera.component';
 import { FromLocalComponent } from './Components/elements/add-image/from-local/from-local.component';
 import { AddImagePageComponent } from './Components/Pages/add-image-page/add-image-page.component';
-import { ImageCardComponent } from './Components/elements/gallery/image-card/image-card.component';
+import { IamgeCardComponent } from './Components/elements/ui/iamge-card/iamge-card.component';
 import { OptionsPageComponent } from './Components/Pages/options-page/options-page.component';
 import { GalleryPageComponent } from './Components/Pages/gallery-page/gallery-page.component';
 import { SearchComponent } from './Components/elements/gallery/search/search.component';
@@ -24,7 +25,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
-import {MatTabsModule} from '@angular/material/tabs';
+import { MatTabsModule} from '@angular/material/tabs';
 
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
@@ -33,20 +34,21 @@ import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    IndexComponent,
-    OptionsPageComponent,
     GalleryDetailsPageComponent,
-    AddImagePageComponent,
-    GalleryPageComponent,
-    ImageCardComponent,
+    ImageDisplayComponent,
     ModalDetailsComponent,
-    SearchComponent,
-    HamburgerComponent,
-    NavbarComponent,
+    AddImagePageComponent,
+    OptionsPageComponent,
+    GalleryPageComponent,
     FromCameraComponent,
-    FromLocalComponent,
     FromOnlineComponent,
+    HamburgerComponent,
+    FromLocalComponent,
+    IamgeCardComponent,
+    SearchComponent,
+    NavbarComponent,
+    IndexComponent,
+    AppComponent,
     MapComponent,
   ],
   imports: [

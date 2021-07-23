@@ -3,18 +3,17 @@ import { Image } from 'src/app/models/Image';
 import {TaggoleModalService} from '../../../../services/taggole-modal.service';
 
 @Component({
-  selector: 'app-image-card',
-  templateUrl: './image-card.component.html',
-  styleUrls: ['./image-card.component.css']
+  selector: 'app-image-display',
+  templateUrl: './image-display.component.html',
+  styleUrls: ['./image-display.component.css']
 })
-export class ImageCardComponent implements OnInit {
+export class ImageDisplayComponent implements OnInit {
 
   @Input() image: Image;
 
   constructor(private modal:TaggoleModalService) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   taggleModal():void{
     this.modal.taggle();

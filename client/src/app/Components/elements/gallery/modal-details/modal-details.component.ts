@@ -15,6 +15,7 @@ export class ModalDetailsComponent implements OnInit {
   visible:boolean = false;
   mapVisible:boolean = false;
   isSubmitted:boolean = false;
+  isCoordsSelected:boolean = false;
   image:Image
   latitude: number;
   longitude: number;
@@ -24,17 +25,19 @@ export class ModalDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.modal.taggleModal.subscribe((res)=>{this.visible = res;})
     this.modal.imageModal.subscribe((image)=>{this.image = image})
-    this.latitude = this.image.location[0];
-    this.longitude = this.image.location[1];
+    this.latitude = this.image ? this.image.location[0] : 0;  //need to change
+    this.longitude = this.image ? this.image.location[1] : 0; //need to change
     this.isSubmitted =false;
+    this.isCoordsSelected =false;
   }
-
+  
   taggleMap(){
     this.mapVisible = !this.mapVisible;
   }
-
+  
   handleCoordsFromMap($event){
     this.image.location = [$event[0],$event[1]];
+    this.isCoordsSelected =true;
     this.taggleMap()
   }
 
