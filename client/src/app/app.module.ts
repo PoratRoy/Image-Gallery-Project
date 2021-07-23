@@ -20,12 +20,7 @@ import { IndexComponent } from './Components/Pages/index/index.component';
 import { AppComponent } from './components/appComponent/app.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatIconModule } from '@angular/material/icon';
-import { MatListModule } from '@angular/material/list';
-import { MatTabsModule} from '@angular/material/tabs';
-import { MatButtonModule } from '@angular/material/button';
+import { MaterialModule } from './material/material.module';
 
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
@@ -53,28 +48,15 @@ import { AgmCoreModule } from '@agm/core';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    MatSidenavModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatIconModule,
-    MatListModule,
-    MatTabsModule,
-    WebcamModule,
     BrowserAnimationsModule,
+    MaterialModule,
+    AppRoutingModule,
+    WebcamModule,
     HttpClientModule,
     FormsModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyAEOO6OuHJfExPwJAdBY4gw3LfceDT4AeQ'
     })
-  ],
-  exports: [
-    MatSidenavModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatIconModule,
-    MatListModule,
-    MatTabsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
