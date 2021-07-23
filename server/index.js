@@ -4,8 +4,9 @@ const bodyParser = require("body-parser");
 const cors = require('cors');
 const fs = require('fs');
 const path = require('path');
-const nanoid = require('nanoid');
 const Datastore = require('nedb');
+//const Jimp = require("jimp");
+
 
 const PORT = process.env.PORT || 5000;
 
@@ -16,32 +17,51 @@ app.use(cors());
 
 const database = new Datastore('database.db');
 database.loadDatabase();
+const LocalStorage = require('node-localstorage').LocalStorage;
+let localStorage = new LocalStorage('./images-db');
 
 app.get('/', (req, res) => {
-    database.find({}, (err, data) => {
-      if (err) {
-        res.end();
-        return;
-      }
-      res.json(data);
-    });
-  });
-  
-  app.post('/appendImage', (req, res) => {
-    const data = req.body;
-    console.log(req.body);
-    const timestamp = Date.now();
-    data.timestamp = timestamp;
-    database.insert(data);
+
+//const imageSrc = localStorage.getItem('test-image-roy');
+
+  database.find({}, (err, data) => {
+    if (err) {
+      res.end();
+      return;
+    }
     res.json(data);
   });
+});
+  
+app.post('/appendImage', (req, res) => {
+  const data = req.body;
+  //console.log(req.body);
+
+  
+  bufferBase64ToImage(data.src, data.caption);
+  
+  const timestamp = Date.now();
+  data.timestamp = timestamp;
+  //database.insert(data);
+  //res.json(data);
+});
+
+
+const bufferBase64ToImage = (imageBase64, name) => {
+  let res = imageBase64.replace(/^data:image\/\w+;base64,/,""); 
+  let buf = Buffer.from(res, 'base64');
+  // Jimp.read(buf, (err, res) => {
+  //   if (err) throw new Error(err);
+  //   res.quality(5).write(__dirname + name);
+  // });  
+  fs.writeFileSync(name+".jpg", buf);
+  //localStorage.setItem('test-image-roy', buf);
+}
 
 
 app.listen(PORT, () => console.log(`listening on port ${PORT}...`))
 
-app.get('/', (req,res)=> {
-  
-})
+
 
 
 // app.get('/images', (req,res)=> {
