@@ -7,10 +7,10 @@ import { Image } from '../models/Image';
 })
 export class ImagesService {
 
-  _url ='http://localhost:5000/changeImage';
+  _url ='http://localhost:5000/appendImage';
   constructor(private _http: HttpClient) { }
 
-  enroll(image:Image){
+  appendIamge(image:Image){
     return this._http.post<any>(this._url, image);
   }
 

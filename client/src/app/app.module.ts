@@ -13,6 +13,7 @@ import { OptionsPageComponent } from './Components/Pages/options-page/options-pa
 import { GalleryPageComponent } from './Components/Pages/gallery-page/gallery-page.component';
 import { SearchComponent } from './Components/elements/gallery/search/search.component';
 import { HamburgerComponent } from './Components/layout/hamburger/hamburger.component';
+import { MapComponent } from './Components/elements/gallery/map/map.component';
 import { NavbarComponent } from './Components/layout/navbar/navbar.component';
 import { IndexComponent } from './Components/Pages/index/index.component';
 import { AppComponent } from './components/appComponent/app.component';
@@ -28,7 +29,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { WebcamModule } from 'ngx-webcam';
-
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { WebcamModule } from 'ngx-webcam';
     FromCameraComponent,
     FromLocalComponent,
     FromOnlineComponent,
+    MapComponent,
   ],
   imports: [
     BrowserModule,
@@ -60,6 +62,9 @@ import { WebcamModule } from 'ngx-webcam';
     BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyAEOO6OuHJfExPwJAdBY4gw3LfceDT4AeQ'
+    })
   ],
   exports: [
     MatSidenavModule,

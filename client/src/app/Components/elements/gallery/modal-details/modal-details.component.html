@@ -1,6 +1,8 @@
 <div class="modal-continer" *ngIf="visible">
   <form #imageForm="ngForm" (ngSubmit)="onSubmit()">
 
+    {{image | json}}
+
     <header class="modal-header">      
         <div class="modal-title">
             <input type="text" required #caption="ngModel"
@@ -24,9 +26,8 @@
                 <option *ngFor="let category of categories">{{category}}</option>
             </select>
         </div>
-        <div class="modal-location">
-            <input type="text" name="imageLocation" [(ngModel)]="image.location"/>    
-        </div>     
+        
+        <button (click)="taggleMap()">map</button>    
 
         <div class="modal-favorite"> 
             <input name="favorite" [(ngModel)]="image.favorite" type="checkbox"/>
@@ -43,9 +44,10 @@
 
     <footer>
       <button type="submit">Save</button>
-      <div *ngIf="submitted">
+      <div *ngIf="isSubmitted">
         changes saved
       </div>
     </footer>
   </form>
+  <app-map *ngIf="mapVisible" (coords)="handleCoordsFromMap($event)" [latitude]="latitude" [longitude]="longitude"></app-map>
 </div>

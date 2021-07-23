@@ -2,9 +2,9 @@ export interface Image{
     id?:number;
     caption:string;
     photo:string;
-    categories: string;
-    location: string;
-    favorite:boolean;
-    private:boolean;
+    categories?: string;
+    location?: [number,number];
+    favorite?:boolean;
+    private?:boolean;
 }
 

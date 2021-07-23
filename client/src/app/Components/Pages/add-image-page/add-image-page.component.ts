@@ -31,19 +31,18 @@ export class AddImagePageComponent implements OnInit {
     console.log(this.imageCaption);
   }
 
-
   SelectIamge():void{
     
     const imageTemplate : Image = {
       caption: this.imageCaption,
       photo: this.image,
-      location: '',
+      location: [0,0],
       categories: '',
       favorite: false,
       private: false,
     }
 
-    this._images.enroll(imageTemplate).subscribe(
+    this._images.appendIamge(imageTemplate).subscribe(
       data => console.log('s',data),
       error => console.log('e', error)
     )
