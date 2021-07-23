@@ -1,11 +1,13 @@
 <p>from-online works!</p>
-<div >
+<div>
   <app-search-text (searchOutput)="search($event)"></app-search-text>
 
   <div class="gallery-continer">
     <ul class="thumbnailsList">
       <li *ngFor="let image of images">
-        <app-iamge-card [imageSrc]="image.src.medium"></app-iamge-card>
+        <button class="image-dispaly-continer" (click)="selected(image.src.medium)">
+          <app-iamge-card [imageSrc]="image.src.medium"></app-iamge-card>
+        </button>
       </li>
     </ul>
   </div>

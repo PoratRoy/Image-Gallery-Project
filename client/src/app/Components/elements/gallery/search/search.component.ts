@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Image } from 'src/app/models/Image';
+import { ImagesService } from '../../../../services/images.service';
 
 @Component({
   selector: 'app-search',
@@ -9,7 +10,7 @@ import { Image } from 'src/app/models/Image';
 export class SearchComponent implements OnInit {
 
   categories = ['A','B','C','D'];
-  constructor() { }
+  constructor(private _images : ImagesService) { }
 
   ngOnInit(): void {
   }
@@ -24,6 +25,18 @@ export class SearchComponent implements OnInit {
   
   search($event){
     console.log($event);
+  }
+
+
+  private(){
+    this._images.getImageByPrivate().subscribe(
+      data => console.log(data),
+      error => console.log(error)
+    )
+  }
+
+  favorite(){
+
   }
 
 }

@@ -43,8 +43,8 @@ export class ModalDetailsComponent implements OnInit {
 
   onSubmit(){ //dont forget to add the image to the form
     this.isSubmitted =true;
-
-    this._images.appendImage(this.image).subscribe(
+    //this.image.src = '';  not sure i want to send the src.. but if i delete him its affect the ui
+    this._images.updateImage(this.image).subscribe(
       data => console.log('s',data),
       error => console.log('e', error)
     )

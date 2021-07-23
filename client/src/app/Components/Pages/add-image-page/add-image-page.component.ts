@@ -28,8 +28,13 @@ export class AddImagePageComponent implements OnInit {
     this.imageCaption = $event[1];
   }
 
+  handleImgFromOnline($event){
+    this.image = $event[0];
+    this.imageCaption = $event[1];
+  }
+
   SelectIamge():void{
-    
+
     const imageTemplate : Image = {
       caption: this.imageCaption,
       src: this.image,

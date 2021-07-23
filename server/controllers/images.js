@@ -25,7 +25,7 @@ exports.gatAllImages = (req, res) => {
 
 exports.addNewImage = (req, res) => {
     const image = req.body;
-    const p = path.join(__dirname,"storage-images", image.caption);
+    const p = path.join('C:','Users','Roy','source','repos','-BigProjects','ImagesGalleryProject','server','storage-images', image.caption);
     bufferToImageInDbFile(image.src, p);
     image.src = p;
     const timestamp = Date.now();
@@ -46,12 +46,30 @@ const bufferToImageInDbFile = (imageBase64, path) => {
 
 
 exports.updateImage = (req,res) => {
-                        //then                    new
-  database.update({ planet: 'Jupiter' }, { planet: 'Pluton'}, {}, function (err, numReplaced) {
-    // numReplaced = 1
-    // The doc #3 has been replaced by { _id: 'id3', planet: 'Pluton' }
-    // Note that the _id is kept unchanged, and the document has been replaced
-    // (the 'system' and inhabited fields are not here anymore)
+
+  const imageWithChanges = req.body;
+  let image;
+
+  database.find({_id:imageWithChanges._id}).exec(function(err, result) {
+    if (err) {console.error(err);} else {image = result;}
+
+    database.update({
+      caption:image[0].caption,
+      src:image[0].src,
+      categories:image[0].categories,
+      location:image[0].location,
+      favorite:image[0].favorite,
+      private:image[0].private,
+    },{
+      caption: imageWithChanges.caption,
+      src:image[0].src,
+      categories: imageWithChanges.categories,
+      location: imageWithChanges.location,
+      favorite: imageWithChanges.favorite,
+      private: imageWithChanges.private,
+    },{}, function (err, numReplaced) {
+      console.log('number of changes in update', numReplaced);
+    });
   });
 }
 

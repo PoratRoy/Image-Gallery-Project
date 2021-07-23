@@ -11,3 +11,9 @@ ul {
 li{
 	display: inline;
 }
+
+.image-dispaly-continer{
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}

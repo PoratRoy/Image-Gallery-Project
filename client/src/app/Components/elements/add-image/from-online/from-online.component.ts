@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output,EventEmitter } from '@angular/core';
 import { PexelImagesService } from 'src/app/services/pexel-images.service';
 
 @Component({
@@ -8,6 +8,7 @@ import { PexelImagesService } from 'src/app/services/pexel-images.service';
 })
 export class FromOnlineComponent implements OnInit {
 
+  @Output() getImage = new EventEmitter<[any,any]>();
   images:string[]
 
   constructor(private _pexelImages:PexelImagesService) {}
@@ -22,5 +23,36 @@ export class FromOnlineComponent implements OnInit {
       console.log(error);
     })
   }
+
+  selected(url){
+
+    let iamgeCaption:string[] = url.split('photos/',2);
+    iamgeCaption = iamgeCaption[1].split('.jpeg',2);
+    iamgeCaption = iamgeCaption[0].split('/',2);
+
+    this.getBase64ImageFromUrl(url).then(base64 => {
+      this.getImage.emit([base64,iamgeCaption[1]]);
+    })
+  }
+
+  async getBase64ImageFromUrl(imageUrl) {
+    var res = await fetch(imageUrl);
+    var blob = await res.blob();
+    return new Promise((resolve, reject) => {
+      var reader  = new FileReader();
+      reader.addEventListener("load", function () {
+        
+          resolve(reader.result);
+      }, false);
+      reader.onerror = () => {
+        return reject(this);
+      };
+      reader.readAsDataURL(blob);
+    })
+  }
+
+
+
+
 
 }
