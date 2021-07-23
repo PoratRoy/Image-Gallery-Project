@@ -16,7 +16,7 @@ export class ModalDetailsComponent implements OnInit {
   mapVisible:boolean = false;
   isSubmitted:boolean = false;
   isCoordsSelected:boolean = false;
-  image:Image
+  image:Image;
   latitude: number;
   longitude: number;
 

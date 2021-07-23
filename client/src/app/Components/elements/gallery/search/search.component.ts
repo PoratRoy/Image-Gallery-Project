@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Image } from 'src/app/models/Image';
 
 @Component({
   selector: 'app-search',
@@ -7,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchComponent implements OnInit {
 
+  categories = ['A','B','C','D'];
+  image:Image;
   constructor() { }
 
   ngOnInit(): void {
