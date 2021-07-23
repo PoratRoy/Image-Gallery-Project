@@ -26,9 +26,6 @@ export class AddImagePageComponent implements OnInit {
   handleImgFromLocal($event){
     this.image = $event[0];
     this.imageCaption = $event[1];
-
-    console.log(this.image);
-    console.log(this.imageCaption);
   }
 
   SelectIamge():void{
