@@ -1,7 +1,7 @@
 <div class="gallery-continer">
     <p>gallery-page works!</p>
 
-    <app-search></app-search>
+    <app-search (filterImages)="renderGallery($event)"></app-search>
     <br/>
     
     <div>

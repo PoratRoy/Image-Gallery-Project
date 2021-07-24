@@ -20,6 +20,10 @@ export class GalleryPageComponent implements OnInit {
     })
   }
 
+  renderGallery($event){
+    this.images = $event;
+  }
+
 }
 
 

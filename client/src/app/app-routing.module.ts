@@ -5,7 +5,7 @@ import {IndexComponent} from './Components/Pages/index/index.component';
 import {AddImagePageComponent} from './Components/Pages/add-image-page/add-image-page.component';
 import {GalleryDetailsPageComponent} from './Components/Pages/gallery-details-page/gallery-details-page.component';
 import {GalleryPageComponent} from './Components/Pages/gallery-page/gallery-page.component';
-import {OptionsPageComponent} from './Components/Pages/options-page/options-page.component';
+import {FormPageComponent} from './Components/Pages/form-page/form-page.component';
 
 
 const routes: Routes = [
@@ -13,7 +13,7 @@ const routes: Routes = [
   {path: 'addImage', component: AddImagePageComponent},
   {path: 'details', component: GalleryDetailsPageComponent},
   {path: 'gallery', component: GalleryPageComponent},
-  {path: 'options', component: OptionsPageComponent},
+  {path: 'form', component: FormPageComponent},
   {path: '', redirectTo: 'home', pathMatch: 'full'},
 ];
 

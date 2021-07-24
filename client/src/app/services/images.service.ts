@@ -22,20 +22,16 @@ export class ImagesService {
     return this._http.put<any>(this._url+'update', image)
   }
 
-  getImageByCaption(caption:string){
-    return this._http.get<any>(this._url+'byCaption/'+caption)
+  getImageByCaptionAndCategory(){
+    return this._http.get<any>(this._url+'search',{ params: {name:'roy'}})
   }
-
-  getImageByCategory(category:string){
-    return this._http.get<any>(this._url+'byCategory/'+category)
-  }
-
+  
   getImageByPrivate(){
     return this._http.get<any>(this._url+'byPrivate')
   }
 
   getImageByFavorite(){
-    return this._http.get<any>(this._url+'byCaption')
+    return this._http.get<any>(this._url+'byFavorite')
   }
 
 }
