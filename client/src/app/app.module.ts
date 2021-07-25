@@ -27,6 +27,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { WebcamModule } from 'ngx-webcam';
 import { AgmCoreModule } from '@agm/core';
+import { AddCategoryComponent } from './Components/elements/add-category/add-category.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { AgmCoreModule } from '@agm/core';
     IndexComponent,
     AppComponent,
     MapComponent,
+    AddCategoryComponent,
   ],
   imports: [
     BrowserModule,

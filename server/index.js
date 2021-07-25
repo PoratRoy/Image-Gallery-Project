@@ -14,7 +14,8 @@ app.use(bodyParser.urlencoded({extended: true}) );
 app.use(express.static('public'));
 app.use(cors());
 
-app.use(`${URL}`, require('./routes/images')); 
+app.use(`${URL}/image`, require('./routes/images')); 
+app.use(`${URL}/category`, require('./routes/categories')); 
 
 app.listen(PORT, () => console.log(`listening on port ${PORT}...`))
 

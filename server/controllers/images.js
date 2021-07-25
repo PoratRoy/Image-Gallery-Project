@@ -92,19 +92,50 @@ exports.updateImage = (req, res) => {
 
 exports.getImageByQueryString = (req, res) => {
 
-  console.log('roro');
-  console.log(req.query);
-  console.log(req.query.property);
-
-  res.send('s');
-
-  // database.find({ name: "John" }).exec(function (err, result) {
-  //   if (err) {
-  //     console.error(err);
-  //   } else {
-  //     console.log("Got results: ", result);
-  //   }
-  // });
+  if(req.query.caption === ''){
+    
+    if(req.query.categories === ''){
+      database.find({}, (err, data) => {
+        if (err) {
+          res.end();
+          return;
+        }
+    
+        data.map((image) => {
+          const body = fs.readFileSync(image.src);
+          const imageBase64 = body.toString("base64");
+          image.src = imageBase64;
+        });
+        res.json(data);
+      });
+    } else {
+      database.find({categories:req.query.categories}).exec(function (err,data){
+        if (err) {
+          console.error(err);
+        } else {
+          data.map((image) => {
+            const body = fs.readFileSync(image.src);
+            const imageBase64 = body.toString("base64");
+            image.src = imageBase64;
+          });
+          res.json(data);
+        }
+      })
+    }
+  } else {
+    database.find( req.query ).exec(function (err, data) {
+      if (err) {
+        console.error(err);
+      } else {
+        data.map((image) => {
+          const body = fs.readFileSync(image.src);
+          const imageBase64 = body.toString("base64");
+          image.src = imageBase64;
+        });
+        res.json(data);
+      }
+    });
+  }
 };
 
 exports.getImageByPrivate = (req, res) => {

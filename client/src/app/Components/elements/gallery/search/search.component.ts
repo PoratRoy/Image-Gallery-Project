@@ -10,19 +10,30 @@ import { ImagesService } from '../../../../services/images.service';
 export class SearchComponent implements OnInit {
 
   @Output() filterImages = new EventEmitter<any>();
+
   categories = ['A','B','C','D'];
+  
+  selectedCategory:string = '';
+  searchedCaption:string = '';
+
   constructor(private _images : ImagesService) { }
 
   ngOnInit(): void {
   }
 
   searchByCategory(value){
-    console.log(value);
+    this.selectedCategory=value;
   }
   
   searchByText(value){
-    console.log(value);
-    this._images.getImageByCaptionAndCategory();
+    this.searchedCaption = value;
+    
+    this._images.getImageByCaptionAndCategory({
+      categories:this.selectedCategory,
+      caption:this.searchedCaption
+    }).subscribe(
+      data => {this.filterImages.emit(data)},
+      error => console.log(error))
   }
 
 

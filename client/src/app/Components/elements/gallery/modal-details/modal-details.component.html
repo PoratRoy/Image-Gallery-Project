@@ -1,5 +1,5 @@
 <div class="modal-continer" *ngIf="visible">
-  <form #imageForm="ngForm" (ngSubmit)="onSubmit()">
+  <form #imageForm="ngForm" (ngSubmit)="onSubmit()" novalidate>
 
     <header class="modal-header">      
         <div class="modal-title">
@@ -42,7 +42,7 @@
     </section>
 
     <footer>
-      <button type="submit">Save</button>
+      <button type="submit" [disabled]="imageForm.form.invalid">Save</button>
       <div *ngIf="isSubmitted">
         changes saved
       </div>

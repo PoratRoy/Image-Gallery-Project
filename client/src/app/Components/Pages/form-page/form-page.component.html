@@ -1,1 +1,60 @@
 <p>options-page works!</p>
+
+
+<div>
+    <form #libraryForm="ngForm" (ngSubmit)="onSubmit()" novalidate>
+        <div>
+            <label>Library Name</label>
+            <input type="text" required #name="ngModel" name="libraryName" [(ngModel)]="library.name"
+            [class.is-invalid]="name.invalid && name.touched"/>
+            <div *ngIf="name.errors && (camera.valid || camera.untouched)">
+                <small *ngIf="name.errors.required">Name is required</small>
+            </div>
+        </div>
+
+        <div>
+            <label>Description</label>
+            <input type="text"/>
+        </div>
+
+        <div>
+            <select name="template" #template [(ngModel)]="library.template">
+                <option selected value="list">List</option>
+                <option value="grid">Grid</option>
+            </select>
+        </div>
+
+        <div>
+            <input #camera="ngModel" required
+            type="checkbox" [(ngModel)]="library.camera" name="camera"/>
+            <label>allow device camera</label>
+            <div *ngIf="camera.errors && (camera.valid || camera.untouched)">
+                <small *ngIf="camera.errors.required">camera is required</small>
+            </div>
+        </div>
+
+        <div>
+            <input #location="ngModel" required 
+            type="checkbox" [(ngModel)]="library.location" name="location"/>
+            <label>allow device camera</label>
+            <div *ngIf="location.errors && (location.invalid || location.touched)">
+                <small *ngIf="location.errors.required">location is required</small>
+            </div>
+        </div>
+
+        <div>
+            <input #private="ngModel" required 
+            type="checkbox" [(ngModel)]="library.private" name="private"/>
+            <label>allow device camera</label>
+            <div *ngIf="private.errors && (private.invalid || private.touched)">
+                <small *ngIf="private.errors.required">private is required</small>
+            </div>
+        </div>
+
+
+        <button [disabled]="libraryForm.form.invalid" type="submit">
+            Create
+        </button>
+
+    </form>
+</div>
