@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { ModalDetailsComponent } from '../../elements/gallery/modal-details/modal-details.component';
+
 
 @Component({
   selector: 'app-index',
@@ -7,9 +10,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IndexComponent implements OnInit {
 
-    constructor() {}
+    constructor(public dialog: MatDialog) {}
 
     ngOnInit() {}
 
 
+    open(){
+      let ref = this.dialog.open(ModalDetailsComponent, {data:{name:'roy'}})
+      ref.afterClosed().subscribe(res=>{console.log(res);
+      })
+    }
 }

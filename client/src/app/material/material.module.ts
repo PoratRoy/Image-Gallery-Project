@@ -14,6 +14,7 @@ import {MatCommonModule} from '@angular/material/core';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatInputModule} from '@angular/material/input';
+import {MatDialogModule} from '@angular/material/dialog';
 
 const MaterialComponents =[
   MatButtonModule,
@@ -23,6 +24,8 @@ const MaterialComponents =[
   MatCommonModule,
   MatFormFieldModule,
   BrowserAnimationsModule,
+  MatInputModule,
+  MatDialogModule,
 ]
 
 @NgModule({

@@ -52,6 +52,7 @@ import { AgmCoreModule } from '@agm/core';
     AddCategoryComponent,
     CardComponent,
   ],
+  entryComponents:[ModalDetailsComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,

@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { Image } from 'src/app/models/Image';
 import { ImagesService } from 'src/app/services/images.service';
 import {TaggoleModalService} from '../../../../services/taggoles/taggole-modal.service';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 
 @Component({
@@ -12,7 +13,6 @@ import {TaggoleModalService} from '../../../../services/taggoles/taggole-modal.s
 export class ModalDetailsComponent implements OnInit {
 
   categories = ['A','B','C','D'];
-  visible:boolean = false;
   mapVisible:boolean = false;
   isSubmitted:boolean = false;
   isCoordsSelected:boolean = false;
@@ -20,11 +20,11 @@ export class ModalDetailsComponent implements OnInit {
   latitude: number;
   longitude: number;
 
-  constructor(private modal:TaggoleModalService, private _images : ImagesService) { }
+  constructor(private _images : ImagesService, @Inject(MAT_DIALOG_DATA) private data:any) { }
 
   ngOnInit(): void {
-    this.modal.taggleModal.subscribe((res)=>{this.visible = res;})
-    this.modal.imageModal.subscribe((image)=>{this.image = image})
+
+    this.image = this.data.image;
     this.latitude = this.image ? this.image.location[0] : 0;  //need to change
     this.longitude = this.image ? this.image.location[1] : 0; //need to change
     this.isSubmitted =false;
@@ -50,8 +50,5 @@ export class ModalDetailsComponent implements OnInit {
     )
   }
   
-  close():void{
-    this.visible = false;
-  }
 
 }

@@ -1,4 +1,75 @@
-<mat-card class="details-card-continer" *ngIf="visible">
+
+
+
+<div>
+  <form #imageForm="ngForm" (ngSubmit)="onSubmit()" novalidate>
+    <header>
+      <h2 mat-dialog-title>Image</h2>
+      <input
+          type="text"
+          required
+          #caption="ngModel"
+          [class.is-invalid]="caption.invalid && caption.touched"
+          name="imageCaption"
+          [(ngModel)]="image.caption"
+        />
+        <div *ngIf="caption.errors && (caption.invalid || caption.touched)">
+          <small *ngIf="caption.errors.required">Caption is required</small>
+        </div>
+
+        <button mat-dialog-close class="details-card-exist">X</button>
+    </header>
+
+    <mat-dialog-content>
+      <img
+      class="details-card-img"
+      [src]="'data:image/jpeg;base64,' + image.src"
+    />
+
+    <div class="details-card-category">
+      <select name="category" [(ngModel)]="image.categories">
+        <option value="">No categories</option>
+        <option *ngFor="let category of categories">{{ category }}</option>
+      </select>
+    </div>
+
+    <button (click)="taggleMap()">map</button>
+    <small *ngIf="isCoordsSelected">coords selected</small>
+
+    <div class="details-card-favorite">
+      <input name="favorite" [(ngModel)]="image.favorite" type="checkbox" />
+      <label>Favorite</label>
+    </div>
+
+    <div class="details-card-private">
+      <input name="private" [(ngModel)]="image.private" type="checkbox" />
+      <label>Private</label>
+    </div>
+
+    </mat-dialog-content>
+
+    <mat-dialog-actions>
+      <button
+          type="submit"
+          [disabled]="imageForm.form.invalid"
+          mat-raised-button
+          class="details-card-save"
+        >
+          Save
+        </button>
+        <div *ngIf="isSubmitted">changes saved</div>
+    </mat-dialog-actions>
+
+  </form>
+</div>
+
+
+<!-- 
+*ngIf="visible" -->
+
+<!-- 
+
+<mat-card class="details-card-continer" > 
   <form #imageForm="ngForm" (ngSubmit)="onSubmit()" novalidate>
     <header class="details-card-header">
       <mat-card-title class="details-card-title">
@@ -67,7 +138,7 @@
       [longitude]="longitude"
     ></app-map>
   </form>
-</mat-card>
+</mat-card> -->
 
 <!-- <div class="modal-continer" *ngIf="visible">
   <form #imageForm="ngForm" (ngSubmit)="onSubmit()" novalidate>

@@ -1,4 +1,52 @@
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+:root{
+    
+    --primary-color: rgb(60, 143, 168);
+    --secondary-color:rgb(245, 245, 245);
+    --third-color:rgb(147, 100, 190);
+
+    --primary-light-color: rgb(89, 171, 196);
+    --secondary-light-color:rgb(255, 255, 255);
+    --third-light-color:rgb(172, 129, 212);
+
+    --primary-transparent-color: rgba(60, 143, 168, 0.5);
+    --secondary-transparent-color:rgba(245, 245, 245, 0.5);
+    --third-transparent-color:rgba(147, 100, 190, 0.5);
+
+    --hover-primary-color: rgb(70, 156, 182);
+    --hover-secondary-color:rgb(255, 255, 255);
+    --hover-third-color:rgb(158, 113, 201);
+
+    --active-primary-color: rgb(49, 127, 151);
+    --active-secondary-color:rgb(221, 211, 211);
+    --active-third-color:rgb(133, 86, 177);
+
+    --primary-text-color:rgb(255,255,255);
+    --secondary-text-color:rgb(240,240,240);
+    --error-text-color:rgb(134, 24, 24);
+
+    --hover-primary-text-color:rgb(255, 255, 255);
+
+    --active-primary-text-color:rgb(235, 225, 225);
+    --active-secondary-text-color:rgb(219, 210, 210);
+
+
+    --primary-box-shdow: 5px, 5px, 5px, 0 rgba(0,0,0,0.2);
+
+}
+
+html, body{
+    height: 100%;
+
+}
+
+body{ 
+    padding: 0;
+    margin: 0; 
+    font-family: Roboto, "Helvetica Neue", sans-serif; 
+    background-color: var(--secondary-color);
+    font-size: 16px;
+
+}
+
+
