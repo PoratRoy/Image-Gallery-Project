@@ -1,11 +1,10 @@
-
-
-
 <div>
   <form #imageForm="ngForm" (ngSubmit)="onSubmit()" novalidate>
-    <header>
-      <h2 mat-dialog-title>Image</h2>
-      <input
+    <header class="details-card-header">
+      <div class="details-card-title">
+        <h2 mat-dialog-title>Image</h2>
+        <input
+          class="details-card-caption"
           type="text"
           required
           #caption="ngModel"
@@ -16,191 +15,53 @@
         <div *ngIf="caption.errors && (caption.invalid || caption.touched)">
           <small *ngIf="caption.errors.required">Caption is required</small>
         </div>
-
-        <button mat-dialog-close class="details-card-exist">X</button>
+      </div>
+      <button mat-dialog-close class="details-card-exist"><mat-icon>cancel</mat-icon></button>
     </header>
 
     <mat-dialog-content>
       <img
-      class="details-card-img"
-      [src]="'data:image/jpeg;base64,' + image.src"
-    />
+        class="details-card-img"
+        [src]="'data:image/jpeg;base64,' + image.src"
+      />
 
-    <div class="details-card-category">
-      <select name="category" [(ngModel)]="image.categories">
-        <option value="">No categories</option>
-        <option *ngFor="let category of categories">{{ category }}</option>
-      </select>
-    </div>
+      <div class="details-card-options">
 
-    <button (click)="taggleMap()">map</button>
-    <small *ngIf="isCoordsSelected">{{image.location}}</small>
-
-    <div class="details-card-favorite">
-      <input name="favorite" [(ngModel)]="image.favorite" type="checkbox" />
-      <label>Favorite</label>
-    </div>
-
-    <div class="details-card-private">
-      <input name="private" [(ngModel)]="image.private" type="checkbox" />
-      <label>Private</label>
-    </div>
-
-    </mat-dialog-content>
-
-    <mat-dialog-actions>
-      <button
-          type="submit"
-          [disabled]="imageForm.form.invalid"
-          mat-raised-button
-          class="details-card-save"
-        >
-          Save
-        </button>
-        <div *ngIf="isSubmitted">changes saved</div>
-    </mat-dialog-actions>
-
-  </form>
-</div>
-
-
-<!-- 
-*ngIf="visible" -->
-
-<!-- 
-
-<mat-card class="details-card-continer" > 
-  <form #imageForm="ngForm" (ngSubmit)="onSubmit()" novalidate>
-    <header class="details-card-header">
-      <mat-card-title class="details-card-title">
-        <input
-          type="text"
-          required
-          #caption="ngModel"
-          [class.is-invalid]="caption.invalid && caption.touched"
-          name="imageCaption"
-          [(ngModel)]="image.caption"
-        />
-      </mat-card-title>
-      <div *ngIf="caption.errors && (caption.invalid || caption.touched)">
-        <small *ngIf="caption.errors.required">Caption is required</small>
-      </div>
-      <button class="details-card-exist" (click)="close()">X</button>
-    </header>
-
-    <img
-      class="details-card-img"
-      mat-card-image
-      [src]="'data:image/jpeg;base64,' + image.src"
-    />
-
-    <mat-card-content class="details-card-content">
-      <div class="details-card-category">
-        <select name="category" [(ngModel)]="image.categories">
-          <option value="">No categories</option>
-          <option *ngFor="let category of categories">{{ category }}</option>
-        </select>
-      </div>
-
-      <button (click)="taggleMap()">map</button>
-      <small *ngIf="isCoordsSelected">coords selected</small>
-
-      <div class="details-card-favorite">
-        <input name="favorite" [(ngModel)]="image.favorite" type="checkbox" />
-        <label>Favorite</label>
-      </div>
-
-      <div class="details-card-private">
-        <input name="private" [(ngModel)]="image.private" type="checkbox" />
-        <label>Private</label>
-      </div>
-    </mat-card-content>
-
-    <mat-card-footer>
-      <mat-card-actions>
-        <button
-          type="submit"
-          [disabled]="imageForm.form.invalid"
-          mat-raised-button
-          class="details-card-save"
-        >
-          Save
-        </button>
-        <div *ngIf="isSubmitted">changes saved</div>
-      </mat-card-actions>
-    </mat-card-footer>
-
-    <app-map
-      class="details-card-map"
-      *ngIf="mapVisible"
-      (coords)="handleCoordsFromMap($event)"
-      [latitude]="latitude"
-      [longitude]="longitude"
-    ></app-map>
-  </form>
-</mat-card> -->
-
-<!-- <div class="modal-continer" *ngIf="visible">
-  <form #imageForm="ngForm" (ngSubmit)="onSubmit()" novalidate>
-    <header class="modal-header">
-      <div class="modal-title">
-        <input
-          type="text"
-          required
-          #caption="ngModel"
-          [class.is-invalid]="caption.invalid && caption.touched"
-          name="imageCaption"
-          [(ngModel)]="image.caption"
-        />
-      </div>
-      <div *ngIf="caption.errors && (caption.invalid || caption.touched)">
-        <small *ngIf="caption.errors.required">Caption is required</small>
-      </div>
-      <button class="modal-exist" (click)="close()">X</button>
-    </header>
-
-    <section class="modal-body">
-      <img class="modal-image" [src]="'data:image/jpeg;base64,' + image.src" />
-
-      <div class="modal-details">
-        <div class="modal-category">
-          <select name="category" [(ngModel)]="image.categories">
+        <div >
+          <select class="details-card-category" name="category" [(ngModel)]="image.categories">
             <option value="">No categories</option>
             <option *ngFor="let category of categories">{{ category }}</option>
           </select>
         </div>
 
-        <button (click)="taggleMap()">map</button>
-        <small *ngIf="isCoordsSelected">coords selected</small>
+        <button class="details-card-location" (click)="taggleMap()">
+          <mat-icon>location_on</mat-icon>
+        </button>
+        <!-- <small *ngIf="isCoordsSelected">{{ image.location }}</small> -->
 
-        <div class="modal-favorite">
+        <div class="details-card-favorite">
           <input name="favorite" [(ngModel)]="image.favorite" type="checkbox" />
-          <label>Favorite</label>
+          <mat-icon>grade</mat-icon>
         </div>
 
-        <div class="modal-private">
+        <div class="details-card-private">
           <input name="private" [(ngModel)]="image.private" type="checkbox" />
-          <label>Private</label>
+          <mat-icon>lock</mat-icon>
         </div>
-      </div>
-    </section>
 
-    <footer>
+      </div>
+    </mat-dialog-content>
+
+    <mat-dialog-actions>
       <button
         type="submit"
         [disabled]="imageForm.form.invalid"
         mat-raised-button
-        color="accent"
+        class="details-card-save"
       >
         Save
       </button>
       <div *ngIf="isSubmitted">changes saved</div>
-    </footer>
+    </mat-dialog-actions>
   </form>
-  <app-map
-    *ngIf="mapVisible"
-    (coords)="handleCoordsFromMap($event)"
-    [latitude]="latitude"
-    [longitude]="longitude"
-  ></app-map>
-</div>  -->
+</div>

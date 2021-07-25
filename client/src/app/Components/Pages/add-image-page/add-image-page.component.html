@@ -1,26 +1,47 @@
+<div class="add-image-continer">
 
-<mat-tab-group>
+  <mat-tab-group class="add-image-options">
 
-  <mat-tab label="add from camera">
-    <app-from-camera (getImage)="handleImgFromCamera($event)"></app-from-camera>
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <mat-icon class="example-tab-icon">add_a_photo</mat-icon>
+        Add from your camera
+      </ng-template>
+      <app-from-camera class="add-image-option"
+        (getImage)="handleImgFromCamera($event)"
+      ></app-from-camera>
+    </mat-tab>
 
-  </mat-tab>
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <mat-icon class="example-tab-icon">attach_file</mat-icon>
+        Add from your local folders
+      </ng-template>
+      <app-from-local class="add-image-option" (getImage)="handleImgFromLocal($event)"></app-from-local>
+    </mat-tab>
 
-  <mat-tab label="add from loacl storge">
-    <app-from-local (getImage)="handleImgFromLocal($event)"></app-from-local>
-  </mat-tab>
-  
-  <mat-tab label="add from the internet">
-    <app-from-online (getImage)="handleImgFromOnline($event)"></app-from-online>
-  </mat-tab>
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <mat-icon class="example-tab-icon">public</mat-icon>
+        Add from the Web
+      </ng-template>
+      <app-from-online class="add-image-option"
+        (getImage)="handleImgFromOnline($event)"
+      ></app-from-online>
+    </mat-tab>
 
-</mat-tab-group>
+  </mat-tab-group>
 
-<div class="show-img" *ngIf="image">
-  <img [src]="image" height="200px"/>
+  <section class="add-image-resulat">
+
+    <div class="add-image-img" *ngIf="image">
+      <img [src]="image" height="200px" />
+    </div>
+    
+    <button class="add-image-select" mat-raised-button (click)="SelectIamge()">Select</button>
+
+    <a class="add-image-done" routerLink="/gallery">Done</a>
+
+  </section>
+
 </div>
-
-<button (click)="SelectIamge()">Select</button>
-<a routerLink="/gallery">Done</a>
-
-

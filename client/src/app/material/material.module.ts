@@ -1,9 +1,6 @@
 import { NgModule } from '@angular/core';
 
 
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 
 import { MatTabsModule} from '@angular/material/tabs';
@@ -15,6 +12,9 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatInputModule} from '@angular/material/input';
 import {MatDialogModule} from '@angular/material/dialog';
+import { MatIconModule } from '@angular/material/icon';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatSidenavModule} from '@angular/material/sidenav';
 
 const MaterialComponents =[
   MatButtonModule,
@@ -26,6 +26,9 @@ const MaterialComponents =[
   BrowserAnimationsModule,
   MatInputModule,
   MatDialogModule,
+  MatIconModule,
+  MatToolbarModule,
+  MatSidenavModule,
 ]
 
 @NgModule({

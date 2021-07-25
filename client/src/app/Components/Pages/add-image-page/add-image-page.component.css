@@ -1,0 +1,20 @@
+
+.add-image-continer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.add-image-options{
+    width: 60%;
+}
+
+
+.add-image-resulat{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    background-color: cornsilk;
+}

@@ -22,13 +22,13 @@
     --active-third-color:rgb(133, 86, 177);
 
     --primary-text-color:rgb(255,255,255);
-    --secondary-text-color:rgb(240,240,240);
+    --secondary-text-color:rgb(231, 226, 226);
     --error-text-color:rgb(134, 24, 24);
 
-    --hover-primary-text-color:rgb(255, 255, 255);
+    --hover-secondary-text-color:rgb(255, 255, 255);
 
     --active-primary-text-color:rgb(235, 225, 225);
-    --active-secondary-text-color:rgb(219, 210, 210);
+    --active-secondary-text-color:rgb(212, 206, 206);
 
 
     --primary-box-shdow: 5px, 5px, 5px, 0 rgba(0,0,0,0.2);
