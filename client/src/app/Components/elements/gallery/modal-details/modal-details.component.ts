@@ -1,8 +1,9 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { Image } from 'src/app/models/Image';
 import { ImagesService } from 'src/app/services/images.service';
-import {TaggoleModalService} from '../../../../services/taggoles/taggole-modal.service';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
+import { MapComponent } from '../map/map.component';
 
 
 @Component({
@@ -13,33 +14,35 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 export class ModalDetailsComponent implements OnInit {
 
   categories = ['A','B','C','D'];
-  mapVisible:boolean = false;
   isSubmitted:boolean = false;
   isCoordsSelected:boolean = false;
   image:Image;
   latitude: number;
   longitude: number;
 
-  constructor(private _images : ImagesService, @Inject(MAT_DIALOG_DATA) private data:any) { }
+  constructor(private _images : ImagesService, @Inject(MAT_DIALOG_DATA) private data:any, public _dialog: MatDialog) { }
 
   ngOnInit(): void {
-
     this.image = this.data.image;
-    this.latitude = this.image ? this.image.location[0] : 0;  //need to change
-    this.longitude = this.image ? this.image.location[1] : 0; //need to change
+
+    const splitLocation = this.image.location.toString().split(',',2);
+    this.latitude = this.image ? +splitLocation[0] : 0;
+    this.longitude = this.image ? +splitLocation[1] : 0;
+    
     this.isSubmitted =false;
     this.isCoordsSelected =false;
   }
   
   taggleMap(){
-    this.mapVisible = !this.mapVisible;
-  }
-  
-  handleCoordsFromMap($event){
-    this.image.location = [$event[0],$event[1]];
+    let ref = this._dialog.open(MapComponent, {data:{latitude: this.latitude, longitude: this.longitude}})
+    ref.afterClosed().subscribe(res=>{
+      if(res){
+        this.image.location = res;
+      }
+    })
     this.isCoordsSelected =true;
-    this.taggleMap()
   }
+
 
   onSubmit(){ //dont forget to add the image to the form
     this.isSubmitted =true;

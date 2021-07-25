@@ -1,8 +1,15 @@
+<agm-map
+  [latitude]="lat"
+  [longitude]="lon"
+  (mapClick)="onChoseLocation($event)"
+>
+  <agm-marker
+    [latitude]="lat"
+    [longitude]="lon"
+    *ngIf="locationChosen"
+  ></agm-marker>
+</agm-map>
 
-<agm-map [latitude]="lat" [longitude]="lon" (mapClick)="onChoseLocation($event)">
-    <agm-marker
-      [latitude]="lat"
-      [longitude]="lon"
-      *ngIf="locationChosen"></agm-marker>
-  </agm-map>
-  
+<mat-dialog-actions>
+  <button mat-raised-button class="details-card-save" mat-dialog-close="{{[lat,lon]}}">Save</button>
+</mat-dialog-actions>

@@ -34,7 +34,7 @@
     </div>
 
     <button (click)="taggleMap()">map</button>
-    <small *ngIf="isCoordsSelected">coords selected</small>
+    <small *ngIf="isCoordsSelected">{{image.location}}</small>
 
     <div class="details-card-favorite">
       <input name="favorite" [(ngModel)]="image.favorite" type="checkbox" />

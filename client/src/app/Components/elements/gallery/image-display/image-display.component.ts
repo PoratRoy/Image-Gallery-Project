@@ -13,18 +13,13 @@ import { ModalDetailsComponent } from '../modal-details/modal-details.component'
 export class ImageDisplayComponent implements OnInit {
 
   @Input() image: Image;
-  d : any;
 
-
-  constructor(public dialog: MatDialog) { }
+  constructor(public _dialog: MatDialog) { }
 
   ngOnInit(): void {}
 
   taggleModal():void{
-
-    this.d = {image : this.image}  
-    let ref = this.dialog.open(ModalDetailsComponent, {data:this.d})
-      //ref.afterClosed().subscribe(res=>{console.log(res);})
+    let ref = this._dialog.open(ModalDetailsComponent, {data:{image : this.image} })
   }
 
 }
