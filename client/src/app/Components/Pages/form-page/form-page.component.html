@@ -1,6 +1,19 @@
 <p>options-page works!</p>
 
 
+<mat-form-field appearance="fill">
+    <mat-label>Input</mat-label>
+    <input matInput>
+  </mat-form-field>
+  
+  <mat-form-field appearance="fill">
+    <mat-label>Textarea</mat-label>
+    <textarea matInput></textarea>
+  </mat-form-field>
+
+
+
+
 <div>
     <form #libraryForm="ngForm" (ngSubmit)="onSubmit()" novalidate>
         <div>
@@ -25,8 +38,7 @@
         </div>
 
         <div>
-            <input #camera="ngModel" required
-            type="checkbox" [(ngModel)]="library.camera" name="camera"/>
+            <mat-checkbox #camera="ngModel" required [(ngModel)]="library.camera" name="camera"></mat-checkbox>
             <label>allow device camera</label>
             <div *ngIf="camera.errors && (camera.valid || camera.untouched)">
                 <small *ngIf="camera.errors.required">camera is required</small>
@@ -34,8 +46,7 @@
         </div>
 
         <div>
-            <input #location="ngModel" required 
-            type="checkbox" [(ngModel)]="library.location" name="location"/>
+            <mat-checkbox #location="ngModel" required [(ngModel)]="library.location" name="location"></mat-checkbox>
             <label>allow device camera</label>
             <div *ngIf="location.errors && (location.invalid || location.touched)">
                 <small *ngIf="location.errors.required">location is required</small>
@@ -43,8 +54,7 @@
         </div>
 
         <div>
-            <input #private="ngModel" required 
-            type="checkbox" [(ngModel)]="library.private" name="private"/>
+            <mat-checkbox #private="ngModel" required [(ngModel)]="library.private" name="private"></mat-checkbox>
             <label>allow device camera</label>
             <div *ngIf="private.errors && (private.invalid || private.touched)">
                 <small *ngIf="private.errors.required">private is required</small>
