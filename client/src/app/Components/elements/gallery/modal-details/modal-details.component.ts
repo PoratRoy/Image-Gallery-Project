@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Image } from 'src/app/models/Image';
 import { ImagesService } from 'src/app/services/images.service';
-import {TaggoleModalService} from '../../../../services/taggole-modal.service';
+import {TaggoleModalService} from '../../../../services/taggoles/taggole-modal.service';
 
 
 @Component({

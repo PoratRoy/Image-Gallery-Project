@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Category } from '../models/category';
 
 @Injectable({
   providedIn: 'root'
@@ -14,8 +13,11 @@ export class CategoryService {
     return this._http.get<any>(this._url)
   }
 
-  appendCategory(category:Category){
-    return this._http.post<any>(this._url+'append', category);
+  appendCategory(category:string){
+    return this._http.post<any>(this._url+'append', {categories:category}).subscribe((res)=>{
+      console.log(res);
+      
+    });
   }
 }
 

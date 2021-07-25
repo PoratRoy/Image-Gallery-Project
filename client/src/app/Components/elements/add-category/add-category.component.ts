@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Category } from 'src/app/models/category';
-import {TaggoleModalService} from '../../../services/taggole-modal.service';
+import { TaggoleCategoryModalService } from 'src/app/services/taggoles/taggole-category-modal.service';
+import { CategoryService } from 'src/app/services/category.service';
 
 
 @Component({
@@ -11,12 +11,17 @@ import {TaggoleModalService} from '../../../services/taggole-modal.service';
 export class AddCategoryComponent implements OnInit {
 
   visible:boolean = false;
-  category:Category;
 
-  constructor(private modal:TaggoleModalService) { }
+  constructor(private _modal:TaggoleCategoryModalService, private _categoryService: CategoryService) { }
 
   ngOnInit(): void {
-    this.modal.taggleModal.subscribe((res)=>{this.visible = res;})
+    this._modal.taggleModal.subscribe((res)=>{this.visible = res;})
+  }
+
+  onSubmit(value){ 
+    console.log(value);
+    this._categoryService.appendCategory(value);
+    
   }
 
   close():void{

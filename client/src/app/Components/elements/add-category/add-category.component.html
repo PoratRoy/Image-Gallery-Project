@@ -5,21 +5,23 @@
     <h2>Add New Category</h2>
     <button class="modal-exist" (click)="close()">X</button>
   </header>
-
-  <form #categoryForm="ngForm" (ngSubmit)="onSubmit()" novalidate>
+  
+  <form #categoryForm="ngForm" novalidate>
+    {{categoryForm.value|json}}
     <input
       type="text"
       placeholder="Category"
       required
-      #category="ngModel"
+      #category
+      name="category"
+      ngModel
       [class.is-invalid]="category.invalid && category.touched"
-      name="imageCategory"
-      [(ngModel)]="category.categories"
     />
     <div *ngIf="category.errors && (category.invalid || category.touched)">
       <small *ngIf="category.errors.required">category is required</small>
     </div>
 
-    <button type="submit" [disabled]="categoryForm.form.invalid">Add</button>
+    <button type="submit" [disabled]="categoryForm.form.invalid"
+    (click)="onSubmit(category.value)">Add</button>
   </form>
 </div>

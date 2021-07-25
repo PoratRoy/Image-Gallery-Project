@@ -16,40 +16,38 @@ exports.gatAllCategories = (req, res) => {
   });
 };
 
+
 exports.addNewCategory = (req, res) => {
-    const category = req.body;
-    const timestamp = Date.now();
-    category.timestamp = timestamp;
-    database.insert(category);
-    res.json(category);
-};
+  const newCategory = req.body.categories;
+  let categories;
 
-exports.updateImage = (req, res) => {
-const newCategory = req.body;
-let categories;
-
-database.find().exec(function (err, result) {
+  database.find().exec(function (err, result) {
     if (err) {
     console.error(err);
     } else {
-    categories = result;
+    data = result;
     }
 
-    database.update(
-    {
-        categories: categories[0],
-    },
-    {
-        categories: newCategory,
-    },
-    {},
-    function (err, numReplaced) {
-        console.log("number of changes in update", numReplaced);
+    if(data.length === 0){
+      database.insert({categories:[newCategory]})
+    } else {
+      // console.log(data[0].categories);
+      // let newCategories = data[0].categories;
+
+      // newCategories.push(newCategory);
+      // console.log(newCategories);
+      console.log(data[0]);
+
+      database.update(
+        {categories: data[0].categories},
+        {categories: data[0].categories.push(newCategory)},
+        {},
+        function (err, numReplaced) {
+            console.log("number of changes in update", numReplaced);
+        }
+      );    
     }
-    );
-});
-};
+  })
+}
 
-
-//{categories : [a,b,c,d,e]}
 
