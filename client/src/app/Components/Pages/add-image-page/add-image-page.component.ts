@@ -20,7 +20,7 @@ export class AddImagePageComponent implements OnInit {
 
   handleImgFromCamera(webcamImage: WebcamImage){
     this.image = webcamImage.imageAsDataUrl;
-    this.imageCaption = `NewImage${new Date().toISOString()}`;
+    this.imageCaption = `NewImage${Math.random()}.jpg`;
   }
 
   handleImgFromLocal($event){

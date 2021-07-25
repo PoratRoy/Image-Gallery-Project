@@ -24,6 +24,8 @@ exports.gatAllImages = (req, res) => {
 
 exports.addNewImage = (req, res) => {
   const image = req.body;
+  if(image.src === ''){return;}
+
   const p = path.join(
     "C:",
     "Users",
@@ -36,6 +38,7 @@ exports.addNewImage = (req, res) => {
     "storage-images",
     image.caption
   );
+  console.log(p);
   bufferToImageInDbFile(image.src, p);
   image.src = p;
   const timestamp = Date.now();
