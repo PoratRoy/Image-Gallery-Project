@@ -2,7 +2,7 @@
 <div>
     <form class="form-continer" #libraryForm="ngForm" (ngSubmit)="onSubmit()" novalidate>
 
-        <mat-form-field appearance="fill">
+        <mat-form-field appearance="outline">
             <mat-label>Library Name</mat-label>
             <input matInput required #name="ngModel" name="libraryName" [(ngModel)]="library.name"
             [errorStateMatcher]="matcher"/>
@@ -11,7 +11,7 @@
               </mat-error>
         </mat-form-field>
 
-        <mat-form-field appearance="fill">
+        <mat-form-field appearance="outline">
             <mat-label>Library Description</mat-label>
             <textarea  matInput #description="ngModel" [(ngModel)]="library.description" [ngModelOptions]="{standalone: true}"></textarea>
         </mat-form-field>

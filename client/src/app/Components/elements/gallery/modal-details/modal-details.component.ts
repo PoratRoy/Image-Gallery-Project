@@ -21,6 +21,8 @@ export class ModalDetailsComponent implements OnInit {
   image:Image;
   latitude: number;
   longitude: number;
+  favoriteFlag:boolean;
+  privateFlag:boolean;
 
   constructor(private _images : ImagesService, @Inject(MAT_DIALOG_DATA) private data:any, public _dialog: MatDialog) { }
 
@@ -33,6 +35,10 @@ export class ModalDetailsComponent implements OnInit {
     
     this.isSubmitted =false;
     this.isCoordsSelected =false;
+
+    this.privateFlag = this.image.private;
+    this.favoriteFlag = this.image.favorite;
+    console.log(this.privateFlag);
   }
 
   captionFormControl = new FormControl('', [Validators.required,]);
@@ -49,8 +55,14 @@ export class ModalDetailsComponent implements OnInit {
   }
 
 
-  onSubmit(){ //dont forget to add the image to the form
+  onSubmit(){ 
     this.isSubmitted =true;
+
+    console.log(this.privateFlag);
+    
+    this.image.favorite = this.favoriteFlag;
+    this.image.private = this.privateFlag;
+
     //this.image.src = '';  not sure i want to send the src.. but if i delete him its affect the ui
     this._images.updateImage(this.image).subscribe(
       data => console.log('s',data),

@@ -1,16 +1,19 @@
 <div class="gallery-continer">
-    <p>gallery-page works!</p>
+  <app-search (filterImages)="renderGallery($event)"></app-search>
+  <br />
 
-    <app-search (filterImages)="renderGallery($event)"></app-search>
-    <br/>
-    
-    <div>
-        <ul class="thumbnailsList">
-            <li *ngFor="let image of images" >
-                <app-image-display [image]="image"></app-image-display>
-            </li>
-        </ul>
-    </div>
-    <div >
-    </div>
+  <div>
+    <ul class="thumbnailsList">
+      <li *ngFor="let image of images">
+        <app-image-display [image]="image"></app-image-display>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="add-new-image">
+    <button mat-fab color="accent" routerLink="/addImage">
+      <mat-icon>add_photo_alternate</mat-icon>
+    </button>
+  </div>
+
 </div>

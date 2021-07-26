@@ -1,15 +1,22 @@
+<div class="gallery-search-continer">
+  <mat-form-field appearance="outline">
+    <mat-label>Select category</mat-label>
+    <mat-select
+      name="category"
+      #category
+      (change)="searchByCategory(category.value)"
+    >
+      <mat-option value="">Without category</mat-option>
+      <mat-option *ngFor="let category of categories" [value]="category">{{
+        category
+      }}</mat-option>
+    </mat-select>
+  </mat-form-field>
 
+  <app-search-text (searchOutput)="searchByText($event)"></app-search-text>
 
-<div>
-    <div class="search-category">
-        <select name="category" #category (change)="searchByCategory(category.value)">
-            <option value=""></option>
-            <option *ngFor="let category of categories" [value]="category">{{category}}</option>
-        </select>
-    </div>
-
-    <app-search-text (searchOutput)="searchByText($event)"></app-search-text>
-
-    <button (click)="private()"><mat-icon>lock</mat-icon></button>
-    <button (click)="favorite()"><mat-icon>grade</mat-icon></button>
+  <button mat-icon-button (click)="private()"><mat-icon>lock</mat-icon></button>
+  <button mat-icon-button (click)="favorite()">
+    <mat-icon>grade</mat-icon>
+  </button>
 </div>

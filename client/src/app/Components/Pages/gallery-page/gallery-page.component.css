@@ -10,3 +10,24 @@ ul {
 li{
 	display: inline;
 }
+
+.add-new-image{
+	position: fixed;
+	bottom: 5em;
+	right: 10em;
+}
+
+.add-new-image button{
+	position: relative;
+	height: 7em;
+	width: 7em;
+}
+
+.add-new-image button mat-icon{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-90%,-100%);
+	font-size: 3rem;
+
+}
