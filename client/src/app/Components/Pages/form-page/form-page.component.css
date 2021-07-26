@@ -1,0 +1,5 @@
+
+.form-continer{
+    display: flex;
+    flex-direction: column;
+}

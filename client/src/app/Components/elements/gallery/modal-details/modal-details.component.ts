@@ -4,6 +4,8 @@ import { ImagesService } from 'src/app/services/images.service';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatDialog } from '@angular/material/dialog';
 import { MapComponent } from '../map/map.component';
+import {FormControl, Validators} from '@angular/forms';
+import { MyErrorStateMatcher } from 'src/app/errors/errorMatcher';
 
 
 @Component({
@@ -32,6 +34,9 @@ export class ModalDetailsComponent implements OnInit {
     this.isSubmitted =false;
     this.isCoordsSelected =false;
   }
+
+  captionFormControl = new FormControl('', [Validators.required,]);
+  matcher = new MyErrorStateMatcher();
   
   taggleMap(){
     let ref = this._dialog.open(MapComponent, {data:{latitude: this.latitude, longitude: this.longitude}})
@@ -55,3 +60,4 @@ export class ModalDetailsComponent implements OnInit {
   
 
 }
+

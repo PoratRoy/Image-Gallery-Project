@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { TaggoleCategoryModalService } from 'src/app/services/taggoles/taggole-category-modal.service';
 
 
 @Component({
@@ -9,12 +8,10 @@ import { TaggoleCategoryModalService } from 'src/app/services/taggoles/taggole-c
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(private modal:TaggoleCategoryModalService) { }
+  constructor() { }
 
   ngOnInit(): void {}
 
-  taggleModal():void{
-    this.modal.taggle();
-  }
+ 
 
 }

@@ -37,6 +37,7 @@ import { AgmCoreModule } from '@agm/core';
     ModalDetailsComponent,
     AddImagePageComponent,
     GalleryPageComponent,
+    AddCategoryComponent,
     FromCameraComponent,
     FromOnlineComponent,
     SearchTextComponent,
@@ -49,7 +50,6 @@ import { AgmCoreModule } from '@agm/core';
     IndexComponent,
     AppComponent,
     MapComponent,
-    AddCategoryComponent,
     CardComponent,
   ],
   entryComponents:[

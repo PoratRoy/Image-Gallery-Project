@@ -1,22 +1,30 @@
 <div>
-  <form #imageForm="ngForm" (ngSubmit)="onSubmit()" novalidate>
+  <form class="details-card-continer" #imageForm="ngForm" (ngSubmit)="onSubmit()" novalidate>
     <header class="details-card-header">
+
       <div class="details-card-title">
-        <h2 mat-dialog-title>Image</h2>
-        <input
-          class="details-card-caption"
-          type="text"
-          required
-          #caption="ngModel"
-          [class.is-invalid]="caption.invalid && caption.touched"
-          name="imageCaption"
-          [(ngModel)]="image.caption"
-        />
-        <div *ngIf="caption.errors && (caption.invalid || caption.touched)">
-          <small *ngIf="caption.errors.required">Caption is required</small>
-        </div>
+
+        <mat-form-field appearance="fill" mat-dialog-title class="details-card-caption">
+          <mat-label>Image Caption</mat-label>
+          <input
+            matInput
+            required
+            #caption="ngModel"
+            name="imageCaption"
+            [(ngModel)]="image.caption"
+            [errorStateMatcher]="matcher"
+          />
+          <mat-error *ngIf="captionFormControl.hasError('required')">
+            Caption is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+
       </div>
-      <button mat-dialog-close class="details-card-exist"><mat-icon>cancel</mat-icon></button>
+
+      <button mat-dialog-close class="details-card-exist">
+        <mat-icon>cancel</mat-icon>
+      </button>
+
     </header>
 
     <mat-dialog-content>
@@ -26,9 +34,12 @@
       />
 
       <div class="details-card-options">
-
-        <div >
-          <select class="details-card-category" name="category" [(ngModel)]="image.categories">
+        <div>
+          <select
+            class="details-card-category"
+            name="category"
+            [(ngModel)]="image.categories"
+          >
             <option value="">No categories</option>
             <option *ngFor="let category of categories">{{ category }}</option>
           </select>
@@ -48,7 +59,6 @@
           <input name="private" [(ngModel)]="image.private" type="checkbox" />
           <mat-icon>lock</mat-icon>
         </div>
-
       </div>
     </mat-dialog-content>
 

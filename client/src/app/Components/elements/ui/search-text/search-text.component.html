@@ -1,4 +1,8 @@
-<div>
-    <input type="text" #text placeholder="Search.." />
-    <button (click)="searchPhotos(text.value)">Search</button>
-  </div>
+
+  <p class="search-continer">
+    <mat-form-field appearance="fill" class="search-input">
+      <mat-label>Search</mat-label>
+      <input matInput placeholder="Search..." #text>
+      <mat-icon matSuffix class="search-icon" (click)="searchPhotos(text.value)" >search</mat-icon>
+    </mat-form-field>
+  </p>

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Library } from 'src/app/models/library';
+import {FormControl, Validators} from '@angular/forms';
+import { MyErrorStateMatcher } from 'src/app/errors/errorMatcher';
 
 @Component({
   selector: 'app-form-page',
@@ -24,6 +26,9 @@ export class FormPageComponent implements OnInit {
     }
 
   }
+
+  nameFormControl = new FormControl('', [Validators.required,]);
+  matcher = new MyErrorStateMatcher();
 
   onSubmit(){ 
     console.log(this.library);

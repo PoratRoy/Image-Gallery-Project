@@ -2,23 +2,27 @@
 
 }
 
-
 .details-card-header{
     background-color: var(--primary-color);
-    margin: -20px -20px 0 -20px;
-    padding: 2rem;
+    padding: 1.5em 2em 0 2em;
+    margin: -25px -24px 0 -24px;
 
     display: flex;
     justify-content: space-between;
+    align-items: flex-start;
 }
 
 .details-card-title{
     display: flex;
+    width: 80%;
 }
 
 .details-card-caption{
     margin-left: 1rem;
+    width: 100%;
+    font-size: 1.5rem;
 }
+
 
 .details-card-exist{
     background-color:transparent;
@@ -44,7 +48,7 @@
 }
 
 .details-card-img{
-    border-radius: 10px;
+    border-radius: 5px;
     border:1px solid black;
     margin: 2em 0;
     height: 50vh;

@@ -1,41 +1,26 @@
-<p>options-page works!</p>
-
-
-<mat-form-field appearance="fill">
-    <mat-label>Input</mat-label>
-    <input matInput>
-  </mat-form-field>
-  
-  <mat-form-field appearance="fill">
-    <mat-label>Textarea</mat-label>
-    <textarea matInput></textarea>
-  </mat-form-field>
-
-
-
 
 <div>
-    <form #libraryForm="ngForm" (ngSubmit)="onSubmit()" novalidate>
-        <div>
-            <label>Library Name</label>
-            <input type="text" required #name="ngModel" name="libraryName" [(ngModel)]="library.name"
-            [class.is-invalid]="name.invalid && name.touched"/>
-            <div *ngIf="name.errors && (camera.valid || camera.untouched)">
-                <small *ngIf="name.errors.required">Name is required</small>
-            </div>
-        </div>
+    <form class="form-continer" #libraryForm="ngForm" (ngSubmit)="onSubmit()" novalidate>
 
-        <div>
-            <label>Description</label>
-            <input type="text"/>
-        </div>
+        <mat-form-field appearance="fill">
+            <mat-label>Library Name</mat-label>
+            <input matInput required #name="ngModel" name="libraryName" [(ngModel)]="library.name"
+            [errorStateMatcher]="matcher"/>
+            <mat-error *ngIf="nameFormControl.hasError('required')">
+                Name is <strong>required</strong>
+              </mat-error>
+        </mat-form-field>
 
-        <div>
-            <select name="template" #template [(ngModel)]="library.template">
-                <option selected value="list">List</option>
-                <option value="grid">Grid</option>
-            </select>
-        </div>
+        <mat-form-field appearance="fill">
+            <mat-label>Library Description</mat-label>
+            <textarea  matInput #description="ngModel" [(ngModel)]="library.description" [ngModelOptions]="{standalone: true}"></textarea>
+        </mat-form-field>
+
+        <mat-radio-group name="template" #template [(ngModel)]="library.template">
+            <mat-radio-button value="list">List</mat-radio-button>
+            <mat-radio-button value="grid">Grid</mat-radio-button>
+          </mat-radio-group>
+
 
         <div>
             <mat-checkbox #camera="ngModel" required [(ngModel)]="library.camera" name="camera"></mat-checkbox>
@@ -62,7 +47,7 @@
         </div>
 
 
-        <button [disabled]="libraryForm.form.invalid" type="submit">
+        <button mat-raised-button [disabled]="libraryForm.form.invalid" type="submit">
             Create
         </button>
 
