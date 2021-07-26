@@ -1,10 +1,17 @@
 <div>
-  <form class="details-card-continer" #imageForm="ngForm" (ngSubmit)="onSubmit()" novalidate>
+  <form
+    class="details-card-continer"
+    #imageForm="ngForm"
+    (ngSubmit)="onSubmit()"
+    novalidate
+  >
     <header class="details-card-header">
-
       <div class="details-card-title">
-
-        <mat-form-field appearance="outline" mat-dialog-title class="details-card-caption">
+        <mat-form-field
+          appearance="outline"
+          mat-dialog-title
+          class="details-card-caption"
+        >
           <mat-label>Image Caption</mat-label>
           <input
             matInput
@@ -18,13 +25,11 @@
             Caption is <strong>required</strong>
           </mat-error>
         </mat-form-field>
-
       </div>
 
       <button mat-icon-button mat-dialog-close class="details-card-exist">
         <mat-icon>cancel</mat-icon>
       </button>
-
     </header>
 
     <mat-dialog-content>
@@ -34,38 +39,52 @@
       />
 
       <section class="details-card-options">
-        
-        <mat-form-field appearance="outline">
+
+        <mat-form-field appearance="outline" class="details-card-category">
           <mat-label>Select category</mat-label>
-          <mat-select
-            name="category"
-            #category
-            [(ngModel)]="image.categories"
-          >
+          <mat-select name="category"  #category [(ngModel)]="image.categories">
             <mat-option value="">Without category</mat-option>
-            <mat-option *ngFor="let category of categories" [value]="category">{{
-              category
-            }}</mat-option>
+            <mat-option
+              *ngFor="let category of categories"
+              [value]="category"
+              >{{ category }}</mat-option
+            >
           </mat-select>
         </mat-form-field>
 
-        <button mat-icon-button class="details-card-location" (click)="taggleMap()">
-          <mat-icon>location_on</mat-icon>
-        </button>
-        <!-- <small *ngIf="isCoordsSelected">{{ image.location }}</small> -->
+        <div class="details-card-buttons">
+          
+          <button
+            mat-icon-button
+            class="details-card-location"
+            (click)="taggleMap()"
+          >
+            <mat-icon>location_on</mat-icon>
+          </button>
+          <!-- <small *ngIf="isCoordsSelected">{{ image.location }}</small> -->
 
-        <mat-button-toggle #favorite [checked]="favoriteFlag" (change)="favoriteFlag = $event.source.checked">
-          <mat-icon>grade</mat-icon>
-        </mat-button-toggle>
+          <mat-button-toggle
+            #favorite
+            [checked]="favoriteFlag"
+            (change)="favoriteFlag = $event.source.checked"
+            class="details-card-favorite"
+          >
+            <mat-icon>grade</mat-icon>
+          </mat-button-toggle>
 
-        <mat-button-toggle #private [checked]="privateFlag" (change)="privateFlag = $event.source.checked">
-          <mat-icon>lock</mat-icon>
-        </mat-button-toggle>
-
+          <mat-button-toggle
+            #private
+            [checked]="privateFlag"
+            (change)="privateFlag = $event.source.checked"
+            class="details-card-private"
+          >
+            <mat-icon>lock</mat-icon>
+          </mat-button-toggle>
+        </div>
       </section>
     </mat-dialog-content>
 
-    <mat-dialog-actions>
+    <mat-dialog-actions class="details-card-footer">
       <button
         type="submit"
         [disabled]="imageForm.form.invalid"

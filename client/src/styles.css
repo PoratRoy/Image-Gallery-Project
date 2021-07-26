@@ -31,7 +31,8 @@
     --active-secondary-text-color:rgb(212, 206, 206);
 
 
-    --primary-box-shdow: 5px, 5px, 5px, 0 rgba(0,0,0,0.2);
+    --primary-box-shadow: 5px 5px 5px 0 rgba(0,0,0,0.2);
+    --secondery-box-shadow: 2px 2px 7px 0 rgba(0,0,0,0.2);
 
 }
 
