@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { NgModule } from '@angular/core';
 
-import { GalleryDetailsPageComponent } from './Components/Pages/gallery-details-page/gallery-details-page.component';
 import { ModalDetailsComponent } from './Components/elements/gallery/modal-details/modal-details.component';
 import { ImageDisplayComponent } from './Components/elements/gallery/image-display/image-display.component';
 import { FromOnlineComponent } from './Components/elements/add-image/from-online/from-online.component';
@@ -29,10 +28,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { WebcamModule } from 'ngx-webcam';
 import { AgmCoreModule } from '@agm/core';
+import { AboutPageComponent } from './Components/Pages/about-page/about-page.component';
+import { FormEnterPrivateComponent } from './Components/elements/private-mode/form-enter-private/form-enter-private.component';
 
 @NgModule({
   declarations: [
-    GalleryDetailsPageComponent,
     ImageDisplayComponent,
     ModalDetailsComponent,
     AddImagePageComponent,
@@ -51,6 +51,8 @@ import { AgmCoreModule } from '@agm/core';
     AppComponent,
     MapComponent,
     CardComponent,
+    AboutPageComponent,
+    FormEnterPrivateComponent,
   ],
   entryComponents:[
     ModalDetailsComponent,

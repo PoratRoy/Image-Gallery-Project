@@ -1,5 +1,8 @@
 <div class="gallery-continer">
-  <app-search (filterImages)="renderGallery($event)"></app-search>
+  <app-search
+    class="gallery-filter"
+    (filterImages)="renderGallery($event)"
+  ></app-search>
   <br />
 
   <div>
@@ -10,19 +13,24 @@
     </ul>
   </div>
 
-  <div class="add-new-image">
-    <button mat-fab color="accent" routerLink="/addImage">
-      <mat-icon>add_photo_alternate</mat-icon>
-    </button>
+  <div class="gallery-buttons">
+    
+    <div class="how-to-show">
+      <button mat-fab color="accent" [matMenuTriggerFor]="menu">
+        <mat-icon>person</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>Show images on list / table</button>
+        <button mat-menu-item>Start random slideshow</button>
+      </mat-menu>
+    </div>
+
+    <div class="add-new-image">
+      <button mat-fab color="accent" routerLink="/addImage">
+        <mat-icon>add_photo_alternate</mat-icon>
+      </button>
+    </div>
+
   </div>
 
-  <div>
-    <button mat-fab color="accent" [matMenuTriggerFor]="menu">
-      <mat-icon>person</mat-icon>
-    </button>
-    <mat-menu #menu="matMenu">
-      <button mat-menu-item>Show images on list / table</button>
-      <button mat-menu-item>Start random slideshow</button>
-    </mat-menu>
-  </div>
 </div>

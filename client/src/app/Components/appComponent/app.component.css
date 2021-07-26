@@ -2,20 +2,24 @@
 
 
 .page-container{
+    position: relative;
     height: 100vh;
 }
 
 .top-toolbar{
+    position: fixed;
+    z-index: 999;
     background-color: var(--primary-color);
     height: 8vh;
 }
 
 .page-sidenav {
     width: 13vw;
-    padding: 0 !important;
+    background-color: var(--primary-transparent-color);
 }
 
 .page{
     padding: 5em;
+    padding-top: 7em;
 }
 

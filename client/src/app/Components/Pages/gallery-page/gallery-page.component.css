@@ -1,6 +1,9 @@
 
 .gallery-continer{
     position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 ul {
 	padding: 0;
@@ -11,10 +14,23 @@ li{
 	display: inline;
 }
 
-.add-new-image{
+.gallery-filter{
+
+}
+
+.gallery-buttons{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
 	position: fixed;
-	bottom: 5em;
 	right: 10em;
+	bottom: 5em;
+
+}
+
+.add-new-image{
+	margin-top: 2em;
 }
 
 .add-new-image button{
