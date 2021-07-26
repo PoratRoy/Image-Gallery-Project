@@ -10,7 +10,6 @@ import { Observable, Subject } from 'rxjs';
 export class FromCameraComponent implements OnInit {
 
   @Output() getImage = new EventEmitter<WebcamImage>();
-  showWebcam = true;
   isCameraExist = true;
 
   errors: WebcamInitError[] = [];
@@ -33,9 +32,6 @@ export class FromCameraComponent implements OnInit {
     this.trigger.next();
   }
 
-  onOffWebCame() {
-    this.showWebcam = !this.showWebcam;
-  }
 
   handleInitError(error: WebcamInitError) {
     this.errors.push(error);
@@ -43,7 +39,6 @@ export class FromCameraComponent implements OnInit {
 
   handleImage(webcamImage: WebcamImage) {
     this.getImage.emit(webcamImage);
-    this.showWebcam = false;
   }
 
   get triggerObservable(): Observable<void> {

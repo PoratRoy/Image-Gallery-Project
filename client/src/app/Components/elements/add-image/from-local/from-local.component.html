@@ -1,11 +1,13 @@
 
-<input
+<div class="local-continer">
+  <input
   style="display: none"
+  class="loacl-image-input"
   type="file" (change)="onFileChanged($event)"
   #fileInput>
-<button (click)="fileInput.click()">Select File</button>
-
-<!-- <div *ngIf="localImage">
-  <img [src]="localImage | async" width="200px" height="200px" alt="" />
-</div> -->
+  <button mat-raised-button (click)="fileInput.click()" class="loacl-image-btn">
+    <mat-icon>folder</mat-icon> 
+    Select File
+  </button>
+</div>
 

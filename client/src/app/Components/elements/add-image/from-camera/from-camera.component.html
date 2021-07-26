@@ -1,12 +1,15 @@
-<div *ngIf="isCameraExist; else noCameraExist">
-    <div style="text-align:center">
-        <div class="btn-group">
-            <button class="button" (click)="takeSnapshot()">Take Picture</button>
-            <button class="button" (click)="onOffWebCame()">Switch camera</button>
-        </div> <br />
+<div *ngIf="isCameraExist">
+    <div class="camera-continer">
 
-        <webcam [height]="500" [width]="1000" [trigger]="triggerObservable" (imageCapture)="handleImage($event)"
-            *ngIf="showWebcam" [switchCamera]="nextWebcamObservable"></webcam>
+        <section class="camera-view">
+            <webcam [trigger]="triggerObservable" (imageCapture)="handleImage($event)"
+            [switchCamera]="nextWebcamObservable"></webcam>
+        </section>
+
+        <button mat-fab class="btn-take-picture" (click)="takeSnapshot()">
+            <mat-icon>photo_camera</mat-icon>
+        </button>
+
     </div>
 
     <div *ngIf="errors.length > 0">
@@ -17,6 +20,6 @@
     </div>
 </div>
 
-<ng-template #noCameraExist>
+<div *ngIf="!isCameraExist" class="camera-not-found">
     Camera device not available
-</ng-template>
+</div>

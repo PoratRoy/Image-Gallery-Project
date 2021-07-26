@@ -2,7 +2,7 @@
 .add-image-continer{
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items:flex-start;
 }
 
 .add-image-options{

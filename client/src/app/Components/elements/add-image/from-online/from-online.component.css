@@ -1,19 +1,32 @@
 
+.add-search-continer{
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+	padding: 5em 6em;
+}
+
 .gallery-continer{
     position: relative;
 	display: flex;
 }
 ul {
 	padding: 0;
-	width: 1288px;
+	width: 100%;
 	margin: 28px auto;
 }
 li{
 	display: inline;
 }
 
+.add-search-input{
+	position: relative;
+	font-size: 1.1rem;
+}
+
 .image-dispaly-continer{
     border: none;
-    background-color: transparent;
     cursor: pointer;
 }
