@@ -34,13 +34,16 @@
 
   <section class="add-image-resulat">
 
-    <div class="add-image-img" *ngIf="image">
-      <img [src]="image" height="200px" />
+    <div class="add-image-img" >
+      <label class="previous-view">Previous View</label>
+      <img [src]="image"/>
     </div>
     
-    <button class="add-image-select" mat-raised-button (click)="SelectIamge()">Select</button>
-
-    <a class="add-image-done" routerLink="/gallery">Done</a>
+    <section class="add-image-result-buttons">
+      <button class="add-image-select" mat-fab (click)="selectIamge()"><mat-icon>check</mat-icon></button>
+      <button class="add-image-remove" mat-fab (click)="removeImage()"><mat-icon>close</mat-icon></button>
+    </section>
+    <button class="add-image-done" routerLink="/gallery">Done</button>
 
   </section>
 

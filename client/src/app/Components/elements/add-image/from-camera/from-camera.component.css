@@ -5,7 +5,7 @@
     flex-direction: column;
     align-items: center;
     margin-top: 5em;
-    height: 60vh;
+    height: 65vh;
   }
 
   .camera-view{
@@ -16,8 +16,8 @@
   }
 
   .btn-take-picture{
-    width: 9%;
-    height: 16%;
+    height: 10vh;
+    width: 5vw;
     display: flex;
     justify-content: center;
     align-items: center;

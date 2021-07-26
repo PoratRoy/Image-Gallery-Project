@@ -33,7 +33,7 @@ export class AddImagePageComponent implements OnInit {
     this.imageCaption = $event[1];
   }
 
-  SelectIamge():void{
+  selectIamge():void{
 
     const imageTemplate : Image = {
       caption: this.imageCaption,
@@ -49,6 +49,10 @@ export class AddImagePageComponent implements OnInit {
       error => console.log('e', error)
     )
 
+  }
+
+  removeImage(){
+    this.image = '';
   }
 
 }

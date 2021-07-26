@@ -1,23 +1,22 @@
-<div *ngIf="isCameraExist">
-    <div class="camera-continer">
 
-        <section class="camera-view">
-            <webcam [trigger]="triggerObservable" (imageCapture)="handleImage($event)"
-            [switchCamera]="nextWebcamObservable"></webcam>
-        </section>
+<div *ngIf="isCameraExist" class="camera-continer">
 
-        <button mat-fab class="btn-take-picture" (click)="takeSnapshot()">
-            <mat-icon>photo_camera</mat-icon>
-        </button>
+    <section class="camera-view">
+        <webcam [trigger]="triggerObservable" (imageCapture)="handleImage($event)"
+        [switchCamera]="nextWebcamObservable"></webcam>
+    </section>
 
-    </div>
+    <button mat-fab class="btn-take-picture" (click)="takeSnapshot()">
+        <mat-icon>photo_camera</mat-icon>
+    </button>
 
-    <div *ngIf="errors.length > 0">
-        <h4>Error Messages:</h4>
-        <ul *ngFor="let error of errors">
-            <li>{{ error | json }}</li>
-        </ul>
-    </div>
+</div>
+
+<div *ngIf="errors.length > 0">
+    <h4>Error Messages:</h4>
+    <ul *ngFor="let error of errors">
+        <li>{{ error | json }}</li>
+    </ul>
 </div>
 
 <div *ngIf="!isCameraExist" class="camera-not-found">
