@@ -1,19 +1,45 @@
-<div class="pos">
-    <div class="navbar-continer">
-        <div class="navbar-items">
-            <a routerLink="/" class="logo">My Websit</a>
-            <ul class="navbar-li-items">
-                <li><a routerLink="/" class="home">Home</a></li>
-                <li><a routerLink="/addImage">addImage</a></li>
-                <li><a routerLink="/details">details</a></li>
-                <li><a routerLink="/gallery">gallery</a></li>
-                <li><a routerLink="/form">form</a></li>
-                <li><button >
-                    add category
-                </button></li>
-            </ul>
-        </div>
-    </div>
+<div class="navbar-continer">
+  <mat-list>
+    <mat-list-item >
+      <div class="logo"></div>
+      <mat-divider></mat-divider>
+    </mat-list-item>
+
+    <mat-list-item class="navbar-item">
+      <button routerLink="/">home</button>
+      <mat-divider></mat-divider>
+    </mat-list-item>
+
+    <mat-list-item class="navbar-item">
+      <button routerLink="/addImage">addImage</button>
+      <mat-divider></mat-divider>
+    </mat-list-item>
+
+    <mat-list-item class="navbar-item">
+      <button routerLink="/gallery">gallery</button>
+      <mat-divider></mat-divider>
+    </mat-list-item>
+
+    <mat-list-item class="navbar-item">
+      <button routerLink="/form">form</button>
+      <mat-divider></mat-divider>
+    </mat-list-item>
+
+    <mat-list-item class="navbar-item">
+      <button routerLink="/">add category</button>
+      <mat-divider></mat-divider>
+    </mat-list-item>
+
+    <mat-list-item class="navbar-item">
+      <button routerLink="/about">about</button>
+      <mat-divider></mat-divider>
+    </mat-list-item>
+
+    <mat-list-item class="navbar-item">
+      <button routerLink="/private">enter private mode</button>
+      <mat-divider></mat-divider>
+    </mat-list-item>
+  </mat-list>
 </div>
 
 <app-add-category></app-add-category>

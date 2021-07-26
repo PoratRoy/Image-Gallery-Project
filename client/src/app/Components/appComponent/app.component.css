@@ -1,17 +1,21 @@
 
-.top-toolbar{
-    background-color: var(--primary-color);
-    height: 8vh;
-}
+
 
 .page-container{
     height: 100vh;
 }
 
+.top-toolbar{
+    background-color: var(--primary-color);
+    height: 8vh;
+}
+
 .page-sidenav {
-    padding: 4em;
+    width: 13vw;
+    padding: 0 !important;
 }
 
 .page{
     padding: 5em;
 }
+

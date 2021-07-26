@@ -1,8 +1,5 @@
 import { NgModule } from '@angular/core';
 
-
-import { MatListModule } from '@angular/material/list';
-
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -18,6 +15,9 @@ import {MatRadioModule} from '@angular/material/radio';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTabsModule} from '@angular/material/tabs';
 import {MatCardModule} from '@angular/material/card';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatListModule} from '@angular/material/list';
 
 const MaterialComponents =[
   BrowserAnimationsModule,
@@ -35,6 +35,9 @@ const MaterialComponents =[
   MatTabsModule,
   MatCardModule,
   MatIconModule,
+  MatMenuModule,
+  MatDividerModule,
+  MatListModule,
 ]
 
 @NgModule({
