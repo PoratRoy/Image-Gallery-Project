@@ -6,7 +6,6 @@
 .logo{
     height: 100%;
     width: 100%;
-    background-color: tomato;
 }
 
 .navbar-continer{
@@ -29,4 +28,8 @@
     cursor: pointer;
     font-size: 1.5rem;
     font-weight: 700;
+    background-color: var(--primary-light-color);
+}
+.navbar-item button:hover{
+    background-color: var(--hover-primary-color);
 }

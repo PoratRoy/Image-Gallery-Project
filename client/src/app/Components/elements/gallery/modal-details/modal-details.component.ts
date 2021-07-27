@@ -6,6 +6,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MapComponent } from '../map/map.component';
 import {FormControl, Validators} from '@angular/forms';
 import { MyErrorStateMatcher } from 'src/app/errors/errorMatcher';
+import { CategoryService } from 'src/app/services/category.service';
 
 
 @Component({
@@ -15,7 +16,7 @@ import { MyErrorStateMatcher } from 'src/app/errors/errorMatcher';
 })
 export class ModalDetailsComponent implements OnInit {
 
-  categories = ['A','B','C','D'];
+  categories: string[];
   isSubmitted:boolean = false;
   isCoordsSelected:boolean = false;
   image:Image;
@@ -24,9 +25,15 @@ export class ModalDetailsComponent implements OnInit {
   favoriteFlag:boolean;
   privateFlag:boolean;
 
-  constructor(private _images : ImagesService, @Inject(MAT_DIALOG_DATA) private data:any, public _dialog: MatDialog) { }
+  constructor(private _images : ImagesService, private _categories : CategoryService, 
+              @Inject(MAT_DIALOG_DATA) private data:any, public _dialog: MatDialog) { }
 
   ngOnInit(): void {
+
+    this._categories.getAllCategories().subscribe((c)=>{
+      this.categories = c;
+    })
+    
     this.image = this.data.image;
 
     const splitLocation = this.image.location.toString().split(',',2);

@@ -1,53 +1,45 @@
-const fs = require("fs");
-const path = require("path");
-const Datastore = require("nedb");
-//const Jimp = require("jimp");
 
-const database = new Datastore("db-categories.db"); //{ filename: 'my.db', autoload: true }  ?
-database.loadDatabase();
+const { AsyncNedb } = require('nedb-async');
 
-exports.gatAllCategories = (req, res) => {
-  database.find({}, (err, data) => {
-    if (err) {
-      res.end();
-      return;
-    }
-    res.json(data);
-  });
+const database = new AsyncNedb({
+  filename: 'db-categories.db',
+  autoload: true,
+})
+
+
+exports.defaultCategories = async ()=> {
+  let categories = await database.asyncFind({})
+
+  if(categories.length === 0){
+    await database.asyncInsert({category:'Animals'})
+    await database.asyncInsert({category:'Landscapes'})
+    await database.asyncInsert({category:'People'})
+    await database.asyncInsert({category:'Structures'})
+  }
+}
+
+exports.gatAllCategories = async (req, res) => {
+  try{
+    let categoriesArray;
+    let categories = await database.asyncFind({})
+
+    categoriesArray = categories.map((c)=> {
+      return c.category;
+    })
+    res.send(categoriesArray);
+  }catch(err){
+    console.log(err);
+  }
 };
 
 
-exports.addNewCategory = (req, res) => {
+exports.addNewCategory = async (req, res) => {
   const newCategory = req.body.categories;
-  let categories;
-
-  database.find().exec(function (err, result) {
-    if (err) {
-    console.error(err);
-    } else {
-    data = result;
-    }
-
-    if(data.length === 0){
-      database.insert({categories:[newCategory]})
-    } else {
-      // console.log(data[0].categories);
-      // let newCategories = data[0].categories;
-
-      // newCategories.push(newCategory);
-      // console.log(newCategories);
-      console.log(data[0]);
-
-      database.update(
-        {categories: data[0].categories},
-        {categories: data[0].categories.push(newCategory)},
-        {},
-        function (err, numReplaced) {
-            console.log("number of changes in update", numReplaced);
-        }
-      );    
-    }
-  })
+  try{
+    await database.asyncInsert({category:newCategory})
+  }catch(err){
+    console.log(err);
+  }
 }
 
 

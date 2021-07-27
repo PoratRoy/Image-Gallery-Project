@@ -4,7 +4,7 @@ const Datastore = require("nedb");
 const { AsyncNedb } = require('nedb-async')
 //const Jimp = require("jimp");
 
-const data = new AsyncNedb({
+const database = new AsyncNedb({
   filename: 'db-images.db',
   autoload: true,
 })
@@ -12,7 +12,7 @@ const data = new AsyncNedb({
 
 exports.gatAllImages = async (req, res) => {
   try{
-    let images =await data.asyncFind({})
+    let images =await database.asyncFind({})
     images = await getBase64Images(images);
     res.json(images);
   } catch (err){
@@ -43,7 +43,7 @@ exports.addNewImage = async (req, res) => {
   const timestamp = Date.now();
   image.timestamp = timestamp;
 
-  await data.asyncInsert(image);
+  await database.asyncInsert(image);
   res.json(image);
 };
 
@@ -63,9 +63,9 @@ exports.updateImage = async (req, res) => {
   try{
     const imageWithChanges = req.body;
   
-    let image = await data.asyncFind({ _id: imageWithChanges._id })
+    let image = await database.asyncFind({ _id: imageWithChanges._id })
       
-    await data.asyncUpdate(
+    await database.asyncUpdate(
       {
         caption: image[0].caption,
         src: image[0].src,
@@ -94,9 +94,9 @@ exports.getImageByQueryString = async (req, res) => {
   let images
   try {
     if(req.query.caption === ''){
-      images = await data.asyncFind({})
+      images = await database.asyncFind({})
     } else {
-      images = await data.asyncFind(req.query)
+      images = await database.asyncFind(req.query)
     }    
 
   } catch (err) {
@@ -111,7 +111,7 @@ exports.getImageByQueryString = async (req, res) => {
 
 exports.getImageByPrivate = async (req, res) => { 
   try{
-    let images = await data.asyncFind({ private: true })
+    let images = await database.asyncFind({ private: true })
     let base64Images = getBase64Images(images);
     res.json(base64Images);
 
@@ -122,7 +122,7 @@ exports.getImageByPrivate = async (req, res) => {
 
 exports.getImageByFavorite = async (req, res) => { 
   try{
-    let images = await data.asyncFind({ favorite: true })
+    let images = await database.asyncFind({ favorite: true })
     let base64Images = getBase64Images(images);
     res.json(base64Images);
 

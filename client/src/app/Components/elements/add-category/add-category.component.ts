@@ -22,9 +22,7 @@ export class AddCategoryComponent implements OnInit {
   matcher = new MyErrorStateMatcher();
 
   onSubmit(value){ 
-    console.log(value);
     this._categoryService.appendCategory(value);
-    
   }
 
 
