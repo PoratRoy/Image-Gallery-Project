@@ -56,6 +56,7 @@ import { FormEnterPrivateComponent } from './Components/elements/private-mode/fo
   ],
   entryComponents:[
     ModalDetailsComponent,
+    AddCategoryComponent,
     MapComponent,
   ],
   imports: [

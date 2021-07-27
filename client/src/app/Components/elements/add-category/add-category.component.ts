@@ -1,6 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { TaggoleCategoryModalService } from 'src/app/services/taggoles/taggole-category-modal.service';
+import { Component, OnInit, Inject } from '@angular/core';
 import { CategoryService } from 'src/app/services/category.service';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
+import {FormControl, Validators} from '@angular/forms';
+import { MyErrorStateMatcher } from 'src/app/errors/errorMatcher';
 
 
 @Component({
@@ -10,13 +13,13 @@ import { CategoryService } from 'src/app/services/category.service';
 })
 export class AddCategoryComponent implements OnInit {
 
-  visible:boolean = false;
-
-  constructor(private _modal:TaggoleCategoryModalService, private _categoryService: CategoryService) { }
+  constructor(private _categoryService: CategoryService) { }
 
   ngOnInit(): void {
-    this._modal.taggleModal.subscribe((res)=>{this.visible = res;})
   }
+
+  captionFormControl = new FormControl('', [Validators.required,]);
+  matcher = new MyErrorStateMatcher();
 
   onSubmit(value){ 
     console.log(value);
@@ -24,8 +27,6 @@ export class AddCategoryComponent implements OnInit {
     
   }
 
-  close():void{
-    this.visible = false;
-  }
+
 
 }

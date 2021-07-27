@@ -1,27 +1,46 @@
+<div class="add-category-continer">
+  <header class="add-category-header">
+    <h1 mat-dialog-title class="add-category-title">Add new category</h1>
 
-<div class="modal-continer" *ngIf="visible">
-
-  <header class="modal-header">
-    <h2>Add New Category</h2>
-    <button class="modal-exist" (click)="close()">X</button>
+    <button mat-icon-button mat-dialog-close class="add-category-exist">
+      <mat-icon>cancel</mat-icon>
+    </button>
   </header>
 
-  <form #categoryForm="ngForm" novalidate>
-    {{categoryForm.value|json}}
-    <input
-      type="text"
-      placeholder="Category"
-      required
-      #category
-      name="category"
-      ngModel
-      [class.is-invalid]="category.invalid && category.touched"
-    />
-    <div *ngIf="category.errors && (category.invalid || category.touched)">
-      <small *ngIf="category.errors.required">category is required</small>
+  <form class="add-category-form" #categoryForm="ngForm" novalidate>
+    {{ categoryForm.value | json }}
+    <div mat-dialog-content>
+      <mat-form-field
+        appearance="outline"
+        class="add-category-input"
+      >
+      <mat-label>Add category</mat-label>
+        <input
+          placeholder="Add category..."
+          required
+          matInput
+          #category
+          name="category"
+          ngModel
+          [errorStateMatcher]="matcher"
+        />
+        <mat-error *ngIf="captionFormControl.hasError('required')">
+          Category is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
     </div>
 
-    <button type="submit" [disabled]="categoryForm.form.invalid"
-    (click)="onSubmit(category.value)">Add</button>
+    <div mat-dialog-actions>
+      <button
+      class="add-category-add"
+        type="submit"
+        mat-raised-button
+        [disabled]="categoryForm.form.invalid"
+        (click)="onSubmit(category.value)"
+        mat-dialog-close
+      >
+        Add
+      </button>
+    </div>
   </form>
 </div>

@@ -1,21 +1,59 @@
-.modal-continer{
-    position: relative;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    background-color: blanchedalmond;
-    border-radius: 10px;
-    border:1px solid black;
-    
+
+.add-category-{
+
 }
 
-.modal-header{
+.add-category-continer{
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
-    background-color: rgb(151, 136, 131);
-    margin-bottom: 0.5rem;
-    padding: 0.5rem;
 }
 
+.add-category-header{
+    background-color: var(--primary-color);
+    padding: 1.5em 2em 0 2em;
+    margin: -25px -24px 0 -24px;
+
+    text-align: center;
+    position: relative;
+}
+
+.add-category-title{
+    font-weight: 700;
+    margin-right: 0.8em;
+}
+
+
+.add-category-exist{
+    position: absolute;
+    top: 0.1em;
+    right: 0.1em;
+}
+.add-category-exist mat-icon{
+    color: var(--secondary-text-color);
+}
+.add-category-exist mat-icon:hover{
+    color: var(--hover-secondary-text-color);
+}
+.add-category-exist mat-icon:active{
+    color: var(--active-secondary-text-color);
+}
+
+.add-category-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.add-category-input{
+    font-size:1.1rem;
+    margin-top: 0.5em;
+}
+
+.add-category-add{
+    position: relative;
+    height: 5vh;
+    width: 50%;
+    background-color: var(--third-color);
+    font-weight: 700;
+}
