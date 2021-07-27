@@ -12,6 +12,7 @@ import { PrivateModeService } from 'src/app/services/private-mode.service';
 export class GalleryPageComponent implements OnInit {
 
   images: Image[];
+  isCarousel:boolean = false;
   
   constructor(private _images : ImagesService, private _permission : PrivateModeService ) { }
   
@@ -33,6 +34,14 @@ export class GalleryPageComponent implements OnInit {
 
   renderGallery($event){
     this.images = $event;
+  }
+
+  dispalyAsGallery(){
+    this.isCarousel = false;
+  }
+
+  displayAsCarousel(){
+    this.isCarousel = true;
   }
 
 }

@@ -47,3 +47,13 @@ li{
 	font-size: 3rem;
 
 }
+
+.images-carousel{
+	position: relative;
+	bottom: -0.5em;
+	height: 80vh;
+	width: 80%;
+	border-radius: 10px;
+	overflow: hidden;
+	border:1px solid black;
+}

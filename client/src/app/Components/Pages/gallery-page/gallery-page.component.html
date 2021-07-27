@@ -1,27 +1,33 @@
 <div class="gallery-continer">
-  <app-search
-    class="gallery-filter"
-    (filterImages)="renderGallery($event)"
-  ></app-search>
-  <br />
 
-  <div>
-    <ul class="thumbnailsList">
-      <li *ngFor="let image of images">
-        <app-image-display [image]="image"></app-image-display>
-      </li>
-    </ul>
-  </div>
+  <section *ngIf="!isCarousel">
+    <app-search
+      class="gallery-filter"
+      (filterImages)="renderGallery($event)"
+    ></app-search>
+    <br />
+
+    <div>
+      <ul class="thumbnailsList">
+        <li *ngFor="let image of images">
+          <app-image-display [image]="image"></app-image-display>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="images-carousel" *ngIf="isCarousel">
+    <app-carousel [images]="images"></app-carousel>
+  </section>
 
   <div class="gallery-buttons">
-    
     <div class="how-to-show">
       <button mat-fab color="accent" [matMenuTriggerFor]="menu">
         <mat-icon>person</mat-icon>
       </button>
       <mat-menu #menu="matMenu">
-        <button mat-menu-item>Show images on list / table</button>
-        <button mat-menu-item>Start random slideshow</button>
+        <button mat-menu-item (click)="dispalyAsGallery()">Show images on list / table</button>
+        <button mat-menu-item (click)="displayAsCarousel()">Start random slideshow</button>
       </mat-menu>
     </div>
 
@@ -30,7 +36,5 @@
         <mat-icon>add_photo_alternate</mat-icon>
       </button>
     </div>
-
   </div>
-
 </div>

@@ -13,6 +13,7 @@ import { SearchTextComponent } from './Components/elements/ui/search-text/search
 import { AddCategoryComponent } from './Components/elements/add-category/add-category.component';
 import { IamgeCardComponent } from './Components/elements/ui/iamge-card/iamge-card.component';
 import { GalleryPageComponent } from './Components/Pages/gallery-page/gallery-page.component';
+import { CarouselComponent } from './Components/elements/gallery/carousel/carousel.component';
 import { SearchComponent } from './Components/elements/gallery/search/search.component';
 import { AboutPageComponent } from './Components/Pages/about-page/about-page.component';
 import { HamburgerComponent } from './Components/layout/hamburger/hamburger.component';
@@ -25,6 +26,7 @@ import { AppComponent } from './components/appComponent/app.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
+import { MatCarouselModule } from '@ngmodule/material-carousel';
 
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
@@ -53,6 +55,7 @@ import { AgmCoreModule } from '@agm/core';
     AppComponent,
     MapComponent,
     CardComponent,
+    CarouselComponent,
   ],
   entryComponents:[
     FormEnterPrivateComponent,
@@ -68,9 +71,10 @@ import { AgmCoreModule } from '@agm/core';
     WebcamModule,
     HttpClientModule,
     FormsModule,
+    MatCarouselModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyAEOO6OuHJfExPwJAdBY4gw3LfceDT4AeQ'
-    })
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]

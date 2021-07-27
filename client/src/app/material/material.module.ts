@@ -18,6 +18,8 @@ import {MatCardModule} from '@angular/material/card';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatListModule} from '@angular/material/list';
+import {MatRippleModule} from '@angular/material/core';
+
 
 const MaterialComponents =[
   BrowserAnimationsModule,
@@ -26,6 +28,7 @@ const MaterialComponents =[
   MatCheckboxModule,
   MatSidenavModule,
   MatToolbarModule,
+  MatDividerModule,
   MatButtonModule,
   MatCommonModule,
   MatDialogModule,
@@ -36,8 +39,8 @@ const MaterialComponents =[
   MatCardModule,
   MatIconModule,
   MatMenuModule,
-  MatDividerModule,
   MatListModule,
+  MatRippleModule,
 ]
 
 @NgModule({
