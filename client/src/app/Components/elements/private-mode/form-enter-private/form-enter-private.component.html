@@ -1,1 +1,43 @@
-<p>form-enter-private works!</p>
+<div>
+  <form
+    class="form-continer"
+    #privateForm="ngForm"
+    (ngSubmit)="onSubmit(password.value)"
+    novalidate
+  >
+    <mat-form-field appearance="outline">
+      <mat-label>Enter your password</mat-label>
+      <input
+        matInput
+        required
+        #password
+        name="password"
+        ngModel
+        [type]="hide ? 'password' : 'text'"
+        [errorStateMatcher]="matcher"
+      />
+      <button
+        mat-icon-button
+        matSuffix
+        (click)="hide = !hide"
+        [attr.aria-label]="'Hide password'"
+        [attr.aria-pressed]="hide"
+      >
+        <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+      </button>
+      <mat-error *ngIf="privateFormControl.hasError('required')">
+        Enter <strong>password</strong> to enter the private mode!
+      </mat-error>
+    </mat-form-field>
+
+    <button
+      mat-raised-button
+      [disabled]="privateForm.form.invalid"
+      type="submit"
+      mat-dialog-close
+      routerLink="/gallery"
+    >
+      Enter
+    </button>
+  </form>
+</div>

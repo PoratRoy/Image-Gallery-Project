@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {FormControl, Validators} from '@angular/forms';
+import { MyErrorStateMatcher } from 'src/app/errors/errorMatcher';
+import { PrivateModeService } from 'src/app/services/private-mode.service';
 
 @Component({
   selector: 'app-form-enter-private',
@@ -7,9 +10,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormEnterPrivateComponent implements OnInit {
 
-  constructor() { }
+  password: string;
+  hide: boolean = true;
+
+  constructor(private _permission : PrivateModeService) { }
 
   ngOnInit(): void {
+  }
+
+  privateFormControl = new FormControl('', [Validators.required,]);
+  matcher = new MyErrorStateMatcher();
+
+  onSubmit(value){ 
+    this._permission.enterPrivateMode(value);
   }
 
 }

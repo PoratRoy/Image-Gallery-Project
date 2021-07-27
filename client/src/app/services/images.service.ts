@@ -31,6 +31,10 @@ export class ImagesService {
     return this._http.get<any>(this._url+'byPrivate')
   }
 
+  getImageByNoPrivate(){
+    return this._http.get<any>(this._url+'byNoPrivate')
+  }
+
   getImageByFavorite(){
     return this._http.get<any>(this._url+'byFavorite')
   }
