@@ -1,4 +1,5 @@
 import { Injectable,EventEmitter } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,11 +10,13 @@ export class PrivateModeService {
 
   constructor() { }
 
-  enterPrivateMode(permission:string ) {
-    if(permission === 'popo'){
+  enterPrivateMode(password:string ):boolean{
+
+    if(password === 'popo'){
       this.permission.emit(true);
+      return true;
     }else{
-      this.permission.emit(false);
+      return false;
     }
   }
 

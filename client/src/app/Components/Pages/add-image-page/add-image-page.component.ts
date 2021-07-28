@@ -55,6 +55,7 @@ export class AddImagePageComponent implements OnInit {
     this.image = '';
   }
 
+
 }
 
 

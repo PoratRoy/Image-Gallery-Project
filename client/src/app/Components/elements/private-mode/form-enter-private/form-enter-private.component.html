@@ -11,6 +11,7 @@
         matInput
         required
         #password
+        [value]="pass"
         name="password"
         ngModel
         [type]="hide ? 'password' : 'text'"
@@ -34,10 +35,11 @@
       mat-raised-button
       [disabled]="privateForm.form.invalid"
       type="submit"
-      mat-dialog-close
       routerLink="/gallery"
     >
       Enter
     </button>
+
+    <div *ngIf="invalidAttempt">Invalid attempt to login</div>
   </form>
 </div>

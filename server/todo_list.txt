@@ -1,8 +1,10 @@
 
 V-- change from Library to Gallery in the form and in its components
 -- search text doesnt want to '' when i chase category
--- setTimeOut to pass to the gallery is a shit idea
--- validation if wrong password in the enter to private mode's popup
+-- '' not working in the search and the password
+V-- setTimeOut to pass to the gallery is a shit idea
+V-- validation if wrong password in the enter to private mode's popup
+V-- enter private mode from pages not working
 
 V-- list or grid
 V-- form sign in pass to the gallery with the gallery name and the difault list or grid
