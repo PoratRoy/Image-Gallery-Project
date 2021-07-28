@@ -22,9 +22,12 @@ export class ImagesService {
     return this._http.put<any>(this._url+'update', image)
   }
 
-  getImageByCaptionAndCategory(query){
-    return this._http.get<any>(this._url+'search',{ params: query})
+  getImagesByCaption(query){
+    return this._http.get<any>(this._url+'searchCaption',{ params: query})
+  }
 
+  getImagesByCategory(query){
+    return this._http.get<any>(this._url+'searchCategory',{ params: query})
   }
   
   getImageByPrivate(){

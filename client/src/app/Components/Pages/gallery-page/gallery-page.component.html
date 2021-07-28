@@ -3,7 +3,6 @@
   <section *ngIf="!isCarousel">
     <app-search
       class="gallery-filter"
-      (filterImages)="renderGallery($event)"
     ></app-search>
     <br />
 
@@ -21,6 +20,9 @@
   </section>
 
   <div class="gallery-buttons">
+
+    <div *ngIf="privateIcon">private!</div>
+
     <div class="how-to-show">
       <button mat-fab color="accent" [matMenuTriggerFor]="menu">
         <mat-icon>person</mat-icon>
@@ -36,5 +38,7 @@
         <mat-icon>add_photo_alternate</mat-icon>
       </button>
     </div>
+
   </div>
+
 </div>

@@ -14,10 +14,7 @@ export class CategoryService {
   }
 
   appendCategory(category:string){
-    return this._http.post<any>(this._url+'append', {categories:category}).subscribe((res)=>{
-      console.log(res);
-      
-    });
+    return this._http.post<any>(this._url+'append', {categories:category}).subscribe((res)=>{});
   }
 }
 

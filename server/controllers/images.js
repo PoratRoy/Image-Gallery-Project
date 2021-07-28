@@ -89,24 +89,50 @@ exports.updateImage = async (req, res) => {
 
 };
 
-exports.getImageByQueryString = async (req, res) => {
+exports.getImagesByCaption = async (req, res) => {
 
-  let images
+  let images;
   try {
     if(req.query.caption === ''){
-      images = await database.asyncFind({})
+      images = await getImagesIfNoValue(req.query.private);
     } else {
-      images = await database.asyncFind(req.query)
-    }    
+      if(req.query.private === 'true'){
+        images = await database.asyncFind({ caption: req.query.caption, private: true })
+      } else {
+        images = await database.asyncFind({ caption: req.query.caption, private: false })
+      }
+    }
+
+    images = await getBase64Images(images);
+    
+    res.json(images);
 
   } catch (err) {
     console.log(err);
   }
-
-  images = await getBase64Images(images);
-  res.json(images);
 };
 
+exports.getImagesByCategory = async (req, res) => {
+
+  let images;
+  try {
+    if(req.query.categories === ''){
+      images = await getImagesIfNoValue(req.query.private);
+    } else {
+      if(req.query.private === 'true'){
+        images = await database.asyncFind({ categories: req.query.categories, private: true })
+      } else {
+        images = await database.asyncFind({ categories: req.query.categories, private: false })
+      }
+    }
+    images = await getBase64Images(images);
+    
+    res.json(images);
+
+  } catch (err) {
+    console.log(err);
+  }
+};
 
 
 exports.getImageByPrivate = async (req, res) => { 
@@ -153,6 +179,21 @@ getBase64Images = async (images) => {
   const res = await Promise.all(promises);
   return res;
 }
+
+getImagesIfNoValue = async (private) => {
+
+  let images
+  try {
+      if(private === 'true'){
+        images = await database.asyncFind({ private: true })
+      } else {
+        images = await database.asyncFind({ private: false })
+      }
+      return images;
+  } catch (err) {
+    console.log(err);
+  }
+};
 
 
 

@@ -1,6 +1,9 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Image } from 'src/app/models/Image';
+import { CategoryService } from 'src/app/services/category.service';
 import { ImagesService } from '../../../../services/images.service';
+import { SearchService } from 'src/app/services/search.service';
+
 
 @Component({
   selector: 'app-search',
@@ -11,29 +14,27 @@ export class SearchComponent implements OnInit {
 
   @Output() filterImages = new EventEmitter<any>();
 
-  categories = ['A','B','C','D'];
-  
+  categories: string[];
   selectedCategory:string = '';
-  searchedCaption:string = '';
 
-  constructor(private _images : ImagesService) { }
+  constructor(private _images : ImagesService, private _categories : CategoryService, private _search : SearchService) { }
 
   ngOnInit(): void {
+    this._categories.getAllCategories().subscribe((c)=>{
+      this.categories = c;
+    })
   }
 
-  searchByCategory(value){
-    this.selectedCategory=value;
+  searchByCategory(value : string){
+
+    this._search.searchByCategory(value);
   }
   
-  searchByText(value){
-    this.searchedCaption = value;
-    
-    this._images.getImageByCaptionAndCategory({
-      categories:this.selectedCategory,
-      caption:this.searchedCaption
-    }).subscribe(
-      data => {this.filterImages.emit(data)},
-      error => console.log(error))
+  searchByText(value : string){
+
+    this._search.searchByText(value);
+
+    this.selectedCategory = '';
   }
 
 

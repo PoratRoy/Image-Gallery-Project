@@ -2,7 +2,7 @@
   <p class="search-continer">
     <mat-form-field appearance="outline" class="search-input">
       <mat-label>Search</mat-label>
-      <input matInput placeholder="Search..." #text>
+      <input matInput placeholder="Search..." #text [value]="value">
       <mat-icon matSuffix class="search-icon" (click)="searchPhotos(text.value)" >search</mat-icon>
     </mat-form-field>
   </p>

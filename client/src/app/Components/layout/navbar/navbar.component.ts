@@ -23,4 +23,10 @@ export class NavbarComponent implements OnInit {
     let ref = this._dialog.open(FormEnterPrivateComponent)
   }
 
+  refreshPage():void{
+    setTimeout(()=>{
+      window.location.reload();
+    }, 1)
+  }
+
 }

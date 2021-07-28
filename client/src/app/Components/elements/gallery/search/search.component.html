@@ -1,10 +1,12 @@
 <div class="gallery-search-continer">
+
   <mat-form-field appearance="outline">
     <mat-label>Select category</mat-label>
-    <mat-select
+    <mat-select disableRipple
       name="category"
       #category
-      (change)="searchByCategory(category.value)"
+      [(value)]="selectedCategory"
+      (selectionChange)="searchByCategory(category.value)"
     >
       <mat-option value="">Without category</mat-option>
       <mat-option *ngFor="let category of categories" [value]="category">{{

@@ -1,7 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const {gatAllImages,addNewImage, updateImage, getImageByQueryString, 
-       getImageByNoPrivate, getImageByFavorite, getImageByPrivate} = require('../controllers/images');
+const {gatAllImages,addNewImage, updateImage, 
+       getImagesByCaption, getImagesByCategory, 
+       getImageByNoPrivate, getImageByPrivate, 
+       getImageByFavorite} = require('../controllers/images');
 
 //http://localhost:5000/api/image/ -- get all the images
 router.get('/', gatAllImages);
@@ -12,8 +14,11 @@ router.post('/append', addNewImage);
 //http://localhost:5000/api/image/update -- update exsisting image
 router.put('/update',updateImage);
 
-//http://localhost:5000/api/image/search -- get images by search query string of caption and category
-router.get('/search',getImageByQueryString);
+//http://localhost:5000/api/image/searchCaption -- get images by search caption 
+router.get('/searchCaption',getImagesByCaption);
+
+//http://localhost:5000/api/image/searchCategory -- get images by search category
+router.get('/searchCategory',getImagesByCategory);
 
 //http://localhost:5000/api/image/byPrivate -- get images that private
 router.get('/byPrivate',getImageByPrivate);
