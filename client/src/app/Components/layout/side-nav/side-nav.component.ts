@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { ImagesService } from 'src/app/services/images.service';
 import { NewGalleryService } from 'src/app/services/new-gallery.service';
 import { AddCategoryComponent } from '../../elements/add-category/add-category.component';
 import { FormEnterPrivateComponent } from '../../elements/private-mode/form-enter-private/form-enter-private.component';
@@ -12,7 +13,8 @@ import { FormEnterPrivateComponent } from '../../elements/private-mode/form-ente
 })
 export class SideNavComponent implements OnInit {
 
-  constructor(public _dialog: MatDialog) { }
+
+  constructor(public _dialog: MatDialog, private _images: ImagesService) { }
 
   ngOnInit(): void {}
 
@@ -24,10 +26,8 @@ export class SideNavComponent implements OnInit {
     let ref = this._dialog.open(FormEnterPrivateComponent)
   }
 
-  refreshPage():void{
-    setTimeout(()=>{
-      window.location.reload();
-    }, 1)
+  imagesNoPrivate():void{
+    this._images.displayNoPrivateImages();
   }
 
 }

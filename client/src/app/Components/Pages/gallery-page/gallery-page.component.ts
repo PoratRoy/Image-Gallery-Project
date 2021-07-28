@@ -39,6 +39,12 @@ export class GalleryPageComponent implements OnInit {
     this._search.havePermission(false);
     this.privateIcon = false;
 
+    this._images.displayImages.subscribe((b)=>{
+          this._images.getImageByNoPrivate().subscribe((imgs)=>{this.images = imgs;})
+          this._search.havePermission(false);
+          this.privateIcon = false;
+    })
+
     this._search.filterImages.subscribe((value)=>{
       this.images = value;
     })
@@ -53,6 +59,7 @@ export class GalleryPageComponent implements OnInit {
       }
     }
   }
+  
 
   dispalyAsGrid(){
     this.isCarousel = false;

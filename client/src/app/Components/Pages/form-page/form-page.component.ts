@@ -3,7 +3,6 @@ import { Gallery } from 'src/app/models/gallery';
 import {FormControl, Validators} from '@angular/forms';
 import { MyErrorStateMatcher } from 'src/app/errors/errorMatcher';
 import { NewGalleryService } from 'src/app/services/new-gallery.service';
-
 @Component({
   selector: 'app-form-page',
   templateUrl: './form-page.component.html',
