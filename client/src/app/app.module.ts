@@ -16,7 +16,6 @@ import { GalleryPageComponent } from './Components/Pages/gallery-page/gallery-pa
 import { CarouselComponent } from './Components/elements/gallery/carousel/carousel.component';
 import { SearchComponent } from './Components/elements/gallery/search/search.component';
 import { AboutPageComponent } from './Components/Pages/about-page/about-page.component';
-import { HamburgerComponent } from './Components/layout/hamburger/hamburger.component';
 import { FormPageComponent } from './Components/Pages/form-page/form-page.component';
 import { MapComponent } from './Components/elements/gallery/map/map.component';
 import { NavbarComponent } from './Components/layout/navbar/navbar.component';
@@ -32,6 +31,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { WebcamModule } from 'ngx-webcam';
 import { AgmCoreModule } from '@agm/core';
+import { SideNavComponent } from './Components/layout/side-nav/side-nav.component';
+import { GalleryLayoutComponent } from './Components/layout/gallery-layout/gallery-layout.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,6 @@ import { AgmCoreModule } from '@agm/core';
     FromCameraComponent,
     FromOnlineComponent,
     SearchTextComponent,
-    HamburgerComponent,
     FromLocalComponent,
     IamgeCardComponent,
     AboutPageComponent,
@@ -56,6 +56,8 @@ import { AgmCoreModule } from '@agm/core';
     MapComponent,
     CardComponent,
     CarouselComponent,
+    SideNavComponent,
+    GalleryLayoutComponent,
   ],
   entryComponents:[
     FormEnterPrivateComponent,

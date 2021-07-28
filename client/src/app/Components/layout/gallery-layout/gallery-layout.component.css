@@ -1,0 +1,11 @@
+.page-container{
+    position: relative;
+    height: 100vh;
+}
+
+
+
+.page{
+    padding: 5em;
+    padding-top: 7em;
+}

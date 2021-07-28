@@ -1,43 +1,15 @@
-<div class="navbar-continer">
-  <mat-list>
-    <mat-list-item >
-      <div class="logo"></div>
-      <mat-divider></mat-divider>
-    </mat-list-item>
 
-    <mat-list-item class="navbar-item">
-      <button routerLink="/">home</button>
-      <mat-divider></mat-divider>
-    </mat-list-item>
+  <p>
+    <mat-toolbar class="top-toolbar" color="primary">
+      <button mat-icon-button (click)="drawer.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>{{galleryName}}</span>
+    </mat-toolbar>
+  </p>
 
-    <mat-list-item class="navbar-item">
-      <button routerLink="/addImage">addImage</button>
-      <mat-divider></mat-divider>
-    </mat-list-item>
+  <mat-drawer #drawer class="page-sidenav" mode="side">
+    <app-side-nav></app-side-nav>
+  </mat-drawer>
 
-    <mat-list-item class="navbar-item">
-      <button routerLink="/gallery" (click)="refreshPage()">gallery</button>
-      <mat-divider></mat-divider>
-    </mat-list-item>
-
-    <mat-list-item class="navbar-item">
-      <button routerLink="/form">form</button>
-      <mat-divider></mat-divider>
-    </mat-list-item>
-
-    <mat-list-item class="navbar-item">
-      <button (click)="taggleCategoryModal()">add category</button>
-      <mat-divider></mat-divider>
-    </mat-list-item>
-
-    <mat-list-item class="navbar-item">
-      <button routerLink="/about">about</button>
-      <mat-divider></mat-divider>
-    </mat-list-item>
-
-    <mat-list-item class="navbar-item">
-      <button (click)="tagglePrivateModal()">enter private mode</button>
-      <mat-divider></mat-divider>
-    </mat-list-item>
-  </mat-list>
-</div>
+  

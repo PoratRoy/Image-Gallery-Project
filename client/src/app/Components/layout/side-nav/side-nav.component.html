@@ -1,0 +1,44 @@
+<div class="navbar-continer">
+    <mat-list>
+      <mat-list-item >
+        <div class="logo"></div>
+        <mat-divider></mat-divider>
+      </mat-list-item>
+  
+      <mat-list-item class="navbar-item">
+        <button routerLink="/">home</button>
+        <mat-divider></mat-divider>
+      </mat-list-item>
+      
+      <mat-list-item class="navbar-item">
+        <button routerLink="/form">form</button>
+        <mat-divider></mat-divider>
+      </mat-list-item>
+  
+      <mat-list-item class="navbar-item">
+        <button routerLink="addImage">add Image</button>
+        <mat-divider></mat-divider>
+      </mat-list-item>
+  
+      <mat-list-item class="navbar-item">
+        <button routerLink="view" (click)="refreshPage()">gallery</button>
+        <mat-divider></mat-divider>
+      </mat-list-item>
+  
+      <mat-list-item class="navbar-item">
+        <button (click)="taggleCategoryModal()">add category</button>
+        <mat-divider></mat-divider>
+      </mat-list-item>
+  
+      <mat-list-item class="navbar-item">
+        <button routerLink="about">about</button>
+        <mat-divider></mat-divider>
+      </mat-list-item>
+  
+      <mat-list-item class="navbar-item">
+        <button (click)="tagglePrivateModal()">enter private mode</button>
+        <mat-divider></mat-divider>
+      </mat-list-item>
+    </mat-list>
+  </div>
+  

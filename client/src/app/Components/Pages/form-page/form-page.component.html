@@ -1,10 +1,10 @@
 
 <div>
-    <form class="form-continer" #libraryForm="ngForm" (ngSubmit)="onSubmit()" novalidate>
+    <form class="form-continer" #galleryName="ngForm" (ngSubmit)="onSubmit()" novalidate>
 
         <mat-form-field appearance="outline">
-            <mat-label>Library Name</mat-label>
-            <input matInput required #name="ngModel" name="libraryName" [(ngModel)]="library.name"
+            <mat-label>Gallery Name</mat-label>
+            <input matInput required #name="ngModel" name="galleryName" [(ngModel)]="gallery.name"
             [errorStateMatcher]="matcher"/>
             <mat-error *ngIf="nameFormControl.hasError('required')">
                 Name is <strong>required</strong>
@@ -12,44 +12,45 @@
         </mat-form-field>
 
         <mat-form-field appearance="outline">
-            <mat-label>Library Description</mat-label>
-            <textarea  matInput #description="ngModel" [(ngModel)]="library.description" [ngModelOptions]="{standalone: true}"></textarea>
+            <mat-label>Gallery Description</mat-label>
+            <textarea  matInput #description="ngModel" [(ngModel)]="gallery.description" [ngModelOptions]="{standalone: true}"></textarea>
         </mat-form-field>
 
-        <mat-radio-group name="template" #template [(ngModel)]="library.template">
+        <mat-radio-group name="template" #template [(ngModel)]="gallery.display">
             <mat-radio-button value="list">List</mat-radio-button>
             <mat-radio-button value="grid">Grid</mat-radio-button>
           </mat-radio-group>
 
 
         <div>
-            <mat-checkbox #camera="ngModel" required [(ngModel)]="library.camera" name="camera"></mat-checkbox>
+            <mat-checkbox #camera="ngModel" required [(ngModel)]="gallery.camera" name="camera"></mat-checkbox>
             <label>allow device camera</label>
             <div *ngIf="camera.errors && (camera.valid || camera.untouched)">
-                <small *ngIf="camera.errors.required">camera is required</small>
+                <small *ngIf="camera.errors.required">Need your permmission to use the camera</small>
             </div>
         </div>
 
         <div>
-            <mat-checkbox #location="ngModel" required [(ngModel)]="library.location" name="location"></mat-checkbox>
-            <label>allow device camera</label>
+            <mat-checkbox #location="ngModel" required [(ngModel)]="gallery.location" name="location"></mat-checkbox>
+            <label>allow device location</label>
             <div *ngIf="location.errors && (location.invalid || location.touched)">
-                <small *ngIf="location.errors.required">location is required</small>
+                <small *ngIf="location.errors.required">Need your permmission to use api location</small>
             </div>
         </div>
 
         <div>
-            <mat-checkbox #private="ngModel" required [(ngModel)]="library.private" name="private"></mat-checkbox>
-            <label>allow device camera</label>
+            <mat-checkbox #private="ngModel" required [(ngModel)]="gallery.private" name="private"></mat-checkbox>
+            <label>allow private mode</label>
             <div *ngIf="private.errors && (private.invalid || private.touched)">
-                <small *ngIf="private.errors.required">private is required</small>
+                <small *ngIf="private.errors.required">Need your permmission to create private mode</small>
             </div>
         </div>
 
 
-        <button mat-raised-button [disabled]="libraryForm.form.invalid" type="submit">
+        <button mat-raised-button [disabled]="galleryName.form.invalid" type="submit" routerLink="/gallery">
             Create
         </button>
 
     </form>
 </div>
+

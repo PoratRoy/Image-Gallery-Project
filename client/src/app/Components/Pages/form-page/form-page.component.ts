@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Library } from 'src/app/models/library';
+import { Gallery } from 'src/app/models/gallery';
 import {FormControl, Validators} from '@angular/forms';
 import { MyErrorStateMatcher } from 'src/app/errors/errorMatcher';
+import { NewGalleryService } from 'src/app/services/new-gallery.service';
 
 @Component({
   selector: 'app-form-page',
@@ -10,16 +11,16 @@ import { MyErrorStateMatcher } from 'src/app/errors/errorMatcher';
 })
 export class FormPageComponent implements OnInit {
 
-  library:Library;
+  gallery:Gallery;
 
-  constructor() { }
+  constructor(private _gallery : NewGalleryService) { }
 
   ngOnInit(): void {
 
-    this.library = {
+    this.gallery = {
       name:'',
       description:'',
-      template:'grid',
+      display:'grid',
       camera:false,
       location:false,
       private:false
@@ -31,8 +32,7 @@ export class FormPageComponent implements OnInit {
   matcher = new MyErrorStateMatcher();
 
   onSubmit(){ 
-    console.log(this.library);
-    
+    this._gallery.create(this.gallery);
   }
 
 }

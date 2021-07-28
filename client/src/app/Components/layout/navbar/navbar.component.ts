@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
-import { AddCategoryComponent } from '../../elements/add-category/add-category.component';
-import { FormEnterPrivateComponent } from '../../elements/private-mode/form-enter-private/form-enter-private.component';
+import { NewGalleryService } from 'src/app/services/new-gallery.service';
 
 
 @Component({
@@ -11,22 +9,18 @@ import { FormEnterPrivateComponent } from '../../elements/private-mode/form-ente
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(public _dialog: MatDialog) { }
+  galleryName:string = '';
 
-  ngOnInit(): void {}
+  constructor(private _gallery : NewGalleryService) { }
 
-  taggleCategoryModal():void{
-    let ref = this._dialog.open(AddCategoryComponent)
+  ngOnInit(): void {
+    const gallery = this._gallery.getGallery();
+    if(gallery){
+      this.galleryName = gallery.name;
+    }
   }
 
-  tagglePrivateModal():void{
-    let ref = this._dialog.open(FormEnterPrivateComponent)
-  }
 
-  refreshPage():void{
-    setTimeout(()=>{
-      window.location.reload();
-    }, 1)
-  }
 
+  
 }

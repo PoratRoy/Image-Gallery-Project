@@ -1,35 +1,13 @@
 
-.navbr-{
-
+.top-toolbar{
+    position: fixed;
+    top: 0;
+    z-index: 999;
+    background-color: var(--primary-color);
+    height: 8vh;
 }
 
-.logo{
-    height: 100%;
-    width: 100%;
-}
-
-.navbar-continer{
-    position: relative;
-    height: 100%;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-}
-
-.navbar-item{
-    position: relative;
-}
-
-.navbar-item button{
-    position: relative;
-    width: 120%;
-    height: 100%;
-    border: none;
-    cursor: pointer;
-    font-size: 1.5rem;
-    font-weight: 700;
-    background-color: var(--primary-light-color);
-}
-.navbar-item button:hover{
-    background-color: var(--hover-primary-color);
+.page-sidenav {
+    width: 13vw;
+    background-color: var(--primary-transparent-color);
 }

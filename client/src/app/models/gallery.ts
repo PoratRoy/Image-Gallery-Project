@@ -1,11 +1,10 @@
 
-export interface Library{
+export interface Gallery{
     id?:number;
     name:string;
     description?:string;
-    template: string;
+    display: string;
     camera:boolean;
     location:boolean;
     private:boolean;
 }
-
