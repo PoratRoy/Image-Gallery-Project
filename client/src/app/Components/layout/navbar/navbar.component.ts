@@ -15,6 +15,7 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
     const gallery = this._gallery.getGallery();
+
     if(gallery){
       this.galleryName = gallery.name;
     }

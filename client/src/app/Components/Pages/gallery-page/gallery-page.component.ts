@@ -3,6 +3,7 @@ import { Image } from 'src/app/models/Image';
 import {ImagesService} from '../../../services/images.service'
 import { PrivateModeService } from 'src/app/services/private-mode.service';
 import { SearchService } from 'src/app/services/search.service';
+import { NewGalleryService } from 'src/app/services/new-gallery.service';
 
 @Component({
   selector: 'app-gallery-page',
@@ -13,10 +14,10 @@ export class GalleryPageComponent implements OnInit {
 
   images: Image[];
   isCarousel: boolean = false;
-  displayType: boolean = true;
+  displayType: boolean;
   privateIcon: boolean = false;
   
-  constructor(private _images : ImagesService, private _permission : PrivateModeService, private _search : SearchService ) { }
+  constructor(private _images : ImagesService, private _permission : PrivateModeService, private _search : SearchService, private _gallery : NewGalleryService) { }
   
   ngOnInit(): void {
 
@@ -41,16 +42,26 @@ export class GalleryPageComponent implements OnInit {
     this._search.filterImages.subscribe((value)=>{
       this.images = value;
     })
+
+    const gallery = this._gallery.getGallery();
+    if(gallery){
+      if(gallery.display == 'list'){
+        setTimeout(()=>{this.displayType = true;}, 300)
+        
+      }else{
+        this.displayType = false;
+      }
+    }
   }
 
   dispalyAsGrid(){
     this.isCarousel = false;
-    this.displayType = true;
+    this.displayType = false;
   }
   
   dispalyAsList(){
     this.isCarousel = false;
-    this.displayType = false;
+    this.displayType = true;
   }
 
   displayAsCarousel(){

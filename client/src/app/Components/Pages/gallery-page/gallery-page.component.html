@@ -2,7 +2,7 @@
 
   <section *ngIf="!isCarousel">
 
-    <section *ngIf="displayType">
+    <section *ngIf="!displayType">
       <app-search
       class="gallery-filter"
     ></app-search>
@@ -17,7 +17,7 @@
     </div>
     </section>
 
-    <section *ngIf="!displayType">
+    <section *ngIf="displayType">
       <app-image-list [data]="images"></app-image-list>
     </section>
 

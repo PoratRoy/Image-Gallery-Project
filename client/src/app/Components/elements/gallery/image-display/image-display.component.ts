@@ -12,7 +12,7 @@ import { ModalDetailsComponent } from '../modal-details/modal-details.component'
 })
 export class ImageDisplayComponent implements OnInit {
 
-  @Input() image: Image;
+  @Input() image: Image;  
 
   constructor(public _dialog: MatDialog) { }
 

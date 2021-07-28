@@ -12,8 +12,6 @@ export class NewGalleryService {
 
   create(newGallery:Gallery){
     this.gallery = newGallery;
-
-    console.log(newGallery);
   }
 
   getGallery():Gallery{

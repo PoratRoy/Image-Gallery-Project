@@ -4,10 +4,13 @@ V-- change from Library to Gallery in the form and in its components
 -- setTimeOut to pass to the gallery is a shit idea
 -- validation if wrong password in the enter to private mode's popup
 
--- list or grid
+V-- list or grid
 V-- form sign in pass to the gallery with the gallery name and the difault list or grid
--- dispaly the gallery name on the main navbar
--- the user button in the gallery replace between list and grid
+V-- dispaly the gallery name on the main navbar
+V-- the user button in the gallery replace between list and grid
+-- popup for the image and the map in the list
+V-- display the data when the list display first
+-- something more visualy to the user that his gallery create in the form page 
 
 -- return to the top of the page  link  -- in the gallery and search with api
 -- error handeling
@@ -23,6 +26,8 @@ V-- remove the main navbar in the index and form page
 -- project image and name
 -- in private mode gallery replace the text with icon 
 -- changing css buttons in the details image
+-- replace the text with icons in the display list
+
 
 
 
