@@ -1,7 +1,9 @@
 <div class="gallery-continer">
 
   <section *ngIf="!isCarousel">
-    <app-search
+
+    <section *ngIf="displayType">
+      <app-search
       class="gallery-filter"
     ></app-search>
     <br />
@@ -13,6 +15,13 @@
         </li>
       </ul>
     </div>
+    </section>
+
+    <section *ngIf="!displayType">
+      <app-image-list [data]="images"></app-image-list>
+    </section>
+
+
   </section>
 
   <section class="images-carousel" *ngIf="isCarousel">
@@ -28,7 +37,8 @@
         <mat-icon>person</mat-icon>
       </button>
       <mat-menu #menu="matMenu">
-        <button mat-menu-item (click)="dispalyAsGallery()">Show images on list / table</button>
+        <button mat-menu-item (click)="dispalyAsGrid()">Show images on grid</button>
+        <button mat-menu-item (click)="dispalyAsList()">Show images on list</button>
         <button mat-menu-item (click)="displayAsCarousel()">Start random slideshow</button>
       </mat-menu>
     </div>

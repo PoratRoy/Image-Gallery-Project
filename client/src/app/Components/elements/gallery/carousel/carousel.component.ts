@@ -13,21 +13,6 @@ export class CarouselComponent implements OnInit {
 
   imagesSrc : string[] = [];
 
-  // slides = [
-  //   {
-  //     image:
-  //       'https://i.insider.com/5484d9d1eab8ea3017b17e29?width=600&format=jpeg&auto=webp',
-  //   },
-  //   {
-  //     image:
-  //       'https://ic.pics.livejournal.com/bestofthedaykj/86880610/22086/22086_original.jpg',
-  //   },
-  //   {
-  //     image:
-  //       'https://instant-bollywood-1.s3.ap-south-1.amazonaws.com/wp-content/uploads/2021/04/25055744/unnamed-2.jpg',
-  //   },
-  // ];
-
   constructor() {}
 
   ngOnInit(): void {

@@ -13,6 +13,7 @@ export class GalleryPageComponent implements OnInit {
 
   images: Image[];
   isCarousel: boolean = false;
+  displayType: boolean = true;
   privateIcon: boolean = false;
   
   constructor(private _images : ImagesService, private _permission : PrivateModeService, private _search : SearchService ) { }
@@ -42,8 +43,14 @@ export class GalleryPageComponent implements OnInit {
     })
   }
 
-  dispalyAsGallery(){
+  dispalyAsGrid(){
     this.isCarousel = false;
+    this.displayType = true;
+  }
+  
+  dispalyAsList(){
+    this.isCarousel = false;
+    this.displayType = false;
   }
 
   displayAsCarousel(){

@@ -33,6 +33,7 @@ import { WebcamModule } from 'ngx-webcam';
 import { AgmCoreModule } from '@agm/core';
 import { SideNavComponent } from './Components/layout/side-nav/side-nav.component';
 import { GalleryLayoutComponent } from './Components/layout/gallery-layout/gallery-layout.component';
+import { ImageListComponent } from './Components/elements/gallery/image-list/image-list.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +59,7 @@ import { GalleryLayoutComponent } from './Components/layout/gallery-layout/galle
     CarouselComponent,
     SideNavComponent,
     GalleryLayoutComponent,
+    ImageListComponent,
   ],
   entryComponents:[
     FormEnterPrivateComponent,
