@@ -16,29 +16,18 @@ export class GalleryPageComponent implements OnInit {
   isCarousel: boolean = false;
   displayType: boolean;
   privateIcon: boolean = false;
+
   
   constructor(private _images : ImagesService, private _permission : PrivateModeService, private _search : SearchService, private _gallery : NewGalleryService) { }
   
   ngOnInit(): void {
 
-    this._permission.permission.subscribe((permission)=> {
-        this._images.getImageByPrivate().subscribe((data) => {this.images = data})
-        this._search.havePermission(true);
-        this.privateIcon = true;
-        //return;
-    })
-
-    this._images.getImageByNoPrivate().subscribe((imgs)=>{this.images = imgs;})
-    this._search.havePermission(false);
-    this.privateIcon = false;
+      this._images.getImageByNoPrivate().subscribe((imgs)=>{this.images = imgs;})
+      this._search.havePermission(false);
+      this.privateIcon = false;  
 
 
-    this._images.displayImages.subscribe((b)=>{
-      
-          this._images.getImageByNoPrivate().subscribe((imgs)=>{this.images = imgs;})
-          this._search.havePermission(false);
-          this.privateIcon = false;
-    })
+
 
     this._search.filterImages.subscribe((value)=>{
       this.images = value;
@@ -53,6 +42,22 @@ export class GalleryPageComponent implements OnInit {
         this.displayType = false;
       }
     }
+  }
+
+  public ngAfterViewInit () {
+
+    this._permission.permission.subscribe((permission)=> {
+      this._images.getImageByPrivate().subscribe((data) => {this.images = data})
+      this._search.havePermission(true);
+      this.privateIcon = true;
+    //return;
+    })
+    
+    this._images.displayImages.subscribe((b)=>{    
+      this._images.getImageByNoPrivate().subscribe((imgs)=>{this.images = imgs;})
+      this._search.havePermission(false);
+      this.privateIcon = false;
+    })
   }
   
 

@@ -26,6 +26,7 @@ import { AppComponent } from './components/appComponent/app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { MatCarouselModule } from '@ngmodule/material-carousel';
+import { LazyLoadImageModule} from 'ng-lazyload-image';
 
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
@@ -76,6 +77,7 @@ import { ImageListComponent } from './Components/elements/gallery/image-list/ima
     HttpClientModule,
     FormsModule,
     MatCarouselModule,
+    LazyLoadImageModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyAEOO6OuHJfExPwJAdBY4gw3LfceDT4AeQ'
     }),

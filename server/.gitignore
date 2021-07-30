@@ -1,2 +1,4 @@
-/node_modules
+/storage-images
 /todo_list.txt
+**/node_modules
+
