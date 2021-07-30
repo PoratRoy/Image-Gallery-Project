@@ -44,20 +44,22 @@ export class SearchService {
   }
   
 
-  getImagesByCaption(query:any){
-    this._images.getImagesByCaption(query)
-    .subscribe(
-      data => {this.filterImages.emit(data)},
-      error => console.log(error)
-    );
+  getImagesByCaption= async(query:any)=>{
+    try{
+      const data = await this._images.getImagesByCaption(query);
+      this.filterImages.emit(data)
+    }catch(err){
+      console.log(err);
+    }
   }
 
-  getImagesByCategory(query:any){
-    this._images.getImagesByCategory(query)
-    .subscribe(
-      data => {this.filterImages.emit(data)},
-      error => console.log(error)
-    );
+  getImagesByCategory= async(query:any)=>{
+    try{
+      const data = await this._images.getImagesByCategory(query);
+      this.filterImages.emit(data)
+    }catch(err){
+      console.log(err);
+    }
   }
 
 

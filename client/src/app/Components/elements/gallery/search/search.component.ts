@@ -1,5 +1,4 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { Image } from 'src/app/models/Image';
 import { CategoryService } from 'src/app/services/category.service';
 import { ImagesService } from '../../../../services/images.service';
 import { SearchService } from 'src/app/services/search.service';
@@ -38,21 +37,23 @@ export class SearchComponent implements OnInit {
   }
 
 
-  private(){
-    
-    this._images.getImageByPrivate().subscribe(
-      data => {this.filterImages.emit(data)},
-      error => console.log(error)
-    )
+  private= async()=>{
+    try{
+      const data = await this._images.getImageByPrivate();
+      this.filterImages.emit(data)
+    }catch(err){
+      console.log(err);
+    }
   }
 
-  favorite(){
-    this._images.getImageByFavorite().subscribe(
-      data => {this.filterImages.emit(data)},
-      error => console.log(error)
-    )
+  favorite = async()=>{
+    try{
+      const data = this._images.getImageByFavorite();
+      this.filterImages.emit(data)
+    }catch(err){
+      console.log(err);
+    }
   }
-
 }
 
 

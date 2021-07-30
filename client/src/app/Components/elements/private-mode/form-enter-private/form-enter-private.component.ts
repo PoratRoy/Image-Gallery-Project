@@ -11,7 +11,6 @@ import {MatDialog, MatDialogRef} from '@angular/material/dialog';
 })
 export class FormEnterPrivateComponent implements OnInit {
 
-  pass: string='';
   hide: boolean = true;
   invalidAttempt: boolean = false;
 
@@ -21,24 +20,20 @@ export class FormEnterPrivateComponent implements OnInit {
     this.invalidAttempt = false;
   }
 
-  privateFormControl = new FormControl('', [Validators.required,]);
+  privateFormControl = new FormControl('', [Validators.required]);
   matcher = new MyErrorStateMatcher();
 
   onSubmit(value){ 
     const res = this._permission.enterPrivateMode(value)
-    //console.log(res);
     
     if(res){
       this.dialogRef.close();
       this.invalidAttempt = false;
     }else{
-      console.log('enter');
-      
+      this.privateFormControl.setValue('');
       this.invalidAttempt = true;
-      this.pass = 'sssss';
     }
   }
-
 }
 
 

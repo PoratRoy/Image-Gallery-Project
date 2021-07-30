@@ -16,10 +16,10 @@ import { CategoryService } from 'src/app/services/category.service';
 })
 export class ModalDetailsComponent implements OnInit {
 
+  image:Image;
   categories: string[];
   isSubmitted:boolean = false;
   isCoordsSelected:boolean = false;
-  image:Image;
   latitude: number;
   longitude: number;
   favoriteFlag:boolean;
@@ -45,7 +45,6 @@ export class ModalDetailsComponent implements OnInit {
 
     this.privateFlag = this.image.private;
     this.favoriteFlag = this.image.favorite;
-    console.log(this.privateFlag);
   }
 
   captionFormControl = new FormControl('', [Validators.required,]);
@@ -62,21 +61,20 @@ export class ModalDetailsComponent implements OnInit {
   }
 
 
-  onSubmit(){ 
+  onSubmit = async()=>{ 
     this.isSubmitted =true;
 
-    console.log(this.privateFlag);
-    
     this.image.favorite = this.favoriteFlag;
     this.image.private = this.privateFlag;
 
     //this.image.src = '';  not sure i want to send the src.. but if i delete him its affect the ui
-    this._images.updateImage(this.image).subscribe(
-      data => console.log('s',data),
-      error => console.log('e', error)
-    )
+    try{
+      const data = await this._images.updateImage(this.image);
+      console.log(data);
+    }catch(err){
+      console.log(err);
+    }
   }
   
-
 }
 

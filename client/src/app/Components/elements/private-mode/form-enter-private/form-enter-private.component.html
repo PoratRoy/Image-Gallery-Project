@@ -11,7 +11,7 @@
         matInput
         required
         #password
-        [value]="pass"
+        [formControl]="privateFormControl"
         name="password"
         ngModel
         [type]="hide ? 'password' : 'text'"

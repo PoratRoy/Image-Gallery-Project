@@ -14,35 +14,68 @@ export class ImagesService {
   constructor(private _http: HttpClient) { }
 
   getAllImages(){
-    return this._http.get<any>(this._url)
+    return new Promise(async (res,rej)=>{
+      this._http.get<any>(this._url).subscribe((data)=>{
+        res(data)
+      })
+    })
   }
 
   appendImage(image:Image){
-    return this._http.post<any>(this._url+'append', image);
+    return new Promise(async (res,rej)=>{
+      this._http.post<any>(this._url+'append', image).subscribe((data)=>{
+        res(data)
+      })
+    })
   }
 
   updateImage(image:Image){
-    return this._http.put<any>(this._url+'update', image)
+    return new Promise(async (res,rej)=>{
+      this._http.put<any>(this._url+'update', image).subscribe((data)=>{
+        res(data)
+      })
+    })
   }
 
-  getImagesByCaption(query){
-    return this._http.get<any>(this._url+'searchCaption',{ params: query})
+
+  getImagesByCaption(query):Promise<Image[]>{
+    return new Promise(async (res,rej)=>{
+      this._http.get<any>(this._url+'searchCaption',{ params: query}).subscribe((data)=>{
+        res(data)
+      })
+    })
   }
 
-  getImagesByCategory(query){
-    return this._http.get<any>(this._url+'searchCategory',{ params: query})
+  getImagesByCategory(query):Promise<Image[]>{
+    return new Promise(async (res,rej)=>{
+      this._http.get<any>(this._url+'searchCategory',{ params: query}).subscribe((data)=>{
+        res(data)
+      })
+    })
   }
   
-  getImageByPrivate(){
-    return this._http.get<any>(this._url+'byPrivate')
+  getImageByPrivate():Promise<Image[]>{
+    return new Promise(async (res,rej)=>{
+      this._http.get<any>(this._url+'byPrivate').subscribe((data)=>{
+        res(data)
+      })
+    })
   }
 
-  getImageByNoPrivate(){
-    return this._http.get<any>(this._url+'byNoPrivate')
+  getImageByNoPrivate():Promise<Image[]>{
+    return new Promise(async (res,rej)=>{
+      this._http.get<any>(this._url+'byNoPrivate').subscribe((data)=>{
+        res(data)
+      })
+    })
   }
 
-  getImageByFavorite(){
-    return this._http.get<any>(this._url+'byFavorite')
+  getImageByFavorite():Promise<Image[]>{
+    return new Promise(async (res,rej)=>{
+      this._http.get<any>(this._url+'byFavorite').subscribe((data)=>{
+        res(data)
+      })
+    })
   }
 
   displayNoPrivateImages(){

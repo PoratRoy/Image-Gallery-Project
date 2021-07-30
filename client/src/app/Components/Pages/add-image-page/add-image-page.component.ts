@@ -33,7 +33,7 @@ export class AddImagePageComponent implements OnInit {
     this.imageCaption = $event[1];
   }
 
-  selectIamge():void{
+  selectIamge= async()=>{
 
     const imageTemplate : Image = {
       caption: this.imageCaption,
@@ -44,11 +44,12 @@ export class AddImagePageComponent implements OnInit {
       private: false,
     }
 
-    this._images.appendImage(imageTemplate).subscribe(
-      data => console.log('s',data),
-      error => console.log('e', error)
-    )
-
+    try{
+      const data = await this._images.appendImage(imageTemplate);
+      console.log(data);
+    }catch(err){
+      console.log(err);
+    }
   }
 
   removeImage(){
