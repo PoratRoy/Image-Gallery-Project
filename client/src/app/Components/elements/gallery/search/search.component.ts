@@ -19,9 +19,15 @@ export class SearchComponent implements OnInit {
   constructor(private _images : ImagesService, private _categories : CategoryService, private _search : SearchService) { }
 
   ngOnInit(): void {
-    this._categories.getAllCategories().subscribe((c)=>{
-      this.categories = c;
-    })
+    this.getAllCategories()
+  }
+
+  getAllCategories = async()=>{
+    try{
+      this.categories = await this._categories.getAllCategories()
+    }catch(err){
+      console.log(err);
+    }
   }
 
   searchByCategory(value : string){

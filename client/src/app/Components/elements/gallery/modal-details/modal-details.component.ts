@@ -30,9 +30,7 @@ export class ModalDetailsComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this._categories.getAllCategories().subscribe((c)=>{
-      this.categories = c;
-    })
+    this.getAllCategories()
     
     this.image = this.data.image;
 
@@ -45,6 +43,14 @@ export class ModalDetailsComponent implements OnInit {
 
     this.privateFlag = this.image.private;
     this.favoriteFlag = this.image.favorite;
+  }
+
+  getAllCategories = async()=>{
+    try{
+      this.categories = await this._categories.getAllCategories()
+    }catch(err){
+      console.log(err);
+    }
   }
 
   captionFormControl = new FormControl('', [Validators.required,]);

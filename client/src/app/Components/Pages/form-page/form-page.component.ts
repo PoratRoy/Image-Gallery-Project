@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Gallery } from 'src/app/models/gallery';
 import {FormControl, Validators} from '@angular/forms';
 import { MyErrorStateMatcher } from 'src/app/errors/errorMatcher';
-import { NewGalleryService } from 'src/app/services/new-gallery.service';
+import { GalleryService } from 'src/app/services/gallery.service';
+
 @Component({
   selector: 'app-form-page',
   templateUrl: './form-page.component.html',
@@ -12,7 +13,7 @@ export class FormPageComponent implements OnInit {
 
   gallery:Gallery;
 
-  constructor(private _gallery : NewGalleryService) { }
+  constructor(private _gallery : GalleryService) { }
 
   ngOnInit(): void {
 
@@ -30,8 +31,13 @@ export class FormPageComponent implements OnInit {
   nameFormControl = new FormControl('', [Validators.required,]);
   matcher = new MyErrorStateMatcher();
 
-  onSubmit(){ 
-    this._gallery.create(this.gallery);
+  onSubmit=async()=>{
+    try{
+      const data = await this._gallery.appendGallery(this.gallery);
+      console.log(data);
+    } catch(err){
+      console.log(err);
+    }
   }
 
 }

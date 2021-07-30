@@ -1,7 +1,5 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CategoryService } from 'src/app/services/category.service';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { MatDialog } from '@angular/material/dialog';
 import {FormControl, Validators} from '@angular/forms';
 import { MyErrorStateMatcher } from 'src/app/errors/errorMatcher';
 
@@ -21,10 +19,13 @@ export class AddCategoryComponent implements OnInit {
   captionFormControl = new FormControl('', [Validators.required,]);
   matcher = new MyErrorStateMatcher();
 
-  onSubmit(value){ 
-    this._categoryService.appendCategory(value);
+  onSubmit=async(value)=>{
+    try{
+      await this._categoryService.appendCategory(value);
+    } catch(err){
+      console.log(err);
+    }
   }
-
 
 
 }

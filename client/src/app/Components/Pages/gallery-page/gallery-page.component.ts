@@ -3,7 +3,7 @@ import { Image } from 'src/app/models/Image';
 import {ImagesService} from '../../../services/images.service'
 import { PrivateModeService } from 'src/app/services/private-mode.service';
 import { SearchService } from 'src/app/services/search.service';
-import { NewGalleryService } from 'src/app/services/new-gallery.service';
+import { GalleryService } from 'src/app/services/gallery.service';
 
 @Component({
   selector: 'app-gallery-page',
@@ -18,7 +18,7 @@ export class GalleryPageComponent implements OnInit {
   privateIcon: boolean = false;
 
   
-  constructor(private _images : ImagesService, private _permission : PrivateModeService, private _search : SearchService, private _gallery : NewGalleryService) { }
+  constructor(private _images : ImagesService, private _permission : PrivateModeService, private _search : SearchService, private _gallery : GalleryService) { }
   
   ngOnInit(): void {
 
@@ -28,15 +28,7 @@ export class GalleryPageComponent implements OnInit {
       this.images = value;
     })
 
-    const gallery = this._gallery.getGallery();
-    if(gallery){
-      if(gallery.display == 'list'){
-        setTimeout(()=>{this.displayType = true;}, 300)
-        
-      }else{
-        this.displayType = false;
-      }
-    }
+    this.getGalleryDisplay();
   }
 
 
@@ -61,6 +53,21 @@ export class GalleryPageComponent implements OnInit {
     this.images = await this._images.getImageByPrivate()
     this._search.havePermission(true);
     this.privateIcon = true;
+  }
+
+  getGalleryDisplay= async()=>{
+    try{
+      const gallery = await this._gallery.getGallery();
+      
+      if(gallery.display == 'list'){
+        setTimeout(()=>{this.displayType = true;}, 300)  
+      }else{
+        this.displayType = false;
+      }
+
+    }catch(err){
+      console.log(err);
+    }
   }
   
 

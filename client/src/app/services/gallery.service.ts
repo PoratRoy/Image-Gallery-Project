@@ -1,16 +1,17 @@
 import { Injectable } from '@angular/core';
+import { Gallery } from '../models/gallery';
 import { HttpClient } from '@angular/common/http';
-
 
 @Injectable({
   providedIn: 'root'
 })
-export class CategoryService {
+export class GalleryService {
 
-  _url ='http://localhost:5000/api/category/';
+  _url ='http://localhost:5000/api/gallery/';
+
   constructor(private _http: HttpClient) { }
 
-  getAllCategories():Promise<string[]>{
+  getGallery():Promise<Gallery>{
     return new Promise(async (res,rej)=>{
       this._http.get<any>(this._url).subscribe((data)=>{
         console.log(res);
@@ -19,13 +20,12 @@ export class CategoryService {
     })
   }
 
-  appendCategory(category:string):Promise<string>{
+  appendGallery(gallery:Gallery):Promise<Gallery>{
     return new Promise(async (res,rej)=>{
-      this._http.post<any>(this._url+'append', {categories:category}).subscribe((data)=>{
+      this._http.post<any>(this._url+'append', gallery).subscribe((data)=>{
         res(data)
       })
     })
   }
 }
-
 

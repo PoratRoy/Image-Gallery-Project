@@ -18,7 +18,6 @@ import { SearchComponent } from './Components/elements/gallery/search/search.com
 import { AboutPageComponent } from './Components/Pages/about-page/about-page.component';
 import { FormPageComponent } from './Components/Pages/form-page/form-page.component';
 import { MapComponent } from './Components/elements/gallery/map/map.component';
-import { NavbarComponent } from './Components/layout/navbar/navbar.component';
 import { CardComponent } from './Components/elements/ui/card/card.component';
 import { IndexComponent } from './Components/Pages/index/index.component';
 import { AppComponent } from './components/appComponent/app.component';
@@ -53,7 +52,6 @@ import { ImageListComponent } from './Components/elements/gallery/image-list/ima
     AboutPageComponent,
     FormPageComponent,
     SearchComponent,
-    NavbarComponent,
     IndexComponent,
     AppComponent,
     MapComponent,

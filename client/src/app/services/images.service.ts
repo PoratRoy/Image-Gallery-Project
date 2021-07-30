@@ -13,7 +13,7 @@ export class ImagesService {
 
   constructor(private _http: HttpClient) { }
 
-  getAllImages(){
+  getAllImages():Promise<Image[]>{
     return new Promise(async (res,rej)=>{
       this._http.get<any>(this._url).subscribe((data)=>{
         res(data)
@@ -21,7 +21,7 @@ export class ImagesService {
     })
   }
 
-  appendImage(image:Image){
+  appendImage(image:Image):Promise<Image[]>{
     return new Promise(async (res,rej)=>{
       this._http.post<any>(this._url+'append', image).subscribe((data)=>{
         res(data)
@@ -29,7 +29,7 @@ export class ImagesService {
     })
   }
 
-  updateImage(image:Image){
+  updateImage(image:Image):Promise<Image[]>{
     return new Promise(async (res,rej)=>{
       this._http.put<any>(this._url+'update', image).subscribe((data)=>{
         res(data)
