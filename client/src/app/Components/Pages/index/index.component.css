@@ -33,21 +33,20 @@
 .index-btn{
     display: inline;
     position: relative;
-    top: 70%;
+    top: 75%;
     height: 7vh;
     width: 15%;
     border-radius: 10px;
-    background-color: var(--third-color);
     font-size: 1.5rem;
     font-weight: 900;
 }
-.index-btn:hover{
+/* .index-btn:hover{
     cursor: pointer;
     background-color: var(--hover-third-color);
 }
 .index-btn:active{
     cursor: pointer;
     background-color: var(--active-third-color);
-}
+} */
 
 

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { WebcamImage } from 'ngx-webcam';
 import { Image } from 'src/app/models/Image';
 import {ImagesService} from '../../../services/images.service'
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-add-image',
@@ -14,7 +15,7 @@ export class AddImagePageComponent implements OnInit {
   imageCaption: string = '';
 
 
-  constructor(private _images : ImagesService) { }
+  constructor(private _images : ImagesService, private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {}
 
@@ -46,10 +47,11 @@ export class AddImagePageComponent implements OnInit {
 
     try{
       const data = await this._images.appendImage(imageTemplate);
-      console.log(data);
     }catch(err){
       console.log(err);
     }
+
+    this.snackBar.open('Image added successfully',null, {duration: 2000})
   }
 
   removeImage(){

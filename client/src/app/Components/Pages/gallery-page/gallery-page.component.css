@@ -15,8 +15,8 @@ li{
 }
 
 .gallery-filter{
-
 }
+
 
 .gallery-buttons{
 	display: flex;
@@ -25,7 +25,7 @@ li{
 	align-items: center;
 	position: fixed;
 	right: 10em;
-	bottom: 5em;
+	bottom: 6em;
 
 }
 

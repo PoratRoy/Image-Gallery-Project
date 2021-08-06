@@ -5,6 +5,7 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import {MatSnackBarModule} from '@angular/material/snack-bar'; 
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatDividerModule } from '@angular/material/divider';
@@ -29,6 +30,7 @@ const MaterialComponents =[
   MatFormFieldModule,
   MatPaginatorModule,
   MatCheckboxModule,
+  MatSnackBarModule,
   MatSidenavModule,
   MatToolbarModule,
   MatDividerModule,

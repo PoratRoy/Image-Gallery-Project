@@ -35,7 +35,7 @@
   <section class="add-image-resulat">
 
     <div class="add-image-img" >
-      <label class="previous-view">Previous View</label>
+      <label *ngIf="!image" class="previous-view">Previous View</label>
       <img [src]="image"/>
     </div>
     

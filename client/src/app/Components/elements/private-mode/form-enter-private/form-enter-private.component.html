@@ -1,4 +1,7 @@
 <div>
+
+  <h1 class="enter-private-title">Enter your private mode</h1>
+
   <form
     class="form-continer"
     #privateForm="ngForm"
@@ -32,7 +35,9 @@
     </mat-form-field>
 
     <button
+      class="enter-private-btn"
       mat-raised-button
+      color="accent"
       [disabled]="privateForm.form.invalid"
       type="submit"
       routerLink="/gallery"
