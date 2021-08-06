@@ -22,29 +22,37 @@ export class GalleryPageComponent implements OnInit {
   
   ngOnInit(): void {
 
-    this.getNoPrivateImages()
+    // if(!this._permission.requestPermissionAccess()){
+      // }
+      
+    this._permission.permission.subscribe((permission)=> {
+      this.getPrivateImages()
+    })
+    
+
+    this.getNoPrivateImages()  
+
+    
+    this._images.displayImages.subscribe((b)=>{  
+      console.log('1');
+      
+      this.getNoPrivateImages()
+    })
 
     this._search.filterImages.subscribe((value)=>{
       this.images = value;
     })
 
     this.getGalleryDisplay();
-  }
 
-
-  public ngAfterViewInit () {
-
-    this._permission.permission.subscribe((permission)=> {
-      this.getPrivateImages()
-    })
     
-    this._images.displayImages.subscribe((b)=>{    
-      this.getNoPrivateImages()
-    })
   }
+
 
   getNoPrivateImages= async()=>{
     this.images = await this._images.getImageByNoPrivate()
+    console.log(this.images);
+    
     this._search.havePermission(false);
     this.privateIcon = false;  
   }

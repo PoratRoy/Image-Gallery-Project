@@ -5,90 +5,115 @@
     novalidate
     (ngSubmit)="onSubmit()"
   >
-    <mat-form-field appearance="outline">
-      <mat-label>Gallery Name</mat-label>
-      <input
-        matInput
-        required
-        #name="ngModel"
-        name="galleryName"
-        [(ngModel)]="gallery.name"
-        [errorStateMatcher]="matcher"
-      />
-      <mat-error *ngIf="nameFormControl.hasError('required')">
-        Name is <strong>required</strong>
-      </mat-error>
-    </mat-form-field>
+    <h1 class="form-title">Create your new gallery</h1>
 
-    <mat-form-field appearance="outline">
-      <mat-label>Gallery Description</mat-label>
-      <textarea
-        matInput
-        #description="ngModel"
-        [(ngModel)]="gallery.description"
-        [ngModelOptions]="{ standalone: true }"
-      ></textarea>
-    </mat-form-field>
+    <section class="form-details">
+      <section class="form-inputs">
+        <div class="form-inputs-title">Your gallery name</div>
+        <mat-form-field appearance="outline" class="form-name">
+          <mat-label>Gallery Name</mat-label>
+          <input
+            matInput
+            required
+            #name="ngModel"
+            name="galleryName"
+            [(ngModel)]="gallery.name"
+            [errorStateMatcher]="matcher"
+          />
+          <mat-error *ngIf="nameFormControl.hasError('required')">
+            Name is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
 
-    <mat-radio-group name="template" #template [(ngModel)]="gallery.display">
-      <mat-radio-button value="list">List</mat-radio-button>
-      <mat-radio-button value="grid">Grid</mat-radio-button>
-    </mat-radio-group>
+        <div class="form-inputs-title">Describe your gallery</div>
+        <mat-form-field appearance="outline" class="form-description">
+          <mat-label>Gallery Description</mat-label>
+          <textarea
+            matInput
+            #description="ngModel"
+            [(ngModel)]="gallery.description"
+            [ngModelOptions]="{ standalone: true }"
+          ></textarea>
+        </mat-form-field>
+      </section>
 
-    <div>
-      <mat-checkbox
-        #camera="ngModel"
-        required
-        [(ngModel)]="gallery.camera"
-        name="camera"
-      ></mat-checkbox>
-      <label>allow device camera</label>
-      <div *ngIf="camera.errors && (camera.valid || camera.untouched)">
-        <small *ngIf="camera.errors.required"
-          >Need your permmission to use the camera</small
+      <section class="form-radio">
+        <div class="form-radio-title">
+          How do you want to show your gallery?
+        </div>
+        <mat-radio-group
+          name="template"
+          #template
+          [(ngModel)]="gallery.display"
+          class="form-display"
         >
-      </div>
-    </div>
+          <mat-radio-button value="list">List</mat-radio-button>
+          <mat-radio-button value="grid">Grid</mat-radio-button>
+        </mat-radio-group>
+      </section>
 
-    <div>
-      <mat-checkbox
-        #location="ngModel"
-        required
-        [(ngModel)]="gallery.location"
-        name="location"
-      ></mat-checkbox>
-      <label>allow device location</label>
-      <div *ngIf="location.errors && (location.invalid || location.touched)">
-        <small *ngIf="location.errors.required"
-          >Need your permmission to use api location</small
-        >
-      </div>
-    </div>
+      <section class="form-checkboxes">
+        <div class="form-checkboxes-title">Permission</div>
 
-    <div>
-      <mat-checkbox
-        #private="ngModel"
-        required
-        [(ngModel)]="gallery.private"
-        name="private"
-      ></mat-checkbox>
-      <label>allow private mode</label>
-      <div *ngIf="private.errors && (private.invalid || private.touched)">
-        <small *ngIf="private.errors.required"
-          >Need your permmission to create private mode</small
-        >
-      </div>
-    </div>
+        <div class="form-camera">
+          <mat-checkbox
+            #camera="ngModel"
+            required
+            [(ngModel)]="gallery.camera"
+            name="camera"
+          ></mat-checkbox>
+          <label>allow device camera</label>
+          <div *ngIf="camera.errors && (camera.valid || camera.untouched)">
+            <small *ngIf="camera.errors.required"
+              >Need your permission to use the camera</small
+            >
+          </div>
+        </div>
 
-    <button
-      mat-raised-button
-      [disabled]="galleryName.form.invalid"
-      type="submit"
-    >
-      Create
-    </button>
+        <div class="form-location">
+          <mat-checkbox
+            #location="ngModel"
+            required
+            [(ngModel)]="gallery.location"
+            name="location"
+          ></mat-checkbox>
+          <label>allow device location</label>
+          <div
+            *ngIf="location.errors && (location.invalid || location.touched)"
+          >
+            <small *ngIf="location.errors.required"
+              >Need your permission to use api location</small
+            >
+          </div>
+        </div>
+
+        <div class="form-private">
+          <mat-checkbox
+            #private="ngModel"
+            required
+            [(ngModel)]="gallery.private"
+            name="private"
+          ></mat-checkbox>
+          <label>allow private mode</label>
+          <div *ngIf="private.errors && (private.invalid || private.touched)">
+            <small *ngIf="private.errors.required"
+              >Need your permission to create private mode</small
+            >
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <section class="form-btns">
+      <button
+        mat-raised-button
+        [disabled]="galleryName.form.invalid"
+        type="submit"
+        class="form-submit-btn"
+        #gallerySubmitBtn
+      >
+        Create
+      </button>
+    </section>
   </form>
-
-  <button mat-raised-button routerLink="/gallery">Enter Your Gallery !</button>
 </div>
-

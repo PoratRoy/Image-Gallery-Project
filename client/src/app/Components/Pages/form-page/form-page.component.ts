@@ -3,6 +3,7 @@ import { Gallery } from 'src/app/models/gallery';
 import {FormControl, Validators} from '@angular/forms';
 import { MyErrorStateMatcher } from 'src/app/errors/errorMatcher';
 import { GalleryService } from 'src/app/services/gallery.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-form-page',
@@ -13,7 +14,7 @@ export class FormPageComponent implements OnInit {
 
   gallery:Gallery;
 
-  constructor(private _gallery : GalleryService) { }
+  constructor(private _gallery : GalleryService, private route:Router) { }
 
   ngOnInit(): void {
 
@@ -33,8 +34,9 @@ export class FormPageComponent implements OnInit {
 
   onSubmit=async()=>{
     try{
-      const data = await this._gallery.appendGallery(this.gallery);
-      console.log(data);
+      this.route.navigateByUrl('/gallery');
+      await this._gallery.appendGallery(this.gallery);
+      
     } catch(err){
       console.log(err);
     }

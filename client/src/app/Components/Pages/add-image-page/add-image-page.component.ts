@@ -56,6 +56,10 @@ export class AddImagePageComponent implements OnInit {
     this.image = '';
   }
 
+  imagesNoPrivate():void{
+    this._images.displayNoPrivateImages();
+  }
+
 
 }
 

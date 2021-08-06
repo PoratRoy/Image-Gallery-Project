@@ -38,20 +38,28 @@ exports.addNewImage = async (req, res) => {
     image.caption
   );
 
-  bufferToImageInDbFile(image.src, imagePath);
-  image.src = imagePath;
-  const timestamp = Date.now();
-  image.timestamp = timestamp;
+  try{
+    bufferToImageInDbFile(image.src, imagePath);
+    image.src = imagePath;
+    const timestamp = Date.now();
+    image.timestamp = timestamp;
+    await database.asyncInsert(image);
+    res.json(image);
+  }catch(err){
+    console.log(err);
+  }
 
-  await database.asyncInsert(image);
-  res.json(image);
 };
 
 
 const bufferToImageInDbFile = async (imageBase64, path) => {
-  let res = imageBase64.replace(/^data:image\/\w+;base64,/, "");
-  let buf = Buffer.from(res, "base64");
-  await fs.writeFile(path, buf);
+  try{
+    let res = imageBase64.replace(/^data:image\/\w+;base64,/, "");
+    let buf = Buffer.from(res, "base64");
+    await fs.writeFile(path, buf);
+  }catch(err){
+    console.log(err);
+  }
 };
 // Jimp.read(buf, (err, res) => {
 //   if (err) throw new Error(err);

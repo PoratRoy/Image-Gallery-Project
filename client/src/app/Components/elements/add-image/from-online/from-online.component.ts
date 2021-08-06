@@ -31,7 +31,7 @@ export class FromOnlineComponent implements OnInit {
     iamgeCaption = iamgeCaption[0].split('/',2);
 
     this.getBase64ImageFromUrl(url).then(base64 => {
-      this.getImage.emit([base64,iamgeCaption[1]]);
+      this.getImage.emit([base64,iamgeCaption[1]+".jpg"]);
     })
   }
 
@@ -50,9 +50,6 @@ export class FromOnlineComponent implements OnInit {
       reader.readAsDataURL(blob);
     })
   }
-
-
-
 
 
 }

@@ -13,7 +13,6 @@ export class CategoryService {
   getAllCategories():Promise<string[]>{
     return new Promise(async (res,rej)=>{
       this._http.get<any>(this._url).subscribe((data)=>{
-        console.log(res);
         res(data)
       })
     })
