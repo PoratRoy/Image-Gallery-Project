@@ -39,10 +39,9 @@
       />
 
       <section class="details-card-options">
-
         <mat-form-field appearance="outline" class="details-card-category">
           <mat-label>Select category</mat-label>
-          <mat-select name="category"  #category [(ngModel)]="image.categories">
+          <mat-select name="category" #category [(ngModel)]="image.categories">
             <mat-option value="">Without category</mat-option>
             <mat-option
               *ngFor="let category of categories"
@@ -53,23 +52,34 @@
         </mat-form-field>
 
         <div class="details-card-buttons">
-          
           <button
             mat-icon-button
+            [ngClass]="!isCoordsSelected ? null : 'location-is-active'"
+            color="accent"
             class="details-card-location"
             (click)="taggleMap()"
           >
             <mat-icon>location_on</mat-icon>
           </button>
-          <!-- <small *ngIf="isCoordsSelected">{{ image.location }}</small> -->
 
           <mat-button-toggle
             #favorite
             [checked]="favoriteFlag"
             (change)="favoriteFlag = $event.source.checked"
             class="details-card-favorite"
+            (click)="clickFavorite()"
           >
-            <mat-icon>grade</mat-icon>
+            <mat-icon
+              [ngClass]="
+                isFavoriteSelected
+                  ? 'favorite-is-active'
+                  : image.favorite
+                  ? 'favorite-is-active'
+                  : null
+              "
+              color="accent"
+              >grade</mat-icon
+            >
           </mat-button-toggle>
 
           <mat-button-toggle
@@ -77,8 +87,19 @@
             [checked]="privateFlag"
             (change)="privateFlag = $event.source.checked"
             class="details-card-private"
+            (click)="clickPrivate()"
           >
-            <mat-icon>lock</mat-icon>
+            <mat-icon
+              [ngClass]="
+                isPrivateSelected
+                  ? 'private-is-active'
+                  : image.private
+                  ? 'private-is-active'
+                  : null
+              "
+              color="accent"
+              >lock</mat-icon
+            >
           </mat-button-toggle>
         </div>
       </section>
@@ -89,11 +110,15 @@
         type="submit"
         [disabled]="imageForm.form.invalid"
         mat-raised-button
+        color="accent"
         class="details-card-save"
+        (click)="isSubmittedClick()"
       >
         Save
       </button>
-      <div *ngIf="isSubmitted">changes saved</div>
+      <div class="details-card-footer-output" *ngIf="isSubmitted">
+        changes saved
+      </div>
     </mat-dialog-actions>
   </form>
 </div>

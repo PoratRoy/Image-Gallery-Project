@@ -18,6 +18,15 @@
     z-index: 999;
     background-color: var(--primary-color);
     height: 8vh;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.top-toolbar span{
+    font-size: 2rem;
+    margin-left: 0.5em;
+    cursor: default;
 }
 
 .page-sidenav {

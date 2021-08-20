@@ -1,4 +1,11 @@
-.logo{
+
+
+
+mat-list{
+    margin: 19px 0;
+}
+
+.navbar-top{
     height: 100%;
     width: 100%;
 }
@@ -16,15 +23,18 @@
 }
 
 .navbar-item button{
-    position: relative;
-    width: 120%;
-    height: 100%;
-    border: none;
-    cursor: pointer;
-    font-size: 1.5rem;
-    font-weight: 700;
-    background-color: var(--primary-light-color);
+    background-color: transparent;
+    color: var(--secondary-color);
+    text-shadow: 1px 0 0 rgb(87, 87, 87);
+    border:none;
+    font-size: 1.7rem;
+    font-weight: 500;
 }
 .navbar-item button:hover{
-    background-color: var(--hover-primary-color);
+    cursor: pointer;
+    color: var(--secondary-light-color);
+}
+.navbar-item button:active{
+    cursor: pointer;
+    color: var(--active-secondary-color);
 }

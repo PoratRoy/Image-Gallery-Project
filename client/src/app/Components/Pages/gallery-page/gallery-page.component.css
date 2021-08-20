@@ -14,7 +14,12 @@ li{
 	display: inline;
 }
 
-.gallery-filter{
+.images-private-icon{
+	margin-bottom: 1em;
+	margin-right: 1.9em;
+}
+.images-private-icon mat-icon{
+	font-size: 3rem;
 }
 
 

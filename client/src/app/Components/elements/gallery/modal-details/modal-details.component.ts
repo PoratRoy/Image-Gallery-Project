@@ -20,6 +20,8 @@ export class ModalDetailsComponent implements OnInit {
   categories: string[];
   isSubmitted:boolean = false;
   isCoordsSelected:boolean = false;
+  isFavoriteSelected:boolean = false;
+  isPrivateSelected:boolean = false;
   latitude: number;
   longitude: number;
   favoriteFlag:boolean;
@@ -40,6 +42,8 @@ export class ModalDetailsComponent implements OnInit {
     
     this.isSubmitted =false;
     this.isCoordsSelected =false;
+    this.isFavoriteSelected =false;
+    this.isPrivateSelected =false;
 
     this.privateFlag = this.image.private;
     this.favoriteFlag = this.image.favorite;
@@ -61,15 +65,20 @@ export class ModalDetailsComponent implements OnInit {
     ref.afterClosed().subscribe(res=>{
       if(res){
         this.image.location = res;
+        this.isCoordsSelected =true;
       }
     })
-    this.isCoordsSelected =true;
   }
 
+  clickFavorite(){
+    this.isFavoriteSelected = !this.isFavoriteSelected;
+  }
+
+  clickPrivate(){
+    this.isPrivateSelected = !this.isPrivateSelected;
+  }
 
   onSubmit = async()=>{ 
-    this.isSubmitted =true;
-
     this.image.favorite = this.favoriteFlag;
     this.image.private = this.privateFlag;
 
@@ -80,6 +89,10 @@ export class ModalDetailsComponent implements OnInit {
     }catch(err){
       console.log(err);
     }
+  }
+
+  isSubmittedClick = ()=>{
+    this.isSubmitted =true;
   }
   
 }

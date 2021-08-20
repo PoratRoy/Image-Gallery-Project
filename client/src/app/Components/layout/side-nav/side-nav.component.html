@@ -1,42 +1,31 @@
 <div class="navbar-continer">
     <mat-list>
-      <mat-list-item >
-        <div class="logo"></div>
+      <mat-list-item class="navbar-top">
+        <mat-divider></mat-divider>
+      </mat-list-item>
+
+      <mat-list-item class="navbar-item">
+        <button routerLink="view" (click)="imagesNoPrivate()">Gallery</button>
+        <mat-divider></mat-divider>
+      </mat-list-item>
+
+      <mat-list-item class="navbar-item">
+        <button routerLink="addImage">Add Image</button>
         <mat-divider></mat-divider>
       </mat-list-item>
   
       <mat-list-item class="navbar-item">
-        <button routerLink="/">home</button>
-        <mat-divider></mat-divider>
-      </mat-list-item>
-      
-      <mat-list-item class="navbar-item">
-        <button routerLink="/form">form</button>
+        <button (click)="taggleCategoryModal()">Add Category</button>
         <mat-divider></mat-divider>
       </mat-list-item>
   
       <mat-list-item class="navbar-item">
-        <button routerLink="addImage">add Image</button>
+        <button (click)="tagglePrivateModal()">Private Mode</button>
         <mat-divider></mat-divider>
       </mat-list-item>
-  
+
       <mat-list-item class="navbar-item">
-        <button routerLink="view" (click)="imagesNoPrivate()">gallery</button>
-        <mat-divider></mat-divider>
-      </mat-list-item>
-  
-      <mat-list-item class="navbar-item">
-        <button (click)="taggleCategoryModal()">add category</button>
-        <mat-divider></mat-divider>
-      </mat-list-item>
-  
-      <mat-list-item class="navbar-item">
-        <button routerLink="about">about</button>
-        <mat-divider></mat-divider>
-      </mat-list-item>
-  
-      <mat-list-item class="navbar-item">
-        <button (click)="tagglePrivateModal()">enter private mode</button>
+        <button routerLink="about">About</button>
         <mat-divider></mat-divider>
       </mat-list-item>
     </mat-list>

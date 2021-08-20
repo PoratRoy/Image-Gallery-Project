@@ -2,6 +2,7 @@ import {AfterViewInit, Component, ViewChild, Input} from '@angular/core';
 import { Image } from 'src/app/models/Image';
 import { MatDialog } from '@angular/material/dialog';
 import { MOCK_IMG } from 'src/app/mock-images';
+import { MapComponent } from '../map/map.component';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
 
@@ -29,5 +30,9 @@ export class ImageListComponent implements AfterViewInit {
     this.images.paginator = this.paginator;
   }
 
+  taggleMap(){
+    const loc = this.images.filteredData[0].location;
+    this._dialog.open(MapComponent, {data:{latitude: loc[0], longitude: loc[1]}})
+  }
 
 }

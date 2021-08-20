@@ -31,6 +31,7 @@
 }
 
 
+
 .details-card-exist mat-icon{
     font-size: 2.5rem;
     color: var(--secondary-text-color);
@@ -45,7 +46,8 @@
 
 
 mat-dialog-content{
-    height: 70vh;
+    height: 66vh;
+    overflow: unset;
 }
 
 .details-card-img{
@@ -55,6 +57,8 @@ mat-dialog-content{
     margin: 2em 0;
     height: 78%;
     width: 100%;
+	background-color: rgb(73, 73, 73);
+    object-fit: contain;
 }
 
 .details-card-options{
@@ -80,7 +84,6 @@ mat-dialog-content{
 .details-card-location mat-icon,
 .details-card-favorite mat-icon,
 .details-card-private mat-icon{
-    color: var(--third-color);
     font-size: 2.5rem;
     position: relative;
     right: 8px;
@@ -112,20 +115,36 @@ mat-dialog-content{
     bottom: 10px;
 }
 
-
+.location-is-active{
+    color: rgb(199, 39, 18);
+}
+.favorite-is-active{
+    color: rgb(192, 192, 66);
+}
+.private-is-active{
+    color: black;
+}
 
 .details-card-footer{
     position: relative;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
 .details-card-save{
     position: relative;
-    height: 7vh;
-    width: 30%;
-    background-color: var(--third-color);
+    height: 6vh;
+    width: 25%;
     font-size: 2rem;
-    font-weight: 700;
+    margin-top: -0.2em;
+    font-weight: 500;
+}
+
+.details-card-footer-output{
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-top: 0.2em;
+    color: rgb(93, 95, 93);
 }
