@@ -3,6 +3,7 @@ import { Image } from 'src/app/models/Image';
 import { MatDialog } from '@angular/material/dialog';
 import { MOCK_IMG } from 'src/app/mock-images';
 import { MapComponent } from '../map/map.component';
+import { FullImageComponent } from '../full-image/full-image.component';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
 
@@ -33,6 +34,10 @@ export class ImageListComponent implements AfterViewInit {
   taggleMap(){
     const loc = this.images.filteredData[0].location;
     this._dialog.open(MapComponent, {data:{latitude: loc[0], longitude: loc[1]}})
+  }
+
+  taggleImage(){
+    this._dialog.open(FullImageComponent, {data:{src:this.images.filteredData[0].src}})
   }
 
 }

@@ -62,3 +62,7 @@ li{
 	overflow: hidden;
 	border:1px solid black;
 }
+
+.images-list{
+	width: 50vw;
+}

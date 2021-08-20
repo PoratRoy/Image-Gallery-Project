@@ -35,6 +35,7 @@ import { AgmCoreModule } from '@agm/core';
 import { SideNavComponent } from './Components/layout/side-nav/side-nav.component';
 import { GalleryLayoutComponent } from './Components/layout/gallery-layout/gallery-layout.component';
 import { ImageListComponent } from './Components/elements/gallery/image-list/image-list.component';
+import { FullImageComponent } from './Components/elements/gallery/full-image/full-image.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +61,7 @@ import { ImageListComponent } from './Components/elements/gallery/image-list/ima
     SideNavComponent,
     GalleryLayoutComponent,
     ImageListComponent,
+    FullImageComponent,
   ],
   entryComponents:[
     FormEnterPrivateComponent,
