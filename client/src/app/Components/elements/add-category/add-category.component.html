@@ -1,15 +1,9 @@
 <div class="add-category-continer">
-  <header class="add-category-header">
-    <h1 mat-dialog-title class="add-category-title">Add new category</h1>
 
-    <button mat-icon-button mat-dialog-close class="add-category-exist">
-      <mat-icon>cancel</mat-icon>
-    </button>
-  </header>
+  <h1 class="add-category-title">Add new category</h1>
 
   <form class="add-category-form" #categoryForm="ngForm" novalidate>
     
-    <div mat-dialog-content>
       <mat-form-field
         appearance="outline"
         class="add-category-input"
@@ -28,11 +22,9 @@
           Category is <strong>required</strong>
         </mat-error>
       </mat-form-field>
-    </div>
 
-    <div mat-dialog-actions>
       <button
-      class="add-category-add"
+      class="add-category-btn"
         type="submit"
         mat-raised-button
         color="accent"
@@ -42,6 +34,5 @@
       >
         Add
       </button>
-    </div>
   </form>
 </div>

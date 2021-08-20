@@ -1,62 +1,8 @@
 
-.add-category-{
-
-}
-
-.add-category-continer{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 15vw;
-}
-
-.add-category-header{
-    background-color: var(--primary-color);
-    width: 100%;
-    padding: 2.2em 1.4em 0 2.05em;
-    margin-top: -2em;
-    text-align: center;
-    position: relative;
-    color: white;
-}
-
 .add-category-title{
     font-weight: 500;
-    margin-right: 0.8em;
 }
 
-
-.add-category-exist{
-    position: absolute;
-    top: 0.7em;
-    right: 0.4em;
-}
-.add-category-exist mat-icon{
-    color: var(--secondary-text-color);
-}
-.add-category-exist mat-icon:hover{
-    color: var(--hover-secondary-text-color);
-}
-.add-category-exist mat-icon:active{
-    color: var(--active-secondary-text-color);
-}
-
-.add-category-form{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 2em;
-}
-
-.add-category-input{
-    font-size:1.1rem;
-    width: 14vw;
-}
-
-.add-category-add{
-    position: relative;
-    height: 4.5vh;
-    width: 50%;
-    font-weight: 500;
-    margin-top: -1em;
+.add-category-btn{
+    margin-left: 1em;
 }
