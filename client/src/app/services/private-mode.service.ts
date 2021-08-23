@@ -1,5 +1,5 @@
 import { Injectable,EventEmitter } from '@angular/core';
-import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +13,7 @@ export class PrivateModeService {
 
   enterPrivateMode(password:string ):boolean{
 
-    if(password === 'popo'){
+    if(password === environment.PRIVATE_MODE_PASSWORD){
       this.permissionAccess = true;
       this.permission.emit(true);
       return true;

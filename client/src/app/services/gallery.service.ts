@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Gallery } from '../models/gallery';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GalleryService {
 
-  _url ='http://localhost:5000/api/gallery/';
+  _url =`${environment.SERVER_URL}gallery/`;
 
   constructor(private _http: HttpClient) { }
 

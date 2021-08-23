@@ -18,12 +18,12 @@ export class GalleryPageComponent implements OnInit {
   privateIcon: boolean = false;
 
   
-  constructor(private _images : ImagesService, private _permission : PrivateModeService, private _search : SearchService, private _gallery : GalleryService) { }
+  constructor(private _images : ImagesService, 
+              private _permission : PrivateModeService, 
+              private _search : SearchService, 
+              private _gallery : GalleryService) { }
   
   ngOnInit(): void {
-
-    // if(!this._permission.requestPermissionAccess()){
-      // }
       
     this._permission.permission.subscribe((permission)=> {
       this.getPrivateImages()
@@ -34,8 +34,6 @@ export class GalleryPageComponent implements OnInit {
 
     
     this._images.displayImages.subscribe((b)=>{  
-      console.log('1');
-      
       this.getNoPrivateImages()
     })
 

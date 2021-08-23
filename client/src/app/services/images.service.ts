@@ -1,13 +1,14 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Image } from '../models/Image';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ImagesService {
 
-  _url:string ='http://localhost:5000/api/image/';
+  _url:string =`${environment.SERVER_URL}image/`;
 
   displayImages:EventEmitter<boolean> = new EventEmitter<boolean>();
 

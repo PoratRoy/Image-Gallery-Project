@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../environments/environment';
 
 
 @Injectable({
@@ -7,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class CategoryService {
 
-  _url ='http://localhost:5000/api/category/';
+  _url = `${environment.SERVER_URL}category/`;
   constructor(private _http: HttpClient) { }
 
   getAllCategories():Promise<string[]>{
