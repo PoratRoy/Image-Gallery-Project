@@ -29,7 +29,7 @@ export const environment = {
 ```
 <br/>Replace - ```<Your-Server-Localhost-Number>``` and ```<Your-Private-Mode-Password>``` with your localhost number and your password.
 5. This appliction uses multiple API's, to make the app workes you need to get the AIP's keyes.
-- You can find detailed guides on how to get the Pexels images Api [here](https://www.pexels.com/api/documentation/).
+- You can find detailed guides on how to get the Pexels images Api [here](https://www.pexels.com/api/).
 <br/>Replace ```<Pexels-Api-Key>``` with your pexels API key.
 - You can find detailed guides on how to get the google maps Api [here](https://developers.google.com/maps/documentation/javascript/get-api-key?hl=en#creating-api-keys).
 <br/>Replace ```<Google-Map-Key>``` with your google maps API key.
