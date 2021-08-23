@@ -30,8 +30,8 @@ export const environment = {
 <br/>Replace - ```<Your-Server-Localhost-Number>``` and ```<Your-Private-Mode-Password>``` with your localhost number and your password.
 5. This appliction uses multiple API's, to make the app workes you need to get the AIP's keyes.
 - You can find detailed guides on how to get the Pexels images Api [here](https://www.pexels.com/api/documentation/).
-Replace ```<Pexels-Api-Key>``` with your pexels API key.
+<br/>Replace ```<Pexels-Api-Key>``` with your pexels API key.
 - You can find detailed guides on how to get the google maps Api [here](https://developers.google.com/maps/documentation/javascript/get-api-key?hl=en#creating-api-keys).
-Replace ```<Google-Map-Key>``` with your google maps API key.
+<br/>Replace ```<Google-Map-Key>``` with your google maps API key.
 5. Finally, all you have to do is type ```node index.js``` on the server terminal and ```ng s -o``` on the client terminal. 
 6. The frontend of the application will be automatically opened in your web browser and you can test it away.
