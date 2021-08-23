@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GalleryService } from 'src/app/services/gallery.service';
+import { OverlayContainer } from '@angular/cdk/overlay';
 
 
 @Component({
@@ -13,7 +14,8 @@ export class GalleryLayoutComponent implements OnInit {
   otherTheme:boolean = false;
   themeIconValue:string = 'dark_mode';
 
-  constructor(private _gallery : GalleryService) { }
+
+  constructor(private _gallery : GalleryService,private overlayContainer: OverlayContainer) { }
 
   ngOnInit(): void {
     this.getGalleryName(); 
@@ -36,6 +38,12 @@ export class GalleryLayoutComponent implements OnInit {
     } else{
       this.themeIconValue = 'light_mode';
     }
+
+    // if (this.otherTheme == 'light-mode') {
+    //   this.overlayContainer.getContainerElement().classList.add('dark-mode');
+    // } else {
+    //   this.overlayContainer.getContainerElement().classList.remove('light-mode');
+    // }
   }
 
 }

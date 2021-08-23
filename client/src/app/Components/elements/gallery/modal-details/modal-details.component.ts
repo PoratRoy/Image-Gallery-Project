@@ -82,7 +82,6 @@ export class ModalDetailsComponent implements OnInit {
     this.image.favorite = this.favoriteFlag;
     this.image.private = this.privateFlag;
 
-    //this.image.src = '';  not sure i want to send the src.. but if i delete him its affect the ui
     try{
       const data = await this._images.updateImage(this.image);
       console.log(data);

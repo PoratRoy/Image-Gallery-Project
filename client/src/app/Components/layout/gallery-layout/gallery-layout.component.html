@@ -1,4 +1,4 @@
-<span [class.my-light-theme]="otherTheme">
+<span [class.dark-mode]="otherTheme" >
   <mat-drawer-container class="page-container" autosize>
     <p>
       <mat-toolbar class="top-toolbar" color="primary">
@@ -10,6 +10,7 @@
         <button class="top-toolbar-theme" (click)="changeTheme()" mat-raised-button color="primary">
           <mat-icon color="accent">{{themeIconValue}}</mat-icon>
         </button>
+
       </mat-toolbar>
     </p>
 
@@ -22,3 +23,4 @@
     </div>
   </mat-drawer-container>
 </span>
+
