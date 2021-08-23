@@ -38,12 +38,6 @@ export class GalleryLayoutComponent implements OnInit {
     } else{
       this.themeIconValue = 'light_mode';
     }
-
-    // if (this.otherTheme == 'light-mode') {
-    //   this.overlayContainer.getContainerElement().classList.add('dark-mode');
-    // } else {
-    //   this.overlayContainer.getContainerElement().classList.remove('light-mode');
-    // }
   }
 
 }
