@@ -34,7 +34,7 @@ export class FormPageComponent implements OnInit {
 
   onSubmit=async()=>{
     try{
-      this.route.navigateByUrl('/gallery');
+      this.route.navigateByUrl('/gallery/addImage');
       await this._gallery.appendGallery(this.gallery);
       
     } catch(err){
