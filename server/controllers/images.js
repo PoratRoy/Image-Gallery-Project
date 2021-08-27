@@ -1,8 +1,6 @@
 const fs = require("fs").promises;
 const path = require("path");
-const Datastore = require("nedb");
 const { AsyncNedb } = require('nedb-async')
-//const Jimp = require("jimp");
 
 const database = new AsyncNedb({
   filename: 'db-images.db',
@@ -26,14 +24,7 @@ exports.addNewImage = async (req, res) => {
   if(image.src === ''){return;}
 
   const imagePath = path.join(
-    "C:",
-    "Users",
-    "Roy",
-    "source",
-    "repos",
-    "-BigProjects",
-    "ImagesGalleryProject",
-    "server",
+    __dirname.replace('controllers', ''),
     "storage-images",
     image.caption
   );
@@ -61,10 +52,6 @@ const bufferToImageInDbFile = async (imageBase64, path) => {
     console.log(err);
   }
 };
-// Jimp.read(buf, (err, res) => {
-//   if (err) throw new Error(err);
-//   res.quality(5).write(__dirname + name);
-// });
 
 
 exports.updateImage = async (req, res) => {

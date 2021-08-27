@@ -18,8 +18,6 @@
     z-index: 999;
     background-color: var(--primary-color);
     height: 8vh;
-    display: flex;
-    justify-content: space-between;
 
 }
 

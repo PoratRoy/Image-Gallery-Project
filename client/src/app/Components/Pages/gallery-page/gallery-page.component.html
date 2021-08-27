@@ -3,13 +3,16 @@
     <section>
       <app-search class="gallery-filter"></app-search>
 
-      <div>
+      <div *ngIf="images">
         <ul class="thumbnailsList">
           <li *ngFor="let image of images">
             <app-image-display [image]="image"></app-image-display>
           </li>
         </ul>
       </div>
+      <!-- <div *ngIf="images.length === 0">
+        <div>hello</div>
+      </div> -->
     </section>
 
   <div class="gallery-buttons">
