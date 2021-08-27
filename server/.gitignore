@@ -3,5 +3,4 @@
 **/node_modules
 
 /db-categories.db
-/db-gallery.db
 /db-images.db

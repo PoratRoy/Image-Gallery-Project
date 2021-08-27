@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { GalleryService } from 'src/app/services/gallery.service';
 
 
 @Component({
@@ -9,23 +8,10 @@ import { GalleryService } from 'src/app/services/gallery.service';
 })
 export class GalleryLayoutComponent implements OnInit {
 
-  galleryName:string = '';
-
-
-  constructor(private _gallery : GalleryService) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.getGalleryName(); 
   }
-  
-  getGalleryName= async()=>{
-    try{
-      const gallery = await this._gallery.getGallery();
-      this.galleryName = gallery.name;
-    }catch(err){
-      console.log(err);
-    }
-  }
-
+ 
 
 }

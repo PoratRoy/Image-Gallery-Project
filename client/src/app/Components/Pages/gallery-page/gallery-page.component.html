@@ -1,31 +1,16 @@
 <div class="gallery-continer">
 
-  <section *ngIf="!isCarousel">
+    <section>
+      <app-search class="gallery-filter"></app-search>
 
-    <section *ngIf="!displayType">
-      <app-search
-      class="gallery-filter"
-    ></app-search>
-
-    <div>
-      <ul class="thumbnailsList">
-        <li *ngFor="let image of images">
-          <app-image-display [image]="image"></app-image-display>
-        </li>
-      </ul>
-    </div>
+      <div>
+        <ul class="thumbnailsList">
+          <li *ngFor="let image of images">
+            <app-image-display [image]="image"></app-image-display>
+          </li>
+        </ul>
+      </div>
     </section>
-
-    <section class="images-list" *ngIf="displayType">
-      <app-image-list [data]="images"></app-image-list>
-    </section>
-
-
-  </section>
-
-  <section class="images-carousel" *ngIf="isCarousel">
-    <app-carousel [images]="images"></app-carousel>
-  </section>
 
   <div class="gallery-buttons">
 

@@ -3,7 +3,6 @@ import { Image } from 'src/app/models/Image';
 import {ImagesService} from '../../../services/images.service'
 import { PrivateModeService } from 'src/app/services/private-mode.service';
 import { SearchService } from 'src/app/services/search.service';
-import { GalleryService } from 'src/app/services/gallery.service';
 
 @Component({
   selector: 'app-gallery-page',
@@ -13,19 +12,16 @@ import { GalleryService } from 'src/app/services/gallery.service';
 export class GalleryPageComponent implements OnInit {
 
   images: Image[];
-  isCarousel: boolean = false;
-  displayType: boolean;
   privateIcon: boolean = false;
 
   
   constructor(private _images : ImagesService, 
               private _permission : PrivateModeService, 
-              private _search : SearchService, 
-              private _gallery : GalleryService) { }
+              private _search : SearchService) { }
   
   ngOnInit(): void {
       
-    this._permission.permission.subscribe((permission)=> {
+    this._permission.permission.subscribe((p)=> {
       this.getPrivateImages()
     })
     
@@ -41,15 +37,12 @@ export class GalleryPageComponent implements OnInit {
       this.images = value;
     })
 
-    this.getGalleryDisplay();
-
     
   }
 
 
   getNoPrivateImages= async()=>{
     this.images = await this._images.getImageByNoPrivate()
-    console.log(this.images);
     
     this._search.havePermission(false);
     this.privateIcon = false;  
@@ -61,35 +54,7 @@ export class GalleryPageComponent implements OnInit {
     this.privateIcon = true;
   }
 
-  getGalleryDisplay= async()=>{
-    try{
-      const gallery = await this._gallery.getGallery();
-      
-      if(gallery.display == 'list'){
-        setTimeout(()=>{this.displayType = true;}, 300)  
-      }else{
-        this.displayType = false;
-      }
 
-    }catch(err){
-      console.log(err);
-    }
-  }
-  
-
-  dispalyAsGrid(){
-    this.isCarousel = false;
-    this.displayType = false;
-  }
-  
-  dispalyAsList(){
-    this.isCarousel = false;
-    this.displayType = true;
-  }
-
-  displayAsCarousel(){
-    this.isCarousel = true;
-  }
 
 }
 

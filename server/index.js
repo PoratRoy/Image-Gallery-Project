@@ -17,7 +17,6 @@ defaultCategories()
 
 app.use(`${URL}/image`, require('./routes/images')); 
 app.use(`${URL}/category`, require('./routes/categories')); 
-app.use(`${URL}/gallery`, require('./routes/gallery')); 
 
 
 
