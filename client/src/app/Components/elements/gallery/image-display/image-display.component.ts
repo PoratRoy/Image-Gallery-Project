@@ -19,7 +19,7 @@ export class ImageDisplayComponent implements OnInit {
   ngOnInit(): void {}
 
   taggleModal():void{
-    let ref = this._dialog.open(ModalDetailsComponent, {data:{image : this.image} })
+    this._dialog.open(ModalDetailsComponent, {data:{image : this.image} })
   }
 
 }

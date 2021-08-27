@@ -11,16 +11,11 @@ import { FromCameraComponent } from './Components/elements/add-image/from-camera
 import { FromLocalComponent } from './Components/elements/add-image/from-local/from-local.component';
 import { GalleryLayoutComponent } from './Components/layout/gallery-layout/gallery-layout.component';
 import { AddImagePageComponent } from './Components/Pages/add-image-page/add-image-page.component';
-import { FullImageComponent } from './Components/elements/gallery/full-image/full-image.component';
-import { ImageListComponent } from './Components/elements/gallery/image-list/image-list.component';
 import { SearchTextComponent } from './Components/elements/ui/search-text/search-text.component';
 import { AddCategoryComponent } from './Components/elements/add-category/add-category.component';
 import { IamgeCardComponent } from './Components/elements/ui/iamge-card/iamge-card.component';
 import { GalleryPageComponent } from './Components/Pages/gallery-page/gallery-page.component';
-import { CarouselComponent } from './Components/elements/gallery/carousel/carousel.component';
 import { SearchComponent } from './Components/elements/gallery/search/search.component';
-import { AboutPageComponent } from './Components/Pages/about-page/about-page.component';
-import { FormPageComponent } from './Components/Pages/form-page/form-page.component';
 import { SideNavComponent } from './Components/layout/side-nav/side-nav.component';
 import { MapComponent } from './Components/elements/gallery/map/map.component';
 import { CardComponent } from './Components/elements/ui/card/card.component';
@@ -43,6 +38,7 @@ import { AgmCoreModule } from '@agm/core';
     FormEnterPrivateComponent,
     ImageDisplayComponent,
     ModalDetailsComponent,
+    GalleryLayoutComponent,
     AddImagePageComponent,
     GalleryPageComponent,
     AddCategoryComponent,
@@ -51,18 +47,12 @@ import { AgmCoreModule } from '@agm/core';
     SearchTextComponent,
     FromLocalComponent,
     IamgeCardComponent,
-    AboutPageComponent,
-    FormPageComponent,
+    SideNavComponent,
     SearchComponent,
     IndexComponent,
     AppComponent,
     MapComponent,
     CardComponent,
-    CarouselComponent,
-    SideNavComponent,
-    GalleryLayoutComponent,
-    ImageListComponent,
-    FullImageComponent,
   ],
   entryComponents:[
     FormEnterPrivateComponent,
